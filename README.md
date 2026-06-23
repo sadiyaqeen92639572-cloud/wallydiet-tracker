@@ -52,9 +52,9 @@ Une fois acheté, dans Cloudflare Pages → Custom domains → Add domain.
 ## Workflow Automatisé
 
 ```
-GitHub Actions (CRON hebdomadaire)
+GitHub Actions (CRON tous les 2 mois: 1er Feb/Apr/Jun/Aug/Oct/Dec)
     ↓
-update-data.js scrape API Oxylabs
+update-data.js scrape API ScraperAPI
     ↓
 index.html + products-db.json modifiés
     ↓
@@ -68,6 +68,8 @@ Déploiement mondial en 10 secondes
 ## Manually Trigger Update
 
 GitHub → Actions → Update Walmart Prices → Run workflow
+
+Prochaine auto-update: 1er août 2026 (puis 1er octobre, 1er décembre...)
 
 ## Monitor Updates
 
