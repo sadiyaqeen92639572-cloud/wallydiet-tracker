@@ -2,8 +2,8 @@ name: Update Walmart Prices
 
 on:
   schedule:
-    # Run every Wednesday at 2 AM UTC (9 PM EST Tuesday)
-    - cron: '0 2 * * 3'
+    # Run every 2 months on the 1st: Feb, Apr, Jun, Aug, Oct, Dec at 2 AM UTC
+    - cron: '0 2 1 2,4,6,8,10,12 *'
   workflow_dispatch: # Allow manual trigger
 
 jobs:
