@@ -28,8 +28,7 @@ jobs:
 
       - name: Run price update script
         env:
-          OXYLABS_API_USER: ${{ secrets.OXYLABS_API_USER }}
-          OXYLABS_API_PASS: ${{ secrets.OXYLABS_API_PASS }}
+          SCRAPERAPI_KEY: ${{ secrets.SCRAPERAPI_KEY }}
         run: node update-data.js
 
       - name: Commit updated prices

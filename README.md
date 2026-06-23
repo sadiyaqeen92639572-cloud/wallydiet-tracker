@@ -23,8 +23,7 @@ git push -u origin main
 
 Dans GitHub → Settings → Secrets and variables → Actions:
 
-- `OXYLABS_API_USER`: Ton username Oxylabs
-- `OXYLABS_API_PASS`: Ton password Oxylabs
+- `SCRAPERAPI_KEY`: Ta clé ScraperAPI (https://api.scraperapi.com/)
 
 ### 3. Connecter Cloudflare Pages
 
