@@ -1,0 +1,5 @@
+node_modules/
+api-cache/
+.env
+*.log
+.DS_Store

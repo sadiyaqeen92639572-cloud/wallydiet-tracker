@@ -1,0 +1,41 @@
+name: Update Walmart Prices
+
+on:
+  schedule:
+    # Run every Wednesday at 2 AM UTC (9 PM EST Tuesday)
+    - cron: '0 2 * * 3'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm init -y
+          npm install axios cheerio
+
+      - name: Run price update script
+        env:
+          OXYLABS_API_USER: ${{ secrets.OXYLABS_API_USER }}
+          OXYLABS_API_PASS: ${{ secrets.OXYLABS_API_PASS }}
+        run: node update-data.js
+
+      - name: Commit updated prices
+        run: |
+          git config --global user.name 'GitHub Actions Bot'
+          git config --global user.email 'actions@github.com'
+          git add index.html products-db.json
+          git diff --staged --quiet || git commit -m "Auto-update: Walmart prices $(date '+%Y-%m-%d')"
+          git push
