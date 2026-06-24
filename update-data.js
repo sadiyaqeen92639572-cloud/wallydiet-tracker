@@ -654,7 +654,26 @@ function updateHtmlFile(processedProducts) {
         finalRowsBlock + 
         htmlContent.slice(rowsEndIndex + endRowsMarker.length);
         
-    // 3. Save atomic update back to file
+    // 3. Pre-calculate stats and inject into HTML
+    const prices = processedProducts.map(p => p.price_per_oz).filter(p => p > 0);
+    const statTotal = processedProducts.length;
+    const statLowest = prices.length > 0 ? Math.min(...prices).toFixed(2) : '0.00';
+    const statAvg = prices.length > 0 ? (prices.reduce((a, b) => a + b, 0) / prices.length).toFixed(2) : '0.00';
+
+    htmlContent = htmlContent.replace(
+        /(<span class="stat-val" id="stat-total">)[^<]*/,
+        `$1${statTotal}`
+    );
+    htmlContent = htmlContent.replace(
+        /(<span class="stat-val" id="stat-lowest">)[^<]*/,
+        `$1$${statLowest}`
+    );
+    htmlContent = htmlContent.replace(
+        /(<span class="stat-val" id="stat-avg">)[^<]*/,
+        `$1$${statAvg}`
+    );
+
+    // 4. Save atomic update back to file
     fs.writeFileSync(HTML_FILE_PATH, htmlContent, 'utf8');
 }
 
@@ -829,8 +848,10 @@ async function main() {
         if (enriched > 0) {
             console.log(`\n🔄 Re-enriched ${enriched} products with category + extra_tags`);
             saveDatabase(currentProducts);
-            updateHtmlFile(currentProducts);
         }
+
+        // Always re-inject HTML (updates stats bar + static rows)
+        updateHtmlFile(currentProducts);
 
         console.log('\n✨ Success! HTML + DB updated successfully.');
         console.log(`🚀 Ready to deploy to Cloudflare Pages!`);
