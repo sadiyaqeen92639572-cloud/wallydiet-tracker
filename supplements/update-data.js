@@ -49,6 +49,9 @@ const QUERIES = [
     'clean electrolyte powder no sugar',
     'electrolyte powder no artificial sweeteners',
     'NSF certified electrolytes',
+    'LMNT alternative electrolyte powder',
+    'keto electrolyte powder high sodium',
+    'bulk electrolyte powder price per serving',
     // Multivitamin
     'third party tested multivitamin',
     'NSF certified multivitamin',
@@ -109,6 +112,8 @@ const CLAIM_PATTERNS = [
     { regex: /lab[\s-]?tested/i, tag: 'Lab Tested' },
     { regex: /grass[\s-]?fed/i, tag: 'Grass-Fed' },
     { regex: /cold[\s-]?process/i, tag: 'Cold-Processed' },
+    { regex: /zero sugar|sugar[- ]free|no sugar/i, tag: 'Sugar-Free' },
+    { regex: /1000\s*mg.*(?:sodium|potassium)|(?:sodium|potassium).*1000\s*mg|high sodium/i, tag: 'High Sodium' },
 ];
 
 function detectTags(text) {
