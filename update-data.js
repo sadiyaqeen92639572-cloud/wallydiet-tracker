@@ -140,6 +140,36 @@ const DIET_PATTERNS = {
     'Vegan': /vegan|plant[- ]based/i
 };
 
+const EXTRA_TAG_PATTERNS = [
+    { regex: /dairy[- ]free|non[- ]dairy|lactose[- ]free/i, tag: 'Dairy-Free' },
+    { regex: /sugar[- ]free|no sugar added|zero sugar|unsweetened/i, tag: 'Sugar-Free' },
+    { regex: /\borganic\b|usda organic/i, tag: 'Organic' },
+    { regex: /nut[- ]free|peanut[- ]free|tree nut free/i, tag: 'Nut-Free' },
+    { regex: /soy[- ]free/i, tag: 'Soy-Free' },
+    { regex: /non[- ]gmo/i, tag: 'Non-GMO' },
+    { regex: /whole grain|whole wheat/i, tag: 'Whole Grain' },
+    { regex: /high protein|protein rich/i, tag: 'High Protein' },
+];
+
+function detectCategory(title) {
+    const t = (title || '').toLowerCase();
+    if (/\b(?:bread|loaf|bun|bagel|muffin|english muffin|tortilla|wrap|pita)\b/.test(t)) return 'Bread';
+    if (/\b(?:pasta|noodle|spaghetti|penne|macaroni|rotini|fettuccine|lasagna)\b/.test(t)) return 'Pasta';
+    if (/\b(?:flour|baking mix|pancake mix|cake mix|brownie mix|cornstarch)\b/.test(t)) return 'Flour & Baking';
+    if (/\b(?:cereal|granola|oat|oatmeal)\b/.test(t)) return 'Cereal & Oats';
+    if (/\b(?:cookie|brownie|cake|wafer|cupcake)\b/.test(t)) return 'Cookies & Sweets';
+    if (/\b(?:cracker|pretzel|rice cake|crisp\s?bread)\b/.test(t)) return 'Crackers';
+    if (/\b(?:chip|popcorn|puff|crisp|corn chip|tortilla chip)\b/.test(t)) return 'Chips & Snacks';
+    if (/\b(?:bar|protein bar|snack bar|granola bar|energy bar)\b/.test(t)) return 'Bars';
+    if (/\b(?:milk|creamer|yogurt|cheese|butter|cream)\b/.test(t)) return 'Dairy & Alt Milk';
+    if (/\b(?:chocolate|cocoa|candy|gummy|gummies)\b/.test(t)) return 'Chocolate & Candy';
+    if (/\b(?:nut|almond|cashew|peanut|pecan|walnut|seed|pistachio|macadamia)\b/.test(t)) return 'Nuts & Seeds';
+    if (/\b(?:rice|quinoa|grain|couscous)\b/.test(t)) return 'Rice & Grains';
+    if (/\b(?:sauce|dressing|condiment|mayo|ketchup|mustard|salsa|syrup)\b/.test(t)) return 'Sauces';
+    if (/\b(?:pizza|frozen|meal|dinner|entree)\b/.test(t)) return 'Frozen & Meals';
+    return 'Other';
+}
+
 // ==========================================
 // 2. ROBUST SIZE PARSER & CONVERSION ENGINE
 // ==========================================
@@ -450,17 +480,27 @@ function processWalmartData(rawItems) {
                 diet_tags.push(tag);
             }
         }
-        
+
         // Fallback: If no diet category detected, default to Gluten-Free (most common in our dataset)
         if (diet_tags.length === 0) {
             diet_tags.push('Gluten-Free');
         }
-        
+
+        // Extra tags (Dairy-Free, Sugar-Free, Organic, etc.)
+        const extra_tags = EXTRA_TAG_PATTERNS
+            .filter(p => p.regex.test(product_name))
+            .map(p => p.tag);
+
+        // Product category
+        const category = detectCategory(product_name);
+
         processedItems.push({
             id,
             product_name,
             brand,
             diet_tags,
+            extra_tags,
+            category,
             price,
             size_oz,
             price_per_oz,
@@ -501,7 +541,7 @@ function buildStaticTableRows(products) {
             html += `
                     <!-- Mid-Table Native Ad Inserted After 10th row -->
                     <tr class="table-ad-row" data-ad-row="true">
-                        <td colspan="8">
+                        <td colspan="9">
                             <div class="native-ad-box">
                                 AdSense Placement - Responsive Banner
                             </div>
@@ -514,7 +554,11 @@ function buildStaticTableRows(products) {
             return `<span class="diet-tag ${tagClass}">${escape(tag)}</span>`;
         }).join('\n                            ');
 
-        html += `                    <tr data-id="${escape(item.id)}">
+        const extraTagsHTML = (item.extra_tags || []).map(tag =>
+            `<span class="badge badge-extra">${escape(tag)}</span>`
+        ).join('');
+
+        html += `                    <tr data-id="${escape(item.id)}" data-category="${escape(item.category || 'Other')}">
                         <td class="col-brand">${escape(item.brand)}</td>
                         <td class="col-name">
                             <div class="product-info-wrapper">
@@ -527,7 +571,9 @@ function buildStaticTableRows(products) {
                         </td>
                         <td class="col-tags">
                             ${tagsHTML}
+                            ${extraTagsHTML}
                         </td>
+                        <td class="col-category"><span class="cat-badge">${escape(item.category || 'Other')}</span></td>
                         <td class="col-size">${item.size_oz.toFixed(1)} oz</td>
                         <td class="col-price">${item.price.toFixed(2)}</td>
                         <td class="col-price-oz">${item.price_per_oz.toFixed(2)}/oz</td>
@@ -764,6 +810,26 @@ async function main() {
             
             console.log(`\n📦 Total API requests made: ${totalApiCalls}`);
             console.log(`📊 Run Summary: Ingested & Saved ${totalNewCount} new products (Total database: ${currentProducts.length})`);
+        }
+
+        // ── Re-enrich existing products with category + extra_tags ──
+        let enriched = 0;
+        for (const p of currentProducts) {
+            if (!p.category) {
+                p.category = detectCategory(p.product_name);
+                enriched++;
+            }
+            if (!p.extra_tags) {
+                p.extra_tags = EXTRA_TAG_PATTERNS
+                    .filter(pat => pat.regex.test(p.product_name))
+                    .map(pat => pat.tag);
+                enriched++;
+            }
+        }
+        if (enriched > 0) {
+            console.log(`\n🔄 Re-enriched ${enriched} products with category + extra_tags`);
+            saveDatabase(currentProducts);
+            updateHtmlFile(currentProducts);
         }
 
         console.log('\n✨ Success! HTML + DB updated successfully.');
