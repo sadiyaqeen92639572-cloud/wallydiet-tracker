@@ -342,6 +342,19 @@ function updateHtml(products) {
         `${rs}\n${staticRows}\n                    ${re}` +
         html.slice(i4 + re.length);
 
+    // Pre-calculate stats for Googlebot
+    const certified = products.filter(p => p.thirdPartyFlag).length;
+    const avgTrust = products.length > 0 ? Math.round(products.reduce((s, p) => s + p.trustScore, 0) / products.length) : 0;
+    const ppsArr = products.map(p => p.pricePerServing).filter(p => p > 0);
+    const cheapest = ppsArr.length > 0 ? Math.min(...ppsArr).toFixed(2) : '0.00';
+    const openLabel = products.length > 0 ? Math.round(products.filter(p => !p.proprietaryBlend).length / products.length * 100) : 0;
+
+    html = html.replace(/(<span class="stat-val" id="stat-total">)[^<]*/, `$1${products.length}`);
+    html = html.replace(/(<span class="stat-val" id="stat-certified">)[^<]*/, `$1${certified}`);
+    html = html.replace(/(<span class="stat-val" id="stat-trust">)[^<]*/, `$1${avgTrust}`);
+    html = html.replace(/(<span class="stat-val" id="stat-cheapest">)[^<]*/, `$1$${cheapest}`);
+    html = html.replace(/(<span class="stat-val" id="stat-open">)[^<]*/, `$1${openLabel}%`);
+
     fs.writeFileSync(HTML_FILE, html);
     console.log(`💾 index.html updated (${products.length} products)`);
 }

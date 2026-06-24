@@ -548,6 +548,46 @@
         table.view-value .col-trust { display: none; }
 
         /* TAG CARDS */
+        /* BUDGET CALCULATOR */
+        .calc-section { margin-bottom: 2rem; }
+        .calc-tool {
+            background: var(--bg-surface); border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 1.5rem; margin-top: 1rem;
+        }
+        .calc-inputs {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem; margin-bottom: 1rem;
+        }
+        .calc-input-group label {
+            display: block; font-size: 0.75rem; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.4rem;
+        }
+        .calc-input-group input, .calc-input-group select {
+            width: 100%; padding: 0.6rem 0.8rem; border-radius: 8px;
+            border: 1px solid var(--border-color); background: var(--bg-base);
+            color: var(--text-primary); font-family: 'JetBrains Mono', monospace; font-size: 0.95rem;
+        }
+        .calc-input-group input:focus, .calc-input-group select:focus { outline: none; border-color: var(--brand-primary); }
+        .calc-btn {
+            padding: 0.7rem 1.5rem; background: var(--brand-primary); color: #000;
+            font-weight: 700; font-size: 0.85rem; border: none; border-radius: 8px;
+            cursor: pointer; transition: background 0.2s;
+        }
+        .calc-btn:hover { background: var(--brand-accent); }
+        .calc-results {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem; margin-top: 1.25rem;
+        }
+        .calc-result {
+            background: var(--bg-base); border: 1px solid var(--border-color);
+            border-radius: 8px; padding: 1rem; text-align: center;
+        }
+        .calc-result-label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; }
+        .calc-result-value { font-size: 1.4rem; font-weight: 700; color: var(--brand-primary); font-family: 'JetBrains Mono', monospace; margin-top: 0.3rem; }
+        .calc-result-detail { font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem; }
+        .calc-result-value.savings { color: #fbbf24; }
+        .calc-hidden { display: none; }
+
         .tag-card { cursor: pointer; position: relative; }
         .tag-card:hover { border-color: var(--brand-primary); transform: translateY(-2px); }
         .tag-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
@@ -758,6 +798,7 @@
             <div class="nav-brand">🧪 Supplement Tracker</div>
             <div class="nav-links">
                 <a href="#tracker-section" class="nav-link">Tracker</a>
+                <a href="#budget-calculator" class="nav-link">Budget Calculator</a>
                 <a href="#why-matters" class="nav-link">Why Trust Matters</a>
                 <a href="#categories" class="nav-link">Categories</a>
                 <a href="#label-guide" class="nav-link">Label Guide</a>
@@ -782,7 +823,7 @@
             </div>
             <div class="cta-group">
                 <a href="#tracker-section" class="cta-btn primary">Browse Supplements</a>
-                <a href="#faq-section" class="cta-btn secondary">How Trust Score Works</a>
+                <a href="#budget-calculator" class="cta-btn secondary">Calculate My Budget</a>
             </div>
         </header>
 
@@ -793,25 +834,116 @@
         <div class="stats-bar">
             <div class="stat-card">
                 <span class="stat-label">Products Tracked</span>
-                <span class="stat-val" id="stat-total">0</span>
+                <span class="stat-val" id="stat-total">683</span>
             </div>
             <div class="stat-card">
                 <span class="stat-label">Third-Party Certified</span>
-                <span class="stat-val" id="stat-certified">0</span>
+                <span class="stat-val" id="stat-certified">118</span>
             </div>
             <div class="stat-card">
                 <span class="stat-label">Avg Trust Score</span>
-                <span class="stat-val" id="stat-trust">0</span>
+                <span class="stat-val" id="stat-trust">57</span>
             </div>
             <div class="stat-card">
                 <span class="stat-label">Lowest $/Serving</span>
-                <span class="stat-val" id="stat-cheapest">$0</span>
+                <span class="stat-val" id="stat-cheapest">$0.11</span>
             </div>
             <div class="stat-card">
                 <span class="stat-label">Open Label %</span>
-                <span class="stat-val" id="stat-open">0%</span>
+                <span class="stat-val" id="stat-open">100%</span>
             </div>
         </div>
+
+        <!-- MONTHLY SUPPLEMENT BUDGET CALCULATOR -->
+        <section id="budget-calculator" class="seo-section calc-section">
+            <h2>Monthly Supplement Budget Calculator</h2>
+            <p>How much should you spend on supplements per month? Enter your budget and category below — we calculate how many servings you get, your cost per serving, and how it compares to the category average. Based on real Amazon prices from 683 tracked products.</p>
+
+            <div class="calc-tool">
+                <div class="calc-inputs">
+                    <div class="calc-input-group">
+                        <label>Monthly Budget ($)</label>
+                        <input type="number" id="calcBudget" value="50" min="10" max="500" step="5">
+                    </div>
+                    <div class="calc-input-group">
+                        <label>Category</label>
+                        <select id="calcCategory">
+                            <option value="All">All Supplements</option>
+                            <option value="Whey" selected>Whey Protein</option>
+                            <option value="Pre-Workout">Pre-Workout</option>
+                            <option value="Creatine">Creatine</option>
+                            <option value="Electrolytes">Electrolytes</option>
+                            <option value="Multivitamin">Multivitamin</option>
+                        </select>
+                    </div>
+                    <div class="calc-input-group">
+                        <label>&nbsp;</label>
+                        <button class="calc-btn" onclick="calculateSupplementBudget()">Calculate →</button>
+                    </div>
+                </div>
+
+                <div class="calc-results calc-hidden" id="calcResults">
+                    <div class="calc-result">
+                        <div class="calc-result-label">Products You Can Buy</div>
+                        <div class="calc-result-value" id="calcProducts">—</div>
+                        <div class="calc-result-detail" id="calcProductsDetail"></div>
+                    </div>
+                    <div class="calc-result">
+                        <div class="calc-result-label">Avg $/Serving</div>
+                        <div class="calc-result-value" id="calcAvgPPS">—</div>
+                        <div class="calc-result-detail" id="calcAvgDetail"></div>
+                    </div>
+                    <div class="calc-result">
+                        <div class="calc-result-label">Total Servings/Month</div>
+                        <div class="calc-result-value" id="calcServings">—</div>
+                        <div class="calc-result-detail" id="calcServingsDetail"></div>
+                    </div>
+                    <div class="calc-result">
+                        <div class="calc-result-label">Best Value Pick</div>
+                        <div class="calc-result-value savings" id="calcBestPick">—</div>
+                        <div class="calc-result-detail" id="calcBestDetail"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 1.25rem;">
+                <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">How Much Does Whey Protein Cost Per Month?</h3>
+                <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.7;">
+                    A typical whey protein habit (1 scoop/day) costs <strong>$0.80-$1.50 per serving</strong> for mainstream brands and <strong>$1.50-$2.50</strong> for premium grass-fed or NSF-certified options. That is <strong>$24-$75/month</strong>. The cheapest strategy: buy unflavored whey isolate in 5lb tubs — brands like BulkSupplements and Nutricost drop below $0.60/serving. Our calculator shows exactly how many servings your budget covers.
+                </p>
+            </div>
+
+            <div style="margin-top: 1rem;">
+                <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Creatine: The Cheapest Supplement Per Serving</h3>
+                <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.7;">
+                    Creatine monohydrate is the most cost-effective supplement you can buy. Bulk unflavored powder runs <strong>$0.07-$0.15 per serving</strong> — under $5/month. Branded creatine HCl or "buffered" variants charge 3-5x more with no proven advantage. At $50/month budget, you can buy a year's supply of creatine and still have $45 left for protein or pre-workout.
+                </p>
+            </div>
+
+            <div style="margin-top: 1rem;">
+                <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Pre-Workout Budget: Where Your Money Actually Goes</h3>
+                <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.7;">
+                    Pre-workouts range from <strong>$0.50 to $2.50 per serving</strong>. The price difference comes from ingredient dosing: a clinically dosed pre-workout (6g citrulline, 3.2g beta-alanine, 200mg caffeine) costs more because those ingredients are expensive. Proprietary blends hide under-dosing behind a total weight — a $25 pre-workout with a proprietary blend often contains less active ingredients than a $40 transparent-label product. Use our calculator to compare cost per serving across all 164 pre-workouts we track.
+                </p>
+            </div>
+
+            <div class="example-box" style="margin-top: 1rem;">
+                ⚡ BUDGET TIP: At $50/month, buying the cheapest NSF-certified whey + bulk creatine gives you ~60 protein servings + 200 creatine servings. Skip the branded "stack" bundles — they cost 2-3x more per serving for the same ingredients.
+            </div>
+
+            <div style="margin-top: 1.25rem; padding: 1rem; background: var(--bg-base); border: 1px solid var(--border-color); border-radius: 8px;">
+                <h3 style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">How We Calculate</h3>
+                <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.8; font-family: 'JetBrains Mono', monospace;">
+                    Avg $/Serving = Σ(price_per_serving) ÷ total_products_in_category<br>
+                    Total Servings = monthly_budget ÷ avg_price_per_serving<br>
+                    Products Count = max items buyable sorted by lowest price, summed ≤ budget<br>
+                    Best Value = product with lowest $/serving + Trust Score ≥ 50
+                </p>
+                <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.4rem;">
+                    Based on <strong>683 real Amazon supplement prices</strong> scraped via ScraperAPI. Prices updated every 2 months. Price per serving = listed price ÷ declared servings per container.
+                </p>
+            </div>
+        </section>
 
         <!-- WHY TRUST MATTERS -->
         <section id="why-matters" class="seo-section">
@@ -14842,6 +14974,7 @@
                     <h3>Quick Navigation</h3>
                     <div class="footer-nav">
                         <a href="#tracker-section">Supplement Tracker</a>
+                        <a href="#budget-calculator">Budget Calculator</a>
                         <a href="#why-matters">Why Trust Matters</a>
                         <a href="#categories">Categories</a>
                         <a href="#label-guide">Label Guide</a>
@@ -36281,6 +36414,50 @@
         // ==========================================
         // INIT
         // ==========================================
+        // ── Budget Calculator ──
+        function calculateSupplementBudget() {
+            const budget = parseFloat(document.getElementById('calcBudget').value) || 50;
+            const cat = document.getElementById('calcCategory').value;
+
+            const catProducts = cat === 'All'
+                ? PRODUCTS_DATA
+                : PRODUCTS_DATA.filter(p => p.category === cat);
+
+            if (catProducts.length === 0) return;
+
+            const withPPS = catProducts.filter(p => p.pricePerServing > 0);
+            if (withPPS.length === 0) return;
+
+            const avgPPS = withPPS.reduce((s, p) => s + p.pricePerServing, 0) / withPPS.length;
+            const totalServings = Math.floor(budget / avgPPS);
+
+            let spent = 0, count = 0;
+            for (const p of catProducts.sort((a, b) => a.priceListed - b.priceListed)) {
+                if (spent + p.priceListed > budget) break;
+                spent += p.priceListed;
+                count++;
+            }
+
+            const bestValue = withPPS
+                .filter(p => p.trustScore >= 50)
+                .sort((a, b) => a.pricePerServing - b.pricePerServing)[0];
+
+            document.getElementById('calcResults').classList.remove('calc-hidden');
+            document.getElementById('calcProducts').textContent = count;
+            document.getElementById('calcProductsDetail').textContent = `cheapest ${cat} products within $${budget}`;
+            document.getElementById('calcAvgPPS').textContent = '$' + avgPPS.toFixed(2);
+            document.getElementById('calcAvgDetail').textContent = `across ${withPPS.length} products with serving data`;
+            document.getElementById('calcServings').textContent = totalServings;
+            document.getElementById('calcServingsDetail').textContent = `≈ ${(totalServings / 30).toFixed(1)} servings/day for 30 days`;
+            if (bestValue) {
+                document.getElementById('calcBestPick').textContent = '$' + bestValue.pricePerServing.toFixed(2) + '/srv';
+                document.getElementById('calcBestDetail').textContent = bestValue.brand + ' — Trust ' + bestValue.trustScore;
+            } else {
+                document.getElementById('calcBestPick').textContent = 'N/A';
+                document.getElementById('calcBestDetail').textContent = 'no certified products found';
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             initTagPills();
             initTagCards();
