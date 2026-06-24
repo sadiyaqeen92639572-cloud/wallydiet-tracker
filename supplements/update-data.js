@@ -162,16 +162,19 @@ function computeTrustScore(product) {
 
 function computeGapScore(product, categoryMedianPrice, categoryMedianReviews) {
     let score = 0;
-    score += product.matchedKeywords.length > 0 ? 30 : 0;
-    score += product.thirdPartyFlag ? 25 : 0;
+    // Below-median price = great value (30pts)
     if (product.pricePerServing && categoryMedianPrice) {
-        score += product.pricePerServing < categoryMedianPrice ? 20 : 0;
+        score += product.pricePerServing < categoryMedianPrice ? 30 : 0;
     }
+    // Third-party certified (25pts)
+    score += product.thirdPartyFlag ? 25 : 0;
+    // Clean label breadth: 2+ free-from tags (15pts)
     score += product.freeFromTags.length >= 2 ? 15 : 0;
-    if (categoryMedianReviews) {
-        score += (product.reviewsCount || 0) < categoryMedianReviews ? 10 : 0;
-    }
-    return Math.round(score);
+    // Open label, no proprietary blend (15pts)
+    score += product.proprietaryBlend ? 0 : 15;
+    // Strong rating: 4.3+ stars (15pts)
+    score += (product.avgRating || 0) >= 4.3 ? 15 : 0;
+    return Math.min(100, Math.round(score));
 }
 
 // ==========================================
@@ -303,8 +306,8 @@ function buildStaticRow(item) {
                         <td class="col-ingredients">${claimBadges || '—'}</td>
                         <td class="col-trust">${certBadges || '<span class="badge badge-none">None</span>'}</td>
                         <td class="col-trust"><span class="${trustClass}">${item.trustScore}</span></td>
-                        <td class="col-seo"><span class="${gapClass}">${item.gapScore}</span></td>
-                        <td class="col-seo">${item.sponsoredFlag ? '⚠️ Yes' : 'No'}</td>
+                        <td class="col-value"><span class="${gapClass}">${item.gapScore}</span></td>
+                        <td class="col-value">${item.sponsoredFlag ? '⚠️ Yes' : 'No'}</td>
                         <td class="col-essential"><a href="${item.asinUrl}" target="_blank" rel="nofollow sponsored" class="buy-btn">Buy ↗</a></td>
                     </tr>`;
 }
