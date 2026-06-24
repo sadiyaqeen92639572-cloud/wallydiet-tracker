@@ -74,10 +74,10 @@
     "category": "Whey",
     "priceListed": 14.24,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 1,
     "totalWeight": "10.88 oz",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 14.24,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -90,7 +90,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71LFLKOMCqL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 30
   },
   {
@@ -253,7 +253,7 @@
     "image": "https://m.media-amazon.com/images/I/71NbJl8s9NL.jpg",
     "matchedKeywords": [],
     "trustScore": 96,
-    "gapScore": 55
+    "gapScore": 85
   },
   {
     "id": "B00HHYBIQ2",
@@ -575,7 +575,7 @@
     "image": "https://m.media-amazon.com/images/I/71sAjnvB2vL.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 45
+    "gapScore": 75
   },
   {
     "id": "B0177EV7E4",
@@ -682,10 +682,10 @@
     "category": "Whey",
     "priceListed": 35.18,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 1,
     "totalWeight": "35.2 oz",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 35.18,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -700,7 +700,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/51sD1ddC9rL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -1223,10 +1223,10 @@
     "category": "Whey",
     "priceListed": 37.97,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 1,
     "totalWeight": "35.2 oz",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 37.97,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -1243,7 +1243,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61JaUcH6KaL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -1477,10 +1477,10 @@
     "category": "Whey",
     "priceListed": 23.1,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 10,
     "totalWeight": "20 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 2.31,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -1498,7 +1498,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/7112yMYr3wL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -2383,10 +2383,10 @@
     "category": "Whey",
     "priceListed": 55.19,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 1,
     "totalWeight": "32 oz",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 55.19,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -2403,7 +2403,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61OBpNebXxL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -3500,10 +3500,10 @@
     "category": "Whey",
     "priceListed": 55.24,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 1,
     "totalWeight": "40 oz",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 55.24,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -3521,7 +3521,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/718JttCkUfL.jpg",
     "matchedKeywords": [],
-    "trustScore": 41,
+    "trustScore": 56,
     "gapScore": 30
   },
   {
@@ -4746,7 +4746,7 @@
     "image": "https://m.media-amazon.com/images/I/71oowQw1CUL.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 60
+    "gapScore": 30
   },
   {
     "id": "B08ZNRGDCK",
@@ -4790,10 +4790,10 @@
     "category": "Other",
     "priceListed": 19.6,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 12,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.63,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -4811,7 +4811,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71WC1KBqetL.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
+    "trustScore": 57,
     "gapScore": 30
   },
   {
@@ -5174,7 +5174,7 @@
     "image": "https://m.media-amazon.com/images/I/71CP-118uXL.jpg",
     "matchedKeywords": [],
     "trustScore": 100,
-    "gapScore": 85
+    "gapScore": 55
   },
   {
     "id": "B0BV1FGSN7",
@@ -5766,7 +5766,7 @@
     "image": "https://m.media-amazon.com/images/I/71EwImtPDnL.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 60
+    "gapScore": 30
   },
   {
     "id": "B07XLNKWQN",
@@ -6118,10 +6118,10 @@
     "category": "Pre-Workout",
     "priceListed": 19.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 20,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -6136,7 +6136,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/814rsTZ+sfL.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
+    "trustScore": 57,
     "gapScore": 30
   },
   {
@@ -6669,7 +6669,7 @@
     "image": "https://m.media-amazon.com/images/I/81pl6JtIsfL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 60
   },
   {
     "id": "B0CBCSTHMC",
@@ -7643,10 +7643,10 @@
     "category": "Pre-Workout",
     "priceListed": 19,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 135,
     "totalWeight": "5 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.14,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -7661,8 +7661,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81c7zYLWS4L.jpg",
     "matchedKeywords": [],
-    "trustScore": 82,
-    "gapScore": 40
+    "trustScore": 97,
+    "gapScore": 70
   },
   {
     "id": "B0CSPQLJ2J",
@@ -7753,7 +7753,7 @@
     "image": "https://m.media-amazon.com/images/I/61BzT8fZZ6L.jpg",
     "matchedKeywords": [],
     "trustScore": 99,
-    "gapScore": 85
+    "gapScore": 55
   },
   {
     "id": "B0C7YBHCM9",
@@ -8576,10 +8576,10 @@
     "category": "Pre-Workout",
     "priceListed": 29.96,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 20,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.5,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -8592,7 +8592,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71jdoTK2ajL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -8932,10 +8932,10 @@
     "category": "Creatine",
     "priceListed": 9.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 150,
     "totalWeight": "5 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.07,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "Third-Party Tested"
     ],
@@ -8952,8 +8952,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61EZY7L4u5L.jpg",
     "matchedKeywords": [],
-    "trustScore": 81,
-    "gapScore": 40
+    "trustScore": 96,
+    "gapScore": 70
   },
   {
     "id": "B0CJMRCHV4",
@@ -9201,10 +9201,10 @@
     "category": "Creatine",
     "priceListed": 17.22,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.14,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -9219,8 +9219,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81GzJrHvu+L.jpg",
     "matchedKeywords": [],
-    "trustScore": 41,
-    "gapScore": 15
+    "trustScore": 56,
+    "gapScore": 45
   },
   {
     "id": "B0F1CXFJ4M",
@@ -9232,10 +9232,10 @@
     "category": "Pre-Workout",
     "priceListed": 7.9,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 90,
     "totalWeight": "4.5 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.09,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "Third-Party Tested"
     ],
@@ -9253,8 +9253,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71lgzbVe30L.jpg",
     "matchedKeywords": [],
-    "trustScore": 80,
-    "gapScore": 55
+    "trustScore": 95,
+    "gapScore": 85
   },
   {
     "id": "B0DPR36HHD",
@@ -9762,7 +9762,7 @@
     "image": "https://m.media-amazon.com/images/I/61SrZg1I2AL.jpg",
     "matchedKeywords": [],
     "trustScore": 100,
-    "gapScore": 100
+    "gapScore": 70
   },
   {
     "id": "B00E9M4XFI",
@@ -9774,10 +9774,10 @@
     "category": "Creatine",
     "priceListed": 20.97,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 1,
     "totalWeight": "17.6 oz",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 20.97,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -9792,7 +9792,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61Tc7SOflkL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -9956,10 +9956,10 @@
     "category": "Creatine",
     "priceListed": 29.97,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 1,
     "totalWeight": "35.2 oz",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 29.97,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -9974,7 +9974,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61Utc+lIHlL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -10050,10 +10050,10 @@
     "category": "Creatine",
     "priceListed": 16.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 90,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.19,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "Third-Party Tested"
     ],
@@ -10072,8 +10072,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81swDtkgOkL.jpg",
     "matchedKeywords": [],
-    "trustScore": 82,
-    "gapScore": 55
+    "trustScore": 97,
+    "gapScore": 85
   },
   {
     "id": "B08DH161T6",
@@ -10273,10 +10273,10 @@
     "category": "Creatine",
     "priceListed": 28.78,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.96,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -10291,7 +10291,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71bE3sNvLkL.jpg",
     "matchedKeywords": [],
-    "trustScore": 82,
+    "trustScore": 97,
     "gapScore": 40
   },
   {
@@ -10430,10 +10430,10 @@
     "category": "Creatine",
     "priceListed": 24.21,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 150,
     "totalWeight": "5 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.16,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -10448,8 +10448,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81AIpWqGiWL.jpg",
     "matchedKeywords": [],
-    "trustScore": 81,
-    "gapScore": 40
+    "trustScore": 96,
+    "gapScore": 70
   },
   {
     "id": "B0DWGM5ZXQ",
@@ -10805,7 +10805,7 @@
     "image": "https://m.media-amazon.com/images/I/61VDdKmEpML.jpg",
     "matchedKeywords": [],
     "trustScore": 59,
-    "gapScore": 60
+    "gapScore": 30
   },
   {
     "id": "B0GFGJW962",
@@ -11005,10 +11005,10 @@
     "category": "Creatine",
     "priceListed": 14.95,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 180,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.08,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "Third-Party Tested"
     ],
@@ -11028,8 +11028,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71RdarI0IuL.jpg",
     "matchedKeywords": [],
-    "trustScore": 83,
-    "gapScore": 70
+    "trustScore": 98,
+    "gapScore": 100
   },
   {
     "id": "B0BMPLP7K6",
@@ -11207,10 +11207,10 @@
     "category": "Creatine",
     "priceListed": 12.79,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": "5 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.11,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -11225,8 +11225,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71SJ5XJJ0RL.jpg",
     "matchedKeywords": [],
-    "trustScore": 83,
-    "gapScore": 55
+    "trustScore": 98,
+    "gapScore": 85
   },
   {
     "id": "B0G6DFL5LK",
@@ -11238,10 +11238,10 @@
     "category": "Creatine",
     "priceListed": 15.38,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 135,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.11,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -11258,8 +11258,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/714f1hPHnIL.jpg",
     "matchedKeywords": [],
-    "trustScore": 81,
-    "gapScore": 40
+    "trustScore": 96,
+    "gapScore": 70
   },
   {
     "id": "B0DVWTMTPX",
@@ -11350,7 +11350,7 @@
     "image": "https://m.media-amazon.com/images/I/712VrHndy5L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 30
   },
   {
     "id": "B0BKCVLYGX",
@@ -11393,10 +11393,10 @@
     "category": "Creatine",
     "priceListed": 24.21,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 150,
     "totalWeight": "5 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.16,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -11411,8 +11411,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81V44rlletL.jpg",
     "matchedKeywords": [],
-    "trustScore": 81,
-    "gapScore": 40
+    "trustScore": 96,
+    "gapScore": 70
   },
   {
     "id": "B0DPQKLFLL",
@@ -11424,10 +11424,10 @@
     "category": "Creatine",
     "priceListed": 35,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 135,
     "totalWeight": "5 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.26,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -11444,8 +11444,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81LTZ4XN2PL.jpg",
     "matchedKeywords": [],
-    "trustScore": 82,
-    "gapScore": 40
+    "trustScore": 97,
+    "gapScore": 70
   },
   {
     "id": "B0D4PFH1GY",
@@ -11457,10 +11457,10 @@
     "category": "Creatine",
     "priceListed": 24.23,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 150,
     "totalWeight": "5 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.16,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -11475,8 +11475,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81QnrfS6ogL.jpg",
     "matchedKeywords": [],
-    "trustScore": 78,
-    "gapScore": 40
+    "trustScore": 93,
+    "gapScore": 70
   },
   {
     "id": "B0CXMJ19SW",
@@ -11488,10 +11488,10 @@
     "category": "Pre-Workout",
     "priceListed": 19.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": "5 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.17,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -11506,8 +11506,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71TlaIzu5VL.jpg",
     "matchedKeywords": [],
-    "trustScore": 81,
-    "gapScore": 40
+    "trustScore": 96,
+    "gapScore": 70
   },
   {
     "id": "B0FF3628S4",
@@ -11550,10 +11550,10 @@
     "category": "Pre-Workout",
     "priceListed": 24.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": "120 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.21,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -11568,8 +11568,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81u8v4H3XiL.jpg",
     "matchedKeywords": [],
-    "trustScore": 82,
-    "gapScore": 40
+    "trustScore": 97,
+    "gapScore": 70
   },
   {
     "id": "B09PC5YJ1Z",
@@ -11645,10 +11645,10 @@
     "category": "Creatine",
     "priceListed": 25,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": "5 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.21,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -11665,8 +11665,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71bMCCFHR-L.jpg",
     "matchedKeywords": [],
-    "trustScore": 81,
-    "gapScore": 40
+    "trustScore": 96,
+    "gapScore": 70
   },
   {
     "id": "B0G3KXBVTB",
@@ -11732,7 +11732,7 @@
     "image": "https://m.media-amazon.com/images/I/71YJdvIupNL.jpg",
     "matchedKeywords": [],
     "trustScore": 99,
-    "gapScore": 85
+    "gapScore": 55
   },
   {
     "id": "B0CQ8V7NXS",
@@ -11775,10 +11775,10 @@
     "category": "Pre-Workout",
     "priceListed": 18.69,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 270,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.07,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -11794,8 +11794,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61HGQhvZ5mL.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
-    "gapScore": 45
+    "trustScore": 57,
+    "gapScore": 75
   },
   {
     "id": "B07M5M5B3S",
@@ -11836,10 +11836,10 @@
     "category": "Creatine",
     "priceListed": 16.14,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 90,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.18,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -11856,8 +11856,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71WOScoy5SL.jpg",
     "matchedKeywords": [],
-    "trustScore": 83,
-    "gapScore": 55
+    "trustScore": 98,
+    "gapScore": 85
   },
   {
     "id": "B0GZKKBR46",
@@ -11869,10 +11869,10 @@
     "category": "Creatine",
     "priceListed": 35.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 160,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.22,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -11887,8 +11887,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81tO6IY4u4L.jpg",
     "matchedKeywords": [],
-    "trustScore": 82,
-    "gapScore": 40
+    "trustScore": 97,
+    "gapScore": 70
   },
   {
     "id": "B0FJPSKV2G",
@@ -12019,10 +12019,10 @@
     "category": "Creatine",
     "priceListed": 20.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": "5 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.35,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -12037,7 +12037,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71O6zyxNgmL.jpg",
     "matchedKeywords": [],
-    "trustScore": 81,
+    "trustScore": 96,
     "gapScore": 40
   },
   {
@@ -12299,10 +12299,10 @@
     "category": "Creatine",
     "priceListed": 9.95,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": "1 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.08,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -12319,8 +12319,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71o-lsNyZVL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B0DJDQCJX2",
@@ -12482,10 +12482,10 @@
     "category": "Creatine",
     "priceListed": 24.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 365,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.07,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -12498,8 +12498,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71ToVlHc-dL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B0FSGYKS5Z",
@@ -12789,10 +12789,10 @@
     "category": "Creatine",
     "priceListed": 33.95,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 180,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.19,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -12808,8 +12808,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81jF2Q90qQL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B0F1W9M5L5",
@@ -12872,7 +12872,7 @@
     "image": "https://m.media-amazon.com/images/I/71Y57Px2GXL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 45
   },
   {
     "id": "B0GGMHYJ6R",
@@ -13126,10 +13126,10 @@
     "category": "Electrolytes",
     "priceListed": 16.79,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 20,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.84,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -13144,7 +13144,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/711WJgJ7LzL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -13253,10 +13253,10 @@
     "category": "Electrolytes",
     "priceListed": 12.24,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 64,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.19,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -13269,8 +13269,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71NvE9lVTZL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
-    "gapScore": 30
+    "trustScore": 59,
+    "gapScore": 60
   },
   {
     "id": "B07XQ61Y2Y",
@@ -13347,10 +13347,10 @@
     "category": "Electrolytes",
     "priceListed": 33.57,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 24,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.4,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -13363,7 +13363,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71ETktkssiL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -13376,10 +13376,10 @@
     "category": "Electrolytes",
     "priceListed": 39.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.33,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -13394,7 +13394,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71F730GY0lL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -13525,10 +13525,10 @@
     "category": "Electrolytes",
     "priceListed": 20.24,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 12,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.69,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -13545,7 +13545,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/812-9UosQSL.jpg",
     "matchedKeywords": [],
-    "trustScore": 81,
+    "trustScore": 96,
     "gapScore": 40
   },
   {
@@ -13621,10 +13621,10 @@
     "category": "Electrolytes",
     "priceListed": 31.2,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.04,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -13640,7 +13640,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61uyXqWeVaL.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
+    "trustScore": 57,
     "gapScore": 30
   },
   {
@@ -13684,10 +13684,10 @@
     "category": "Electrolytes",
     "priceListed": 44.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 28,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.61,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -13703,7 +13703,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/715MJ-Ivy4L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -13716,10 +13716,10 @@
     "category": "Electrolytes",
     "priceListed": 21.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.73,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -13734,7 +13734,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71BEGug84zL.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
+    "trustScore": 57,
     "gapScore": 15
   },
   {
@@ -13747,10 +13747,10 @@
     "category": "Electrolytes",
     "priceListed": 5.47,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 6,
     "totalWeight": "16.9 oz",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.91,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -13763,7 +13763,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81Q+O5qoH3L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -13949,7 +13949,7 @@
     "image": "https://m.media-amazon.com/images/I/61gi1jPqsAL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 45
+    "gapScore": 75
   },
   {
     "id": "B08MB73PCP",
@@ -14069,7 +14069,7 @@
     "image": "https://m.media-amazon.com/images/I/71drx+8nnjL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 60
   },
   {
     "id": "B01MXDAHIB",
@@ -14110,10 +14110,10 @@
     "category": "Electrolytes",
     "priceListed": 20.24,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 12,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.69,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -14131,7 +14131,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81Jo74Sy5NL.jpg",
     "matchedKeywords": [],
-    "trustScore": 81,
+    "trustScore": 96,
     "gapScore": 55
   },
   {
@@ -14176,10 +14176,10 @@
     "category": "Electrolytes",
     "priceListed": 9.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 20,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.5,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -14192,8 +14192,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81IGySavwTL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B07LFLRGQ6",
@@ -14205,10 +14205,10 @@
     "category": "Electrolytes",
     "priceListed": 20.39,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 14,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.46,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -14224,7 +14224,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71vi+LWHBvL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -14256,7 +14256,7 @@
     "image": "https://m.media-amazon.com/images/I/61U-FjEhJKL.jpg",
     "matchedKeywords": [],
     "trustScore": 59,
-    "gapScore": 30
+    "gapScore": 60
   },
   {
     "id": "B0G2TH2YL4",
@@ -14359,10 +14359,10 @@
     "category": "Electrolytes",
     "priceListed": 9.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 16,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.62,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -14378,7 +14378,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81SqsJpSypL.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
+    "trustScore": 57,
     "gapScore": 30
   },
   {
@@ -14470,7 +14470,7 @@
     "image": "https://m.media-amazon.com/images/I/71RTnkis9uL.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 15
+    "gapScore": 45
   },
   {
     "id": "B0DTCC263W",
@@ -14482,10 +14482,10 @@
     "category": "Electrolytes",
     "priceListed": 15.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 20,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.8,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -14498,7 +14498,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81Us6OIAWUL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -14511,10 +14511,10 @@
     "category": "Electrolytes",
     "priceListed": 12.79,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 8,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.6,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -14530,7 +14530,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71JKla69d2L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -14632,10 +14632,10 @@
     "category": "Electrolytes",
     "priceListed": 8.48,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 16,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.53,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -14651,8 +14651,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81IiNh58fcL.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
-    "gapScore": 30
+    "trustScore": 57,
+    "gapScore": 60
   },
   {
     "id": "B0F4MD4DDH",
@@ -14695,10 +14695,10 @@
     "category": "Electrolytes",
     "priceListed": 40,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.33,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -14713,7 +14713,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81KxHzlCW5L.jpg",
     "matchedKeywords": [],
-    "trustScore": 82,
+    "trustScore": 97,
     "gapScore": 55
   },
   {
@@ -14784,10 +14784,10 @@
     "category": "Electrolytes",
     "priceListed": 18,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 12,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.5,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -14800,7 +14800,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/711QyHNVfjL.jpg",
     "matchedKeywords": [],
-    "trustScore": 45,
+    "trustScore": 60,
     "gapScore": 30
   },
   {
@@ -14813,10 +14813,10 @@
     "category": "Electrolytes",
     "priceListed": 6.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 20,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.35,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -14831,8 +14831,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/717AKXf4w3L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B093BDH42Y",
@@ -14904,10 +14904,10 @@
     "category": "Electrolytes",
     "priceListed": 17.49,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 16,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.09,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -14923,7 +14923,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71MDYoGNlyL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 45
   },
   {
@@ -14936,10 +14936,10 @@
     "category": "Electrolytes",
     "priceListed": 14.39,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 16,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.9,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -14956,7 +14956,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71pXv5WL9qL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -14969,10 +14969,10 @@
     "category": "Electrolytes",
     "priceListed": 16.79,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 16,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.05,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -14987,7 +14987,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71zMmIwXOpL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -15033,10 +15033,10 @@
     "category": "Electrolytes",
     "priceListed": 9.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 8,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.25,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -15051,7 +15051,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71aQNdK87-L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -15207,7 +15207,7 @@
     "image": "https://m.media-amazon.com/images/I/71TjCZi6Y7L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 60
   },
   {
     "id": "B08NWBRPS8",
@@ -15219,10 +15219,10 @@
     "category": "Electrolytes",
     "priceListed": 14.38,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 16,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.9,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -15239,7 +15239,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71ibuEurK+L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -15406,10 +15406,10 @@
     "category": "Electrolytes",
     "priceListed": 19.19,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 14,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.37,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -15425,7 +15425,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71iNAHOmIML.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -15467,10 +15467,10 @@
     "category": "Electrolytes",
     "priceListed": 29.59,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.99,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -15485,7 +15485,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/718Qdjw5rqL.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
+    "trustScore": 57,
     "gapScore": 15
   },
   {
@@ -15560,10 +15560,10 @@
     "category": "Electrolytes",
     "priceListed": 7.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 12,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.67,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -15579,7 +15579,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81mGnHlB+UL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 45
   },
   {
@@ -15592,10 +15592,10 @@
     "category": "Electrolytes",
     "priceListed": 14.39,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 16,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.9,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -15612,7 +15612,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71OE06SSK5L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -15688,10 +15688,10 @@
     "category": "Electrolytes",
     "priceListed": 40,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.33,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -15706,7 +15706,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71w8UpHY-HL.jpg",
     "matchedKeywords": [],
-    "trustScore": 83,
+    "trustScore": 98,
     "gapScore": 55
   },
   {
@@ -15719,10 +15719,10 @@
     "category": "Electrolytes",
     "priceListed": 23.2,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.19,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -15737,8 +15737,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/611Jx3Kx7jL.jpg",
     "matchedKeywords": [],
-    "trustScore": 84,
-    "gapScore": 55
+    "trustScore": 99,
+    "gapScore": 85
   },
   {
     "id": "B0C66F5RFV",
@@ -15889,7 +15889,7 @@
     "image": "https://m.media-amazon.com/images/I/71DotirBIUL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 60
   },
   {
     "id": "B0DJPP1PSB",
@@ -15965,10 +15965,10 @@
     "category": "Electrolytes",
     "priceListed": 21.69,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 32,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.68,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -15985,7 +15985,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61cLXS1-6DL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -16062,10 +16062,10 @@
     "category": "Electrolytes",
     "priceListed": 11.16,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.09,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -16081,8 +16081,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61BXZt61jaL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B0DVX831RH",
@@ -16094,10 +16094,10 @@
     "category": "Electrolytes",
     "priceListed": 40,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.33,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -16112,7 +16112,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71CjUj5uc4L.jpg",
     "matchedKeywords": [],
-    "trustScore": 82,
+    "trustScore": 97,
     "gapScore": 40
   },
   {
@@ -16241,10 +16241,10 @@
     "category": "Electrolytes",
     "priceListed": 21.69,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 32,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.68,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -16261,7 +16261,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/714mDASrtrL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -16369,10 +16369,10 @@
     "category": "Electrolytes",
     "priceListed": 16.06,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 16,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -16385,7 +16385,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71kFknmXEQL.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
+    "trustScore": 57,
     "gapScore": 15
   },
   {
@@ -16398,10 +16398,10 @@
     "category": "Electrolytes",
     "priceListed": 24.11,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 10,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 2.41,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -16414,7 +16414,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71GlhKd6z3L.jpg",
     "matchedKeywords": [],
-    "trustScore": 41,
+    "trustScore": 56,
     "gapScore": 15
   },
   {
@@ -16444,7 +16444,7 @@
     "image": "https://m.media-amazon.com/images/I/71AkaPa3BtL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 60
   },
   {
     "id": "B0BPVKSP8R",
@@ -16522,10 +16522,10 @@
     "category": "Electrolytes",
     "priceListed": 23.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 16,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.5,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -16542,7 +16542,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/610F6osZNQL.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
+    "trustScore": 57,
     "gapScore": 30
   },
   {
@@ -16648,10 +16648,10 @@
     "category": "Multivitamin",
     "priceListed": 21.56,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 240,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.09,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -16666,8 +16666,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71+3PrXZhpL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
-    "gapScore": 30
+    "trustScore": 59,
+    "gapScore": 60
   },
   {
     "id": "B00YMSLT88",
@@ -16679,10 +16679,10 @@
     "category": "Multivitamin",
     "priceListed": 7.44,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 130,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.06,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -16695,8 +16695,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/712sy9LDh8L.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
-    "gapScore": 30
+    "trustScore": 59,
+    "gapScore": 60
   },
   {
     "id": "B00FOTMGTU",
@@ -16708,10 +16708,10 @@
     "category": "Multivitamin",
     "priceListed": 36,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.6,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -16726,7 +16726,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61Joko0-svL.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
+    "trustScore": 57,
     "gapScore": 30
   },
   {
@@ -16739,10 +16739,10 @@
     "category": "Multivitamin",
     "priceListed": 18.32,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.31,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -16755,7 +16755,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71chvB+OIkL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -16797,10 +16797,10 @@
     "category": "Multivitamin",
     "priceListed": 38.8,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.65,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -16813,7 +16813,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71RNL27j5fL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -16826,10 +16826,10 @@
     "category": "Multivitamin",
     "priceListed": 18.32,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.31,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -16842,7 +16842,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71aEix3fZfL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -16855,10 +16855,10 @@
     "category": "Multivitamin",
     "priceListed": 29.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -16873,7 +16873,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61-cd2SAaQL.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
+    "trustScore": 57,
     "gapScore": 30
   },
   {
@@ -16886,10 +16886,10 @@
     "category": "Other",
     "priceListed": 56,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 180,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.31,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -16902,8 +16902,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71+ubCKiz1L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B0FR5QMD5Y",
@@ -16915,10 +16915,10 @@
     "category": "Multivitamin",
     "priceListed": 68,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.57,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -16933,7 +16933,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71bUTMYvk5L.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
+    "trustScore": 57,
     "gapScore": 30
   },
   {
@@ -16975,10 +16975,10 @@
     "category": "Multivitamin",
     "priceListed": 20.18,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 240,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.08,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -16993,8 +16993,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71k82sHT4AL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
-    "gapScore": 30
+    "trustScore": 59,
+    "gapScore": 60
   },
   {
     "id": "B07JVM5VPR",
@@ -17006,10 +17006,10 @@
     "category": "Multivitamin",
     "priceListed": 14.15,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.24,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -17025,8 +17025,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71v8mJTJdpL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B06WP6KQKH",
@@ -17038,10 +17038,10 @@
     "category": "Multivitamin",
     "priceListed": 11.21,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.09,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -17054,8 +17054,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61P0n-ppmlL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B0CB6ZBY89",
@@ -17084,7 +17084,7 @@
     "image": "https://m.media-amazon.com/images/I/61-42Dl4RSL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 30
   },
   {
     "id": "B00K5NEORM",
@@ -17096,10 +17096,10 @@
     "category": "Multivitamin",
     "priceListed": 17.84,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.59,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -17115,7 +17115,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81zrfVUt4PL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 45
   },
   {
@@ -17128,10 +17128,10 @@
     "category": "Multivitamin",
     "priceListed": 9.41,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 90,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.1,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "Third-Party Tested"
     ],
@@ -17148,8 +17148,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/612oH8dY4ZL.jpg",
     "matchedKeywords": [],
-    "trustScore": 81,
-    "gapScore": 40
+    "trustScore": 96,
+    "gapScore": 70
   },
   {
     "id": "B003DGZREM",
@@ -17161,10 +17161,10 @@
     "category": "Multivitamin",
     "priceListed": 25.64,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 72,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.36,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -17179,7 +17179,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61g+Oot2NqL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -17192,10 +17192,10 @@
     "category": "Multivitamin",
     "priceListed": 19.57,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 90,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.22,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -17211,8 +17211,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/811yJxjLQPL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B097S1GQ5B",
@@ -17253,10 +17253,10 @@
     "category": "Multivitamin",
     "priceListed": 26.95,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 240,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.11,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -17269,8 +17269,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71okJNkXx0L.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
-    "gapScore": 30
+    "trustScore": 59,
+    "gapScore": 60
   },
   {
     "id": "B01MA5K82Q",
@@ -17343,10 +17343,10 @@
     "category": "Multivitamin",
     "priceListed": 17.64,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.29,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -17362,7 +17362,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71cnShFTfAL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -17375,10 +17375,10 @@
     "category": "Multivitamin",
     "priceListed": 20.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 90,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.23,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -17391,8 +17391,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71G34ngvfDL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B07PPVDK5R",
@@ -17404,10 +17404,10 @@
     "category": "Multivitamin",
     "priceListed": 7.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": "60 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.13,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "Third-Party Tested"
     ],
@@ -17424,8 +17424,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81iHRpc4mLL.jpg",
     "matchedKeywords": [],
-    "trustScore": 83,
-    "gapScore": 55
+    "trustScore": 98,
+    "gapScore": 85
   },
   {
     "id": "B0BGMDNJ4P",
@@ -17437,10 +17437,10 @@
     "category": "Multivitamin",
     "priceListed": 17.47,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.29,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -17457,7 +17457,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/810aCaeESBL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 45
   },
   {
@@ -17470,10 +17470,10 @@
     "category": "Multivitamin",
     "priceListed": 17.49,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 240,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.07,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -17486,8 +17486,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71jxStePojL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
-    "gapScore": 30
+    "trustScore": 59,
+    "gapScore": 60
   },
   {
     "id": "B09W355M95",
@@ -17518,7 +17518,7 @@
     "image": "https://m.media-amazon.com/images/I/71QF8CbTYTL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 30
   },
   {
     "id": "B07R1ZGC5B",
@@ -17559,10 +17559,10 @@
     "category": "Multivitamin",
     "priceListed": 15.96,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.13,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -17578,8 +17578,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81E4kktwlML.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B0877WJHN7",
@@ -17591,10 +17591,10 @@
     "category": "Other",
     "priceListed": 56,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 180,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.31,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -17607,8 +17607,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71VSW3raSQL.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
-    "gapScore": 30
+    "trustScore": 57,
+    "gapScore": 60
   },
   {
     "id": "B00BKNSV2A",
@@ -17620,10 +17620,10 @@
     "category": "Multivitamin",
     "priceListed": 51.5,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.43,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -17639,7 +17639,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71PbhieT+CL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 45
   },
   {
@@ -17652,10 +17652,10 @@
     "category": "Multivitamin",
     "priceListed": 18.38,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.15,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -17671,8 +17671,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71owMb26MnL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B0FC7VDL9R",
@@ -17717,10 +17717,10 @@
     "category": "Multivitamin",
     "priceListed": 15.19,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 240,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.06,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "cGMP"
     ],
@@ -17737,8 +17737,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61-boFkMbCL.jpg",
     "matchedKeywords": [],
-    "trustScore": 83,
-    "gapScore": 55
+    "trustScore": 98,
+    "gapScore": 85
   },
   {
     "id": "B01BGZVXC6",
@@ -17750,10 +17750,10 @@
     "category": "Multivitamin",
     "priceListed": 92,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.77,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -17766,7 +17766,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71k7N73V8EL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -17810,10 +17810,10 @@
     "category": "Multivitamin",
     "priceListed": 20.29,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": "60 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.34,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -17828,7 +17828,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71QNw3xw5qL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -17841,10 +17841,10 @@
     "category": "Multivitamin",
     "priceListed": 24,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 75,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.32,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -17859,7 +17859,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61ImZ9kQYYS.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 30
   },
   {
@@ -17901,10 +17901,10 @@
     "category": "Multivitamin",
     "priceListed": 22.49,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 90,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.25,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -17917,8 +17917,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71WseJapzoL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B08FW3N96T",
@@ -17961,10 +17961,10 @@
     "category": "Multivitamin",
     "priceListed": 38.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.65,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -17977,7 +17977,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61NgzoBXx8L.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 30
   },
   {
@@ -17990,10 +17990,10 @@
     "category": "Multivitamin",
     "priceListed": 14.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.12,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -18006,8 +18006,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71uNCvQ-3kL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B001F71XAI",
@@ -18019,10 +18019,10 @@
     "category": "Multivitamin",
     "priceListed": 12.8,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 200,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.06,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -18035,8 +18035,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71vCk5V1zvL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
-    "gapScore": 30
+    "trustScore": 59,
+    "gapScore": 60
   },
   {
     "id": "B0DY1Z33BW",
@@ -18048,10 +18048,10 @@
     "category": "Multivitamin",
     "priceListed": 18.6,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 90,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.21,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -18066,8 +18066,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81bWNPloxfL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B092375LLS",
@@ -18079,10 +18079,10 @@
     "category": "Multivitamin",
     "priceListed": 22.28,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 90,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.25,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -18097,8 +18097,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71KPZqsl19L.jpg",
     "matchedKeywords": [],
-    "trustScore": 83,
-    "gapScore": 55
+    "trustScore": 98,
+    "gapScore": 85
   },
   {
     "id": "B09RQ67Z6K",
@@ -18143,10 +18143,10 @@
     "category": "Multivitamin",
     "priceListed": 36.8,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.61,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -18161,7 +18161,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61Z3vczjygL.jpg",
     "matchedKeywords": [],
-    "trustScore": 82,
+    "trustScore": 97,
     "gapScore": 55
   },
   {
@@ -18174,10 +18174,10 @@
     "category": "Multivitamin",
     "priceListed": 27.11,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.45,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -18193,7 +18193,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81OD-iW5mBL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 45
   },
   {
@@ -18206,10 +18206,10 @@
     "category": "Multivitamin",
     "priceListed": 31.27,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 72,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.43,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -18225,7 +18225,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61RXD8mQycL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -18238,10 +18238,10 @@
     "category": "Multivitamin",
     "priceListed": 76,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 180,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.42,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -18256,7 +18256,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71velfb0OAL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -18269,10 +18269,10 @@
     "category": "Multivitamin",
     "priceListed": 29.72,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 90,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.33,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -18287,7 +18287,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71n65p9UC8L.jpg",
     "matchedKeywords": [],
-    "trustScore": 84,
+    "trustScore": 99,
     "gapScore": 55
   },
   {
@@ -18300,10 +18300,10 @@
     "category": "Multivitamin",
     "priceListed": 24.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.83,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -18318,7 +18318,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71aQloV-uaL.jpg",
     "matchedKeywords": [],
-    "trustScore": 81,
+    "trustScore": 96,
     "gapScore": 40
   },
   {
@@ -18363,10 +18363,10 @@
     "category": "Multivitamin",
     "priceListed": 25,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.83,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -18379,7 +18379,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71tOeTtV+0L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -18392,10 +18392,10 @@
     "category": "Multivitamin",
     "priceListed": 18.57,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 90,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.21,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -18410,8 +18410,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71efZPSNPUL.jpg",
     "matchedKeywords": [],
-    "trustScore": 83,
-    "gapScore": 55
+    "trustScore": 98,
+    "gapScore": 85
   },
   {
     "id": "B09QBKGDLS",
@@ -18452,10 +18452,10 @@
     "category": "Multivitamin",
     "priceListed": 26.24,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.44,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -18471,7 +18471,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81dIylkH0cL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 45
   },
   {
@@ -18484,10 +18484,10 @@
     "category": "Multivitamin",
     "priceListed": 19.13,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.16,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -18503,8 +18503,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71S8+dha6DL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B00322FNPK",
@@ -18516,10 +18516,10 @@
     "category": "Multivitamin",
     "priceListed": 40.39,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 240,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.17,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -18535,8 +18535,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81WailVQFvL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
-    "gapScore": 45
+    "trustScore": 59,
+    "gapScore": 75
   },
   {
     "id": "B0046CMBK0",
@@ -18548,10 +18548,10 @@
     "category": "Multivitamin",
     "priceListed": 21.36,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 75,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.28,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -18566,8 +18566,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/615ZkyXqfHL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B06XSD6XSS",
@@ -18579,10 +18579,10 @@
     "category": "Multivitamin",
     "priceListed": 18.95,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": "120 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.16,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -18599,8 +18599,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71ongwU2jJL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B082WJ7MZP",
@@ -18641,10 +18641,10 @@
     "category": "Multivitamin",
     "priceListed": 15.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.27,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -18657,8 +18657,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61Dn5ehJTLL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B09BW24R2B",
@@ -18670,10 +18670,10 @@
     "category": "Multivitamin",
     "priceListed": 17.46,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 250,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.07,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -18689,8 +18689,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71O1JMHWeqL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
-    "gapScore": 45
+    "trustScore": 59,
+    "gapScore": 75
   },
   {
     "id": "B0FTZPFSSQ",
@@ -18702,10 +18702,10 @@
     "category": "Multivitamin",
     "priceListed": 19.98,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.33,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -18718,7 +18718,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71cH9TQv5gL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -18731,10 +18731,10 @@
     "category": "Multivitamin",
     "priceListed": 37.78,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.31,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -18751,7 +18751,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81o1GcycthL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -18764,10 +18764,10 @@
     "category": "Multivitamin",
     "priceListed": 46.04,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 72,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.64,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -18784,7 +18784,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61zZ9iO7AML.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -18797,10 +18797,10 @@
     "category": "Multivitamin",
     "priceListed": 78.79,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 2.63,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -18815,7 +18815,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81QVfoHz7pL.jpg",
     "matchedKeywords": [],
-    "trustScore": 81,
+    "trustScore": 96,
     "gapScore": 40
   },
   {
@@ -18828,10 +18828,10 @@
     "category": "Multivitamin",
     "priceListed": 43.53,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 150,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.29,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -18844,7 +18844,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71UX5bRF74L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -18888,10 +18888,10 @@
     "category": "Multivitamin",
     "priceListed": 29.6,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.49,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -18907,7 +18907,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71r6maTRZlL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -19045,10 +19045,10 @@
     "category": "Multivitamin",
     "priceListed": 9.29,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 90,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.1,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -19061,8 +19061,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71dTASoyqeL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
-    "gapScore": 30
+    "trustScore": 59,
+    "gapScore": 60
   },
   {
     "id": "B07PB657SW",
@@ -19135,10 +19135,10 @@
     "category": "Multivitamin",
     "priceListed": 21.16,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.18,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -19153,8 +19153,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/51pW3BK0TBL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
-    "gapScore": 30
+    "trustScore": 59,
+    "gapScore": 60
   },
   {
     "id": "B0GVM2WND7",
@@ -19166,10 +19166,10 @@
     "category": "Multivitamin",
     "priceListed": 85.41,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 2.85,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -19185,7 +19185,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61CtBqfA8vL.jpg",
     "matchedKeywords": [],
-    "trustScore": 45,
+    "trustScore": 60,
     "gapScore": 45
   },
   {
@@ -19230,10 +19230,10 @@
     "category": "Multivitamin",
     "priceListed": 39.97,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 180,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.22,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -19249,8 +19249,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81cOgyVhwUL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B00B4IKQPG",
@@ -19262,10 +19262,10 @@
     "category": "Multivitamin",
     "priceListed": 7.13,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.24,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -19280,8 +19280,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/511c2wBgUVL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B074R27ZJT",
@@ -19293,10 +19293,10 @@
     "category": "Multivitamin",
     "priceListed": 29.6,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 45,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.66,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -19309,7 +19309,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61-fL+K+OLL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 30
   },
   {
@@ -19322,10 +19322,10 @@
     "category": "Multivitamin",
     "priceListed": 16.97,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 90,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.19,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -19338,8 +19338,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81WRocrMn9L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B0FNYNY926",
@@ -19351,10 +19351,10 @@
     "category": "Multivitamin",
     "priceListed": 15.92,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 150,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.11,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -19367,8 +19367,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/716tNyamlUL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B0FMBGZZM1",
@@ -19380,10 +19380,10 @@
     "category": "Multivitamin",
     "priceListed": 39.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 480,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.08,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -19396,8 +19396,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81mwnCOWHxL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
-    "gapScore": 30
+    "trustScore": 59,
+    "gapScore": 60
   },
   {
     "id": "B00280M13Y",
@@ -19409,10 +19409,10 @@
     "category": "Multivitamin",
     "priceListed": 21.66,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.18,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -19428,8 +19428,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81YZ-odeC-L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B00B4IN0O0",
@@ -19441,10 +19441,10 @@
     "category": "Multivitamin",
     "priceListed": 7.13,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.24,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -19459,8 +19459,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/51+v2h4-fUL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B08Q3Y7CG8",
@@ -19472,10 +19472,10 @@
     "category": "Multivitamin",
     "priceListed": 20.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.17,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -19490,8 +19490,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/51RknRJuPWL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B0DBR2D894",
@@ -19503,10 +19503,10 @@
     "category": "Multivitamin",
     "priceListed": 31.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.27,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -19522,8 +19522,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/51bY7P1NqoL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
-    "gapScore": 45
+    "trustScore": 59,
+    "gapScore": 75
   },
   {
     "id": "B06XRY19HW",
@@ -19535,10 +19535,10 @@
     "category": "Multivitamin",
     "priceListed": 22.8,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": "120 g",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.19,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -19555,8 +19555,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71Vm8BhlaUL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B07NDQ54QV",
@@ -19568,10 +19568,10 @@
     "category": "Multivitamin",
     "priceListed": 27.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.23,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -19587,8 +19587,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61S8eP43h8L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B07FDXJQ48",
@@ -19600,10 +19600,10 @@
     "category": "Multivitamin",
     "priceListed": 15.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.13,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -19618,8 +19618,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61GC7-3suKL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B094CFNJ8F",
@@ -19631,10 +19631,10 @@
     "category": "Multivitamin",
     "priceListed": 29.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.5,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -19649,7 +19649,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/51MoerqN4kL.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
+    "trustScore": 57,
     "gapScore": 30
   },
   {
@@ -19662,10 +19662,10 @@
     "category": "Multivitamin",
     "priceListed": 24.43,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.41,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -19682,7 +19682,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81VAsh5zrYL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -19695,10 +19695,10 @@
     "category": "Multivitamin",
     "priceListed": 28.5,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 90,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.32,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -19714,7 +19714,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/7132pQbufdL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -19727,10 +19727,10 @@
     "category": "Multivitamin",
     "priceListed": 34.95,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 250,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.14,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -19743,8 +19743,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71MFUPgUTVL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B0FLW6VY1Q",
@@ -19756,10 +19756,10 @@
     "category": "Multivitamin",
     "priceListed": 39.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.67,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -19772,7 +19772,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61z+k5xjiWL.jpg",
     "matchedKeywords": [],
-    "trustScore": 45,
+    "trustScore": 60,
     "gapScore": 30
   },
   {
@@ -19785,10 +19785,10 @@
     "category": "Multivitamin",
     "priceListed": 24.88,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.21,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -19803,8 +19803,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71F92M2U5-L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B008HFTD1C",
@@ -19816,10 +19816,10 @@
     "category": "Multivitamin",
     "priceListed": 36,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.6,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -19835,7 +19835,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71f3LfpOZDL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -19848,10 +19848,10 @@
     "category": "Multivitamin",
     "priceListed": 18.11,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.3,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -19869,7 +19869,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81wHcTQJVeL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 45
   },
   {
@@ -19882,10 +19882,10 @@
     "category": "Multivitamin",
     "priceListed": 36,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 90,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.4,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -19898,7 +19898,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/715wrTJTWIL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 30
   },
   {
@@ -19943,10 +19943,10 @@
     "category": "Multivitamin",
     "priceListed": 43.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.37,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -19959,7 +19959,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71AMfUVfBSL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -20001,10 +20001,10 @@
     "category": "Multivitamin",
     "priceListed": 25.23,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.21,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -20019,8 +20019,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81dsMgxMRBL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B00B28Z2WK",
@@ -20032,10 +20032,10 @@
     "category": "Multivitamin",
     "priceListed": 30.38,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.25,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -20048,8 +20048,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71yVb2C4huL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B071L78LLB",
@@ -20061,10 +20061,10 @@
     "category": "Multivitamin",
     "priceListed": 18.2,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.3,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -20079,7 +20079,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71DVVjwuC8L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -20113,7 +20113,7 @@
     "image": "https://m.media-amazon.com/images/I/811JkZWDx5L.jpg",
     "matchedKeywords": [],
     "trustScore": 97,
-    "gapScore": 85
+    "gapScore": 55
   },
   {
     "id": "B07MK5BBGN",
@@ -20220,10 +20220,10 @@
     "category": "Multivitamin",
     "priceListed": 12.95,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 160,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.08,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -20236,8 +20236,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/7158n+fWsaL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
-    "gapScore": 30
+    "trustScore": 59,
+    "gapScore": 60
   },
   {
     "id": "B003UEH7CC",
@@ -20249,10 +20249,10 @@
     "category": "Multivitamin",
     "priceListed": 13.21,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.22,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -20265,8 +20265,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71EsvVIw37L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B09NLFC7FS",
@@ -20278,10 +20278,10 @@
     "category": "Multivitamin",
     "priceListed": 29.86,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 150,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.2,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -20294,8 +20294,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71cDPDpH4iL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
-    "gapScore": 30
+    "trustScore": 59,
+    "gapScore": 60
   },
   {
     "id": "B00280M10C",
@@ -20338,10 +20338,10 @@
     "category": "Other",
     "priceListed": 12.75,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 400,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.03,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -20354,8 +20354,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71tqHIVlePL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
-    "gapScore": 30
+    "trustScore": 59,
+    "gapScore": 60
   },
   {
     "id": "B0GN54M3PC",
@@ -20430,10 +20430,10 @@
     "category": "Multivitamin",
     "priceListed": 29,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.48,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -20449,7 +20449,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71VAgw11DIL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 45
   },
   {
@@ -20462,10 +20462,10 @@
     "category": "Multivitamin",
     "priceListed": 32.29,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 72,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.45,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -20482,7 +20482,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61PzHV2IqAL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -20495,10 +20495,10 @@
     "category": "Multivitamin",
     "priceListed": 39.1,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.33,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -20515,7 +20515,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81Z93e1LU2L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -20528,10 +20528,10 @@
     "category": "Multivitamin",
     "priceListed": 12.74,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.42,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -20546,7 +20546,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61E81S5WgCL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 30
   },
   {
@@ -20592,10 +20592,10 @@
     "category": "Multivitamin",
     "priceListed": 30.35,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.25,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -20610,8 +20610,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71bpr6qZBXL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B0F7NHLDF5",
@@ -20623,10 +20623,10 @@
     "category": "Multivitamin",
     "priceListed": 20,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.67,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -20642,7 +20642,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71WdYET4-2L.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 45
   },
   {
@@ -20687,10 +20687,10 @@
     "category": "Multivitamin",
     "priceListed": 12.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 200,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.06,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -20703,8 +20703,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71OnByHVvzL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B07GDWR1BX",
@@ -20747,10 +20747,10 @@
     "category": "Multivitamin",
     "priceListed": 33.96,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.57,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -20763,7 +20763,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/51nu46zIiKL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -20809,10 +20809,10 @@
     "category": "Multivitamin",
     "priceListed": 24.95,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 90,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.28,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -20828,8 +20828,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71q1CifG4JL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B0FPQD4PJZ",
@@ -20841,10 +20841,10 @@
     "category": "Multivitamin",
     "priceListed": 11.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 120,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.1,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -20857,8 +20857,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/717XelbYBXL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B01FYDIP4K",
@@ -20903,10 +20903,10 @@
     "category": "Multivitamin",
     "priceListed": 19.97,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 1,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 19.97,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -20921,7 +20921,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61Hdp0POvwL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -20995,10 +20995,10 @@
     "category": "Multivitamin",
     "priceListed": 10.69,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 60,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.18,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -21014,8 +21014,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71clft2mv9L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B094NY91P2",
@@ -21274,10 +21274,10 @@
     "category": "Electrolytes",
     "priceListed": 9.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 16,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.62,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -21296,7 +21296,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81fDYgjslsL.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
+    "trustScore": 57,
     "gapScore": 45
   },
   {
@@ -21309,10 +21309,10 @@
     "category": "Electrolytes",
     "priceListed": 32.79,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.09,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -21325,7 +21325,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71RPN7d61SL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 30
   },
   {
@@ -21433,10 +21433,10 @@
     "category": "Electrolytes",
     "priceListed": 10.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 8,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.37,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -21452,7 +21452,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/810dJf44R0L.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
+    "trustScore": 57,
     "gapScore": 45
   },
   {
@@ -21559,10 +21559,10 @@
     "category": "Electrolytes",
     "priceListed": 32.79,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.09,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -21575,7 +21575,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71Z0PAGY7GL.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 30
   },
   {
@@ -21619,10 +21619,10 @@
     "category": "Electrolytes",
     "priceListed": 34.97,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.17,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -21637,7 +21637,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/717ElObWQOL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -21650,10 +21650,10 @@
     "category": "Electrolytes",
     "priceListed": 14.43,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.48,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -21672,8 +21672,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71zkViPk-TL.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
-    "gapScore": 45
+    "trustScore": 57,
+    "gapScore": 75
   },
   {
     "id": "B0FNWM7HJ4",
@@ -21685,10 +21685,10 @@
     "category": "Electrolytes",
     "priceListed": 12.1,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 40,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.3,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -21704,8 +21704,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81r009I+97L.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
-    "gapScore": 30
+    "trustScore": 57,
+    "gapScore": 60
   },
   {
     "id": "B0D6JFYVHW",
@@ -21775,10 +21775,10 @@
     "category": "Electrolytes",
     "priceListed": 7.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 20,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.4,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -21793,8 +21793,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81Uee041shL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B0F3426WDM",
@@ -21806,10 +21806,10 @@
     "category": "Electrolytes",
     "priceListed": 31.2,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.04,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -21827,7 +21827,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71LDGCTgK8L.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
+    "trustScore": 57,
     "gapScore": 45
   },
   {
@@ -21840,10 +21840,10 @@
     "category": "Electrolytes",
     "priceListed": 10.31,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 7,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.47,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -21856,7 +21856,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/61d9NWGas0L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -21898,10 +21898,10 @@
     "category": "Electrolytes",
     "priceListed": 29.59,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 20,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.48,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -21916,7 +21916,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/718t6lFWmsL.jpg",
     "matchedKeywords": [],
-    "trustScore": 41,
+    "trustScore": 56,
     "gapScore": 15
   },
   {
@@ -21929,10 +21929,10 @@
     "category": "Electrolytes",
     "priceListed": 40,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.33,
+    "servingsVerified": true,
     "thirdPartyCerts": [
       "NSF"
     ],
@@ -21949,7 +21949,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71E+p9PUvfL.jpg",
     "matchedKeywords": [],
-    "trustScore": 83,
+    "trustScore": 98,
     "gapScore": 55
   },
   {
@@ -21962,10 +21962,10 @@
     "category": "Electrolytes",
     "priceListed": 39,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.3,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -21983,7 +21983,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71pzMispvWL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -22025,10 +22025,10 @@
     "category": "Electrolytes",
     "priceListed": 32.79,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.09,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -22041,7 +22041,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71Bq-3A+QjL.jpg",
     "matchedKeywords": [],
-    "trustScore": 41,
+    "trustScore": 56,
     "gapScore": 15
   },
   {
@@ -22115,10 +22115,10 @@
     "category": "Electrolytes",
     "priceListed": 37.58,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 28,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.34,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -22134,7 +22134,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81+NpsU2isL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -22198,7 +22198,7 @@
     "image": "https://m.media-amazon.com/images/I/71TW2v3t-sL.jpg",
     "matchedKeywords": [],
     "trustScore": 59,
-    "gapScore": 30
+    "gapScore": 60
   },
   {
     "id": "B0DN6QV16L",
@@ -22210,10 +22210,10 @@
     "category": "Electrolytes",
     "priceListed": 16.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.57,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -22232,8 +22232,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71Sjt-PDsyL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B07KDRL5ZD",
@@ -22268,7 +22268,7 @@
     "image": "https://m.media-amazon.com/images/I/71h8ogNgsgL.jpg",
     "matchedKeywords": [],
     "trustScore": 47,
-    "gapScore": 30
+    "gapScore": 60
   },
   {
     "id": "B07JMG56XL",
@@ -22313,10 +22313,10 @@
     "category": "Electrolytes",
     "priceListed": 16.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.57,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -22335,8 +22335,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71Xbvj5xV-L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B0FMJ1XQ63",
@@ -22370,7 +22370,7 @@
     "image": "https://m.media-amazon.com/images/I/61dX1wssEzL.jpg",
     "matchedKeywords": [],
     "trustScore": 56,
-    "gapScore": 15
+    "gapScore": 45
   },
   {
     "id": "B0C67RQWKC",
@@ -22414,10 +22414,10 @@
     "category": "Electrolytes",
     "priceListed": 16.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.57,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -22436,8 +22436,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71eub8Wdv3L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 45
+    "trustScore": 58,
+    "gapScore": 75
   },
   {
     "id": "B07Z6N45KW",
@@ -22513,10 +22513,10 @@
     "category": "Electrolytes",
     "priceListed": 8.48,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 16,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.53,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -22535,8 +22535,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81eSuHSNAcL.jpg",
     "matchedKeywords": [],
-    "trustScore": 42,
-    "gapScore": 45
+    "trustScore": 57,
+    "gapScore": 75
   },
   {
     "id": "B0GHFFBFKR",
@@ -22548,10 +22548,10 @@
     "category": "Electrolytes",
     "priceListed": 6.39,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 16,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.4,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -22569,8 +22569,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81UI+4o+MuL.jpg",
     "matchedKeywords": [],
-    "trustScore": 39,
-    "gapScore": 15
+    "trustScore": 54,
+    "gapScore": 45
   },
   {
     "id": "B0GRP3T7MN",
@@ -22882,10 +22882,10 @@
     "category": "Electrolytes",
     "priceListed": 21.69,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 32,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.68,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -22902,7 +22902,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/612dSrTgAxL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -22976,10 +22976,10 @@
     "category": "Electrolytes",
     "priceListed": 9.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 25,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.4,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -22994,8 +22994,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71ZnCnkVkSL.jpg",
     "matchedKeywords": [],
-    "trustScore": 41,
-    "gapScore": 15
+    "trustScore": 56,
+    "gapScore": 45
   },
   {
     "id": "B0FMGNZYNL",
@@ -23007,10 +23007,10 @@
     "category": "Electrolytes",
     "priceListed": 26.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 36,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.75,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -23027,7 +23027,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71LrAlFJ99L.jpg",
     "matchedKeywords": [],
-    "trustScore": 44,
+    "trustScore": 59,
     "gapScore": 30
   },
   {
@@ -23074,10 +23074,10 @@
     "category": "Electrolytes",
     "priceListed": 37.58,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 28,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 1.34,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [
@@ -23093,7 +23093,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/71CqKJRxSWL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 45
   },
   {
@@ -23199,10 +23199,10 @@
     "category": "Electrolytes",
     "priceListed": 23.99,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 30,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.8,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -23217,7 +23217,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81PwTmgBqCL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -23314,7 +23314,7 @@
     "image": "https://m.media-amazon.com/images/I/711z3yJeP-L.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 15
+    "gapScore": 45
   },
   {
     "id": "B0FTGJGPTM",
@@ -23412,7 +23412,7 @@
     "image": "https://m.media-amazon.com/images/I/71kubhqF0vL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 60
   },
   {
     "id": "B0DHB7QLRB",
@@ -23475,7 +23475,7 @@
     "image": "https://m.media-amazon.com/images/I/51T4O9P2frL.jpg",
     "matchedKeywords": [],
     "trustScore": 59,
-    "gapScore": 30
+    "gapScore": 60
   },
   {
     "id": "B0FGL1QZJF",
@@ -23537,7 +23537,7 @@
     "image": "https://m.media-amazon.com/images/I/81rJsKsbIPL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 60
   },
   {
     "id": "B08JVMHHWN",
@@ -23613,10 +23613,10 @@
     "category": "Electrolytes",
     "priceListed": 84.96,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 90,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.94,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -23629,7 +23629,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81Vl4zqD3bL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   },
   {
@@ -23673,10 +23673,10 @@
     "category": "Electrolytes",
     "priceListed": 3.49,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 6,
     "totalWeight": null,
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.58,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -23689,8 +23689,8 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81eKlv+fh6L.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
-    "gapScore": 30
+    "trustScore": 58,
+    "gapScore": 60
   },
   {
     "id": "B0BGR6842K",
@@ -23702,10 +23702,10 @@
     "category": "Electrolytes",
     "priceListed": 5.5,
     "shippingInfo": "Standard",
-    "servingsDeclared": null,
+    "servingsDeclared": 6,
     "totalWeight": "16.9 oz",
-    "pricePerServing": null,
-    "servingsVerified": false,
+    "pricePerServing": 0.92,
+    "servingsVerified": true,
     "thirdPartyCerts": [],
     "thirdPartyFlag": false,
     "freeFromTags": [],
@@ -23718,7 +23718,7 @@
     "sponsoredFlag": false,
     "image": "https://m.media-amazon.com/images/I/81GW1ZW9eUL.jpg",
     "matchedKeywords": [],
-    "trustScore": 43,
+    "trustScore": 58,
     "gapScore": 30
   }
 ]

@@ -131,7 +131,12 @@ function detectTags(text) {
 // ==========================================
 function parseServings(title) {
     const m = title.match(/(\d+)\s*serv/i);
-    return m ? parseInt(m[1]) : null;
+    if (m) return parseInt(m[1]);
+    const alt = title.match(/(\d+)\s*(?:stickpack|stick\s*pack|packet|count|pouch|sachet|stick|capsule|tablet|softgel|gummie|piece|pop)s?\b/i);
+    if (alt) return parseInt(alt[1]);
+    const packOf = title.match(/pack\s*of\s*(\d+)/i);
+    if (packOf) return parseInt(packOf[1]);
+    return null;
 }
 
 function parseWeight(title) {
@@ -402,6 +407,21 @@ async function main() {
             }
         }
     }
+
+    // Re-parse servings for products missing them
+    let reParsed = 0;
+    for (const p of db) {
+        if (!p.servingsDeclared) {
+            const s = parseServings(p.title);
+            if (s) {
+                p.servingsDeclared = s;
+                p.servingsVerified = true;
+                p.pricePerServing = Math.round((p.priceListed / s) * 100) / 100;
+                reParsed++;
+            }
+        }
+    }
+    if (reParsed > 0) console.log(`🔄 Re-parsed servings for ${reParsed} products`);
 
     // Compute scores
     computeAllScores(db);
