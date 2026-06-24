@@ -57,6 +57,14 @@ const QUERIES = [
     'NSF certified multivitamin',
     'clean multivitamin no fillers',
     'gluten free multivitamin USP verified',
+    // Fish Oil / Omega-3
+    'fish oil omega 3 high EPA DHA',
+    'triple strength omega 3 fish oil',
+    'IFOS certified fish oil',
+    'best value omega 3 price per gram',
+    'liquid fish oil high potency',
+    'algae omega 3 vegan DHA',
+    'fish oil no burp enteric coated',
 ];
 
 // ==========================================
@@ -69,6 +77,7 @@ function detectCategory(title) {
     if (/creatine|creapure/.test(t)) return 'Creatine';
     if (/electrolyte|hydration|lyte/.test(t)) return 'Electrolytes';
     if (/multivitamin|multi[\s-]?vitamin|daily vitamin/.test(t)) return 'Multivitamin';
+    if (/fish oil|omega[\s-]?3|epa.*dha|dha.*epa|cod liver oil|krill oil|algae.*omega/.test(t)) return 'Fish Oil';
     if (/bcaa|amino|eaa/.test(t)) return 'Amino Acids';
     if (/collagen/.test(t)) return 'Collagen';
     return 'Other';
@@ -85,6 +94,7 @@ const CERTIFICATION_PATTERNS = [
     { regex: /consumer\s?lab/i, tag: 'ConsumerLab' },
     { regex: /\bcGMP\b/i, tag: 'cGMP' },
     { regex: /third[\s-]?party[\s-]?test/i, tag: 'Third-Party Tested' },
+    { regex: /\bIFOS\b/i, tag: 'IFOS' },
 ];
 
 const FREE_FROM_PATTERNS = [
@@ -124,6 +134,20 @@ function detectTags(text) {
     const claims = CLAIM_PATTERNS.filter(p => p.regex.test(t)).map(p => p.tag);
     const proprietary = /proprietary\s*(blend|formula|mix)/i.test(t);
     return { certs, freeFrom, fillers, claims, proprietary };
+}
+
+function parseEpaDha(text) {
+    const t = (text || '');
+    let epa = 0, dha = 0;
+    const epaMatch = t.match(/(\d+)\s*mg\s*(?:of\s*)?EPA/i) || t.match(/EPA\s*(\d+)\s*mg/i);
+    const dhaMatch = t.match(/(\d+)\s*mg\s*(?:of\s*)?DHA/i) || t.match(/DHA\s*(\d+)\s*mg/i);
+    if (epaMatch) epa = parseInt(epaMatch[1]);
+    if (dhaMatch) dha = parseInt(dhaMatch[1]);
+    if (epa === 0 && dha === 0) {
+        const combo = t.match(/(\d+)\s*mg\s*(?:omega[\s-]?3|EPA[\s+&\/]DHA|total\s*omega)/i);
+        if (combo) { epa = Math.round(parseInt(combo[1]) * 0.6); dha = Math.round(parseInt(combo[1]) * 0.4); }
+    }
+    return { epa, dha, totalOmega3: epa + dha };
 }
 
 // ==========================================
@@ -224,7 +248,15 @@ function normalizeAmazonItem(raw) {
     const price = parsePrice(raw.price || raw.price_string || raw.buybox_price);
     const servings = parseServings(title);
     const weight = parseWeight(title);
-    const tags = detectTags(title + ' ' + (raw.description || '') + ' ' + (raw.feature_bullets || []).join(' '));
+    const fullText = title + ' ' + (raw.description || '') + ' ' + (raw.feature_bullets || []).join(' ');
+    const tags = detectTags(fullText);
+    const category = detectCategory(title);
+
+    // EPA/DHA parsing for Fish Oil products
+    const omega = category === 'Fish Oil' ? parseEpaDha(fullText) : { epa: 0, dha: 0, totalOmega3: 0 };
+    const pricePerGramOmega3 = (omega.totalOmega3 > 0 && servings && price)
+        ? Math.round((price / (omega.totalOmega3 * servings / 1000)) * 100) / 100
+        : null;
 
     return {
         id: raw.asin || raw.product_id || raw.id,
@@ -233,7 +265,7 @@ function normalizeAmazonItem(raw) {
         brand: raw.brand || extractBrand(title),
         title: title,
         asinUrl: raw.url || raw.link || `https://www.amazon.com/dp/${raw.asin}`,
-        category: detectCategory(title),
+        category: category,
         priceListed: price,
         shippingInfo: (raw.is_prime || raw.has_prime) ? 'Prime' : (raw.shipping || 'Standard'),
         servingsDeclared: servings,
@@ -247,6 +279,10 @@ function normalizeAmazonItem(raw) {
         fillers: tags.fillers,
         additivesFlag: tags.fillers.length > 0,
         claims: tags.claims,
+        epaMg: omega.epa,
+        dhaMg: omega.dha,
+        totalOmega3Mg: omega.totalOmega3,
+        pricePerGramOmega3: pricePerGramOmega3,
         reviewsCount: raw.total_reviews || raw.reviews_count || raw.ratings_total || parseInt(raw.reviews) || 0,
         avgRating: parseFloat(raw.rating || raw.stars || 0),
         sponsoredFlag: !!raw.is_sponsored,
@@ -297,6 +333,9 @@ function buildStaticRow(item) {
     const propBlend = item.proprietaryBlend ? '<span class="badge badge-warn">Proprietary Blend</span>' : '<span class="badge badge-ok">Open Label</span>';
     const trustClass = item.trustScore >= 70 ? 'score-high' : item.trustScore >= 40 ? 'score-mid' : 'score-low';
     const gapClass = item.gapScore >= 60 ? 'score-high' : item.gapScore >= 30 ? 'score-mid' : 'score-low';
+    const omegaBadge = (item.totalOmega3Mg > 0)
+        ? `<span class="badge badge-cert">EPA ${item.epaMg}mg</span><span class="badge badge-cert">DHA ${item.dhaMg}mg</span>${item.pricePerGramOmega3 ? '<span class="badge badge-free">$' + item.pricePerGramOmega3.toFixed(2) + '/g Ω3</span>' : ''}`
+        : '';
 
     const imgHtml = item.image ? `<img src="${item.image}" alt="${item.brand}" loading="lazy" class="product-thumb">` : '';
 
@@ -313,7 +352,7 @@ function buildStaticRow(item) {
                         <td class="col-ingredients">${propBlend}</td>
                         <td class="col-ingredients">${freeFromBadges || '—'}</td>
                         <td class="col-ingredients">${fillerBadges || '<span class="badge badge-ok">None</span>'}</td>
-                        <td class="col-ingredients">${claimBadges || '—'}</td>
+                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}</td>
                         <td class="col-trust">${certBadges || '<span class="badge badge-none">None</span>'}</td>
                         <td class="col-trust"><span class="${trustClass}">${item.trustScore}</span></td>
                         <td class="col-value"><span class="${gapClass}">${item.gapScore}</span></td>
@@ -422,6 +461,23 @@ async function main() {
         }
     }
     if (reParsed > 0) console.log(`🔄 Re-parsed servings for ${reParsed} products`);
+
+    // Re-enrich EPA/DHA for Fish Oil products missing omega data
+    let omegaEnriched = 0;
+    for (const p of db) {
+        if (!p.category) p.category = detectCategory(p.title);
+        if (p.category === 'Fish Oil' && !p.epaMg) {
+            const omega = parseEpaDha(p.title);
+            p.epaMg = omega.epa;
+            p.dhaMg = omega.dha;
+            p.totalOmega3Mg = omega.totalOmega3;
+            p.pricePerGramOmega3 = (omega.totalOmega3 > 0 && p.servingsDeclared && p.priceListed)
+                ? Math.round((p.priceListed / (omega.totalOmega3 * p.servingsDeclared / 1000)) * 100) / 100
+                : null;
+            if (omega.totalOmega3 > 0) omegaEnriched++;
+        }
+    }
+    if (omegaEnriched > 0) console.log(`🐟 Enriched EPA/DHA for ${omegaEnriched} fish oil products`);
 
     // Compute scores
     computeAllScores(db);
