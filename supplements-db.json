@@ -1,0 +1,733 @@
+[
+  {
+    "id": "B000QSNYGI",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Optimum Nutrition",
+    "title": "Gold Standard 100% Whey Protein Powder, Naturally Flavored, Gluten Free, 4.8 lb",
+    "asinUrl": "https://www.amazon.com/dp/B000QSNYGI",
+    "category": "Whey",
+    "priceListed": 64.99,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 68,
+    "totalWeight": "4.8 lb",
+    "pricePerServing": 0.96,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "Informed-Choice"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "Gluten-Free"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [],
+    "reviewsCount": 145230,
+    "avgRating": 4.7,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 99,
+    "gapScore": 45
+  },
+  {
+    "id": "B0BXYZ1234",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Transparent Labs",
+    "title": "100% Grass-Fed Whey Protein Isolate, 28 Servings, No Artificial Sweeteners, Non-GMO, Gluten Free",
+    "asinUrl": "https://www.amazon.com/dp/B0BXYZ1234",
+    "category": "Whey",
+    "priceListed": 59.99,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 28,
+    "totalWeight": "1.98 lb",
+    "pricePerServing": 2.14,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "Third-Party Tested"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "Gluten-Free",
+      "Non-GMO",
+      "No Artificial"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [
+      "Transparent Label",
+      "Grass-Fed"
+    ],
+    "reviewsCount": 8432,
+    "avgRating": 4.5,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 98,
+    "gapScore": 40
+  },
+  {
+    "id": "B0CABC5678",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Momentous",
+    "title": "Grass-Fed Whey Protein, NSF Certified for Sport, 24 Servings, No Fillers",
+    "asinUrl": "https://www.amazon.com/dp/B0CABC5678",
+    "category": "Whey",
+    "priceListed": 55.95,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 24,
+    "totalWeight": "1.65 lb",
+    "pricePerServing": 2.33,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "NSF"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "No Artificial",
+      "Gluten-Free"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [
+      "Grass-Fed",
+      "Lab Tested"
+    ],
+    "reviewsCount": 3210,
+    "avgRating": 4.6,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 98,
+    "gapScore": 50
+  },
+  {
+    "id": "B07XYZ9012",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Thorne",
+    "title": "Whey Protein Isolate, NSF Certified, 30 Servings, Chocolate, cGMP",
+    "asinUrl": "https://www.amazon.com/dp/B07XYZ9012",
+    "category": "Whey",
+    "priceListed": 52,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 30,
+    "totalWeight": "1.87 lb",
+    "pricePerServing": 1.73,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "NSF",
+      "cGMP"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "Gluten-Free",
+      "Soy-Free"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [
+      "Lab Tested"
+    ],
+    "reviewsCount": 5678,
+    "avgRating": 4.4,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 98,
+    "gapScore": 50
+  },
+  {
+    "id": "B00NBGZ3HA",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Naked Nutrition",
+    "title": "Naked Whey 5LB - Only 1 Ingredient, Grass Fed, No Artificial Sweeteners, Non-GMO, Gluten Free",
+    "asinUrl": "https://www.amazon.com/dp/B00NBGZ3HA",
+    "category": "Whey",
+    "priceListed": 94.99,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 76,
+    "totalWeight": "5 lb",
+    "pricePerServing": 1.25,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "Third-Party Tested"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "Gluten-Free",
+      "Non-GMO",
+      "No Artificial",
+      "Soy-Free"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [
+      "Transparent Label",
+      "Grass-Fed"
+    ],
+    "reviewsCount": 42150,
+    "avgRating": 4.5,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 98,
+    "gapScore": 60
+  },
+  {
+    "id": "B00ABCWHEY",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Muscle Feast",
+    "title": "Grass Fed Whey Protein Isolate, All Natural, Hormone Free, No Maltodextrin, Gluten Free, 2lb",
+    "asinUrl": "https://www.amazon.com/dp/B00ABCWHEY",
+    "category": "Whey",
+    "priceListed": 39.99,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 27,
+    "totalWeight": "2 lb",
+    "pricePerServing": 1.48,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "Third-Party Tested"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "Gluten-Free",
+      "Non-GMO"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [
+      "Grass-Fed"
+    ],
+    "reviewsCount": 6230,
+    "avgRating": 4.4,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 98,
+    "gapScore": 70
+  },
+  {
+    "id": "B0DEF12345",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Transparent Labs",
+    "title": "BULK Pre-Workout, Clinically Dosed, No Artificial Sweeteners, Stevia, 30 Servings",
+    "asinUrl": "https://www.amazon.com/dp/B0DEF12345",
+    "category": "Pre-Workout",
+    "priceListed": 49.99,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 30,
+    "totalWeight": "17.5 oz",
+    "pricePerServing": 1.67,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "Third-Party Tested"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "Sucralose-Free",
+      "No Artificial",
+      "Stevia"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [
+      "Transparent Label",
+      "Clinically Studied"
+    ],
+    "reviewsCount": 12430,
+    "avgRating": 4.5,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 98,
+    "gapScore": 50
+  },
+  {
+    "id": "B0GHI67890",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Legion Athletics",
+    "title": "Pulse Pre-Workout, Clinically Dosed, No Artificial Sweeteners, Stevia, 21 Servings",
+    "asinUrl": "https://www.amazon.com/dp/B0GHI67890",
+    "category": "Pre-Workout",
+    "priceListed": 44.99,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 21,
+    "totalWeight": "12.2 oz",
+    "pricePerServing": 2.14,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "Third-Party Tested"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "Sucralose-Free",
+      "No Artificial",
+      "Stevia"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [
+      "Transparent Label",
+      "Clinically Studied"
+    ],
+    "reviewsCount": 18760,
+    "avgRating": 4.4,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 98,
+    "gapScore": 40
+  },
+  {
+    "id": "B0JKL11223",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Kaged",
+    "title": "Pre-Kaged Sport, Informed Sport Certified, 20 Servings, Third Party Tested",
+    "asinUrl": "https://www.amazon.com/dp/B0JKL11223",
+    "category": "Pre-Workout",
+    "priceListed": 29.99,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 20,
+    "totalWeight": "9.3 oz",
+    "pricePerServing": 1.5,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "Informed-Sport",
+      "Third-Party Tested"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "Gluten-Free"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [
+      "Clinically Studied"
+    ],
+    "reviewsCount": 4567,
+    "avgRating": 4.3,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 97,
+    "gapScore": 55
+  },
+  {
+    "id": "B0MNO44556",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Jacked Factory",
+    "title": "Nitrosurge Pre Workout, No Proprietary Blends, Sucralose Free, 30 Servings",
+    "asinUrl": "https://www.amazon.com/dp/B0MNO44556",
+    "category": "Pre-Workout",
+    "priceListed": 34.99,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 30,
+    "totalWeight": "8.9 oz",
+    "pricePerServing": 1.17,
+    "servingsVerified": true,
+    "thirdPartyCerts": [],
+    "thirdPartyFlag": false,
+    "freeFromTags": [
+      "Sucralose-Free"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [
+      "Transparent Label"
+    ],
+    "reviewsCount": 25600,
+    "avgRating": 4.3,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 57,
+    "gapScore": 20
+  },
+  {
+    "id": "B0PCREAT01",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Thorne",
+    "title": "Creatine Monohydrate, NSF Certified for Sport, 90 Servings, cGMP",
+    "asinUrl": "https://www.amazon.com/dp/B0PCREAT01",
+    "category": "Creatine",
+    "priceListed": 35,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 90,
+    "totalWeight": "16 oz",
+    "pricePerServing": 0.39,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "NSF",
+      "cGMP"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "Gluten-Free"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [
+      "Lab Tested"
+    ],
+    "reviewsCount": 9870,
+    "avgRating": 4.7,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 99,
+    "gapScore": 35
+  },
+  {
+    "id": "B0QCREAT02",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Momentous",
+    "title": "Creatine Monohydrate, NSF Certified, Creapure, 60 Servings",
+    "asinUrl": "https://www.amazon.com/dp/B0QCREAT02",
+    "category": "Creatine",
+    "priceListed": 44.95,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 60,
+    "totalWeight": "10.6 oz",
+    "pricePerServing": 0.75,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "NSF"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "Gluten-Free",
+      "Non-GMO"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [
+      "Lab Tested"
+    ],
+    "reviewsCount": 4320,
+    "avgRating": 4.6,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 98,
+    "gapScore": 50
+  },
+  {
+    "id": "B0RCREAT03",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Nutricost",
+    "title": "Creatine Monohydrate Micronized, 500g, 100 Servings, Third Party Tested, Gluten Free",
+    "asinUrl": "https://www.amazon.com/dp/B0RCREAT03",
+    "category": "Creatine",
+    "priceListed": 15.95,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 100,
+    "totalWeight": "17.6 oz",
+    "pricePerServing": 0.16,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "Third-Party Tested"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "Gluten-Free",
+      "Non-GMO"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [],
+    "reviewsCount": 67800,
+    "avgRating": 4.6,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 98,
+    "gapScore": 60
+  },
+  {
+    "id": "B0SCREAT04",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "BulkSupplements",
+    "title": "Creatine Monohydrate Powder, 1 kg, 200 Servings, Lab Tested, No Fillers",
+    "asinUrl": "https://www.amazon.com/dp/B0SCREAT04",
+    "category": "Creatine",
+    "priceListed": 19.96,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 200,
+    "totalWeight": "35.2 oz",
+    "pricePerServing": 0.1,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "Third-Party Tested"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "Gluten-Free",
+      "Soy-Free",
+      "Non-GMO"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [
+      "Lab Tested"
+    ],
+    "reviewsCount": 89500,
+    "avgRating": 4.6,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 98,
+    "gapScore": 60
+  },
+  {
+    "id": "B0TELEC01",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "LMNT",
+    "title": "LMNT Electrolyte Drink Mix, No Sugar, No Artificial Ingredients, Keto, 30 Packets",
+    "asinUrl": "https://www.amazon.com/dp/B0TELEC01",
+    "category": "Electrolytes",
+    "priceListed": 45,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 30,
+    "totalWeight": "7.2 oz",
+    "pricePerServing": 1.5,
+    "servingsVerified": true,
+    "thirdPartyCerts": [],
+    "thirdPartyFlag": false,
+    "freeFromTags": [
+      "Gluten-Free",
+      "No Artificial",
+      "Keto-Friendly"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [],
+    "reviewsCount": 38900,
+    "avgRating": 4.7,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 59,
+    "gapScore": 15
+  },
+  {
+    "id": "B0UELEC02",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Liquid IV",
+    "title": "Hydration Multiplier Electrolyte Drink Mix, Non-GMO, 16 Packets",
+    "asinUrl": "https://www.amazon.com/dp/B0UELEC02",
+    "category": "Electrolytes",
+    "priceListed": 23.99,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 16,
+    "totalWeight": "5.6 oz",
+    "pricePerServing": 1.5,
+    "servingsVerified": true,
+    "thirdPartyCerts": [],
+    "thirdPartyFlag": false,
+    "freeFromTags": [
+      "Non-GMO",
+      "Gluten-Free"
+    ],
+    "proprietaryBlend": true,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [],
+    "reviewsCount": 125000,
+    "avgRating": 4.6,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 43,
+    "gapScore": 15
+  },
+  {
+    "id": "B0VELEC03",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Promix",
+    "title": "Electrolyte Powder, No Sugar, Third Party Tested, 90 Servings, Unflavored",
+    "asinUrl": "https://www.amazon.com/dp/B0VELEC03",
+    "category": "Electrolytes",
+    "priceListed": 24.95,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 90,
+    "totalWeight": "12.7 oz",
+    "pricePerServing": 0.28,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "Third-Party Tested"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "Gluten-Free",
+      "No Artificial",
+      "Vegan"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [
+      "Lab Tested"
+    ],
+    "reviewsCount": 2100,
+    "avgRating": 4.4,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 98,
+    "gapScore": 70
+  },
+  {
+    "id": "B0WMULTI01",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Thorne",
+    "title": "Basic Nutrients 2/Day, NSF Certified, Multivitamin, 60 Capsules, cGMP",
+    "asinUrl": "https://www.amazon.com/dp/B0WMULTI01",
+    "category": "Multivitamin",
+    "priceListed": 29,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 30,
+    "totalWeight": "4.2 oz",
+    "pricePerServing": 0.97,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "NSF",
+      "cGMP"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "Gluten-Free",
+      "Soy-Free"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [],
+    "reviewsCount": 11200,
+    "avgRating": 4.6,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 98,
+    "gapScore": 50
+  },
+  {
+    "id": "B0XMULTI02",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Nature Made",
+    "title": "Multivitamin Complete, USP Verified, 250 Tablets",
+    "asinUrl": "https://www.amazon.com/dp/B0XMULTI02",
+    "category": "Multivitamin",
+    "priceListed": 16.59,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 250,
+    "totalWeight": "8.1 oz",
+    "pricePerServing": 0.07,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "USP"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "Gluten-Free"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [],
+    "reviewsCount": 98700,
+    "avgRating": 4.7,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 99,
+    "gapScore": 45
+  },
+  {
+    "id": "B0YMULTI03",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Ritual",
+    "title": "Essential for Men 18+ Multivitamin, Third Party Tested, Vegan, 30 Day Supply",
+    "asinUrl": "https://www.amazon.com/dp/B0YMULTI03",
+    "category": "Multivitamin",
+    "priceListed": 35,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 30,
+    "totalWeight": "3.5 oz",
+    "pricePerServing": 1.17,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "Third-Party Tested",
+      "USP"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "Gluten-Free",
+      "Vegan",
+      "Non-GMO",
+      "No Artificial"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [
+      "Transparent Label"
+    ],
+    "reviewsCount": 5670,
+    "avgRating": 4.3,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 97,
+    "gapScore": 50
+  },
+  {
+    "id": "B0ZMULTI04",
+    "scrapeDate": "2026-06-24",
+    "marketplace": "Amazon US",
+    "brand": "Garden of Life",
+    "title": "Vitamin Code Raw One for Men, Whole Food Multivitamin, 75 Capsules, Non-GMO, Gluten Free",
+    "asinUrl": "https://www.amazon.com/dp/B0ZMULTI04",
+    "category": "Multivitamin",
+    "priceListed": 32.49,
+    "shippingInfo": "Prime",
+    "servingsDeclared": 75,
+    "totalWeight": "5.8 oz",
+    "pricePerServing": 0.43,
+    "servingsVerified": true,
+    "thirdPartyCerts": [
+      "Third-Party Tested"
+    ],
+    "thirdPartyFlag": true,
+    "freeFromTags": [
+      "Gluten-Free",
+      "Non-GMO",
+      "Vegan"
+    ],
+    "proprietaryBlend": false,
+    "fillers": [],
+    "additivesFlag": false,
+    "claims": [],
+    "reviewsCount": 24300,
+    "avgRating": 4.5,
+    "sponsoredFlag": false,
+    "matchedKeywords": [],
+    "trustScore": 98,
+    "gapScore": 60
+  }
+]

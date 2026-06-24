@@ -17,8 +17,63 @@ const path = require('path');
 // ==========================================
 // 1. CONFIGURATION & CREDENTIALS
 // ==========================================
-const SCRAPERAPI_KEY = '9e6091af4f7987d1f035fa0490980022';
+// Priority: env vars override hardcoded values.
+// Set SCRAPER_API_KEY or (OXY_USER + OXY_PASS) to switch providers at runtime.
+const SCRAPERAPI_KEY      = process.env.SCRAPER_API_KEY || '9e6091af4f7987d1f035fa0490980022';
 const SCRAPERAPI_ENDPOINT = 'https://api.scraperapi.com/structured/walmart/search';
+
+const OXY_USER = process.env.OXY_USER || null; // e.g. 'customer-yourlogin'
+const OXY_PASS = process.env.OXY_PASS || null; // e.g. 'yourpassword'
+const OXY_ENDPOINT = 'https://realtime.oxylabs.io/v1/queries';
+
+// Which provider is active? Oxylabs takes priority if credentials are set.
+const USE_OXYLABS = !!(OXY_USER && OXY_PASS);
+if (USE_OXYLABS) {
+    console.log('🔵 Provider: Oxylabs (OXY_USER + OXY_PASS detected)');
+} else {
+    console.log('🟢 Provider: ScraperAPI');
+}
+
+/**
+ * Unified fetch function — auto-switches between ScraperAPI and Oxylabs.
+ * Returns normalized { items: [...] } regardless of provider.
+ *
+ * @param {string} query   - The search keyword
+ * @param {number} page    - Page number (ScraperAPI only, Oxylabs uses pages in body)
+ * @returns {Promise<{items: Array}>}
+ */
+async function fetchFromApi(query, page = 1) {
+    if (USE_OXYLABS) {
+        const credentials = Buffer.from(`${OXY_USER}:${OXY_PASS}`).toString('base64');
+        const response = await fetch(OXY_ENDPOINT, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Basic ${credentials}`
+            },
+            body: JSON.stringify({
+                source: 'walmart_search',
+                query: query,
+                parse: true,
+                start_page: page,
+                pages: 1
+            })
+        });
+        if (!response.ok) {
+            throw new Error(`Oxylabs HTTP ${response.status}: ${await response.text()}`);
+        }
+        const raw = await response.json();
+        // Normalize Oxylabs nested format → { items: [] }
+        return { items: raw.results?.[0]?.content?.results?.organic || [] };
+    } else {
+        const url = `${SCRAPERAPI_ENDPOINT}?api_key=${SCRAPERAPI_KEY}&query=${encodeURIComponent(query)}&page=${page}`;
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`ScraperAPI HTTP ${response.status}`);
+        }
+        return await response.json(); // Already { items: [] }
+    }
+}
 
 const HTML_FILE_PATH = path.join(__dirname, 'index.html');
 const DB_FILE_PATH   = path.join(__dirname, 'products-db.json');
@@ -446,7 +501,7 @@ function buildStaticTableRows(products) {
             html += `
                     <!-- Mid-Table Native Ad Inserted After 10th row -->
                     <tr class="table-ad-row" data-ad-row="true">
-                        <td colspan="7">
+                        <td colspan="8">
                             <div class="native-ad-box">
                                 AdSense Placement - Responsive Banner
                             </div>
@@ -474,8 +529,26 @@ function buildStaticTableRows(products) {
                             ${tagsHTML}
                         </td>
                         <td class="col-size">${item.size_oz.toFixed(1)} oz</td>
-                        <td class="col-price">$${item.price.toFixed(2)}</td>
-                        <td class="col-price-oz">$${item.price_per_oz.toFixed(2)}/oz</td>
+                        <td class="col-price">${item.price.toFixed(2)}</td>
+                        <td class="col-price-oz">${item.price_per_oz.toFixed(2)}/oz</td>
+                        <td class="col-my-price">
+                            <div class="price-display" id="pd-${escape(item.id)}" onclick="activatePriceInput('${escape(item.id)}', ${item.size_oz})">
+                                <span class="price-val">${item.price.toFixed(2)}</span>
+                                <span class="edit-hint">✏️ edit</span>
+                                <button class="price-reset-btn" id="rst-${escape(item.id)}"
+                                    onclick="event.stopPropagation(); resetMyPrice('${escape(item.id)}', ${item.price}, ${item.price_per_oz}, ${item.size_oz})"
+                                    title="Reset to Walmart price">✕</button>
+                            </div>
+                            <div class="price-input-wrap" id="piw-${escape(item.id)}">
+                                <span style="color:var(--text-muted);font-size:0.85rem">$</span>
+                                <input type="number" step="0.01" min="0" class="my-price-input" id="mpi-${escape(item.id)}"
+                                    value="${item.price.toFixed(2)}"
+                                    onkeydown="if(event.key==='Enter') confirmMyPrice('${escape(item.id)}', ${item.size_oz}); if(event.key==='Escape') cancelPriceInput('${escape(item.id)}')"
+                                    placeholder="e.g. 4.99">
+                                <button class="price-confirm-btn" onclick="confirmMyPrice('${escape(item.id)}', ${item.size_oz})">✓</button>
+                                <button class="price-cancel-btn" onclick="cancelPriceInput('${escape(item.id)}')">✕</button>
+                            </div>
+                        </td>
                         <td>
                             <a class="buy-btn" href="${escape(item.walmart_affiliate_url)}" target="_blank" rel="nofollow sponsored">
                                 Buy <svg viewBox="0 0 24 24"><path d="M5 21h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2zm2-8h10v2H7v-2zm0-4h10v2H7V9zm0-4h10v2H7V5z"/></svg>
@@ -640,17 +713,12 @@ async function main() {
                     if (!cacheHit) {
                         process.stdout.write(`   [${String(totalApiCalls).padStart(3)}] "${query}" p${page} → `);
                         try {
-                            const response = await fetch(url);
-                            if (!response.ok) {
-                                console.log(`❌ HTTP ${response.status}`);
-                                continue;
-                            }
-                            const data = await response.json();
+                            const data = await fetchFromApi(query, page);
                             items = (data && data.items) ? data.items : [];
                             queryRawItems.push(...items);
                             console.log(`✅ ${items.length} items (Fetched & Cached)`);
 
-                            // Save to cache
+                            // Save to cache (format is always normalized { items: [] })
                             fs.writeFileSync(cacheFile, JSON.stringify(data, null, 2), 'utf8');
 
                             // Stop paginating if page returned < 10 items (end of results)

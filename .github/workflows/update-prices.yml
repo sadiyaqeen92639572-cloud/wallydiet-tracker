@@ -1,10 +1,9 @@
 name: Update Walmart Prices
 
 on:
-  schedule:
-    # Run every 2 months on the 1st: Feb, Apr, Jun, Aug, Oct, Dec at 2 AM UTC
-    - cron: '0 2 1 2,4,6,8,10,12 *'
-  workflow_dispatch: # Allow manual trigger
+  # schedule:
+  #   - cron: '0 2 1 2,4,6,8,10,12 *'
+  workflow_dispatch:
 
 jobs:
   update:
@@ -21,14 +20,9 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: |
-          npm init -y
-          npm install axios cheerio
-
       - name: Run price update script
         env:
-          SCRAPERAPI_KEY: ${{ secrets.SCRAPERAPI_KEY }}
+          SCRAPER_API_KEY: ${{ secrets.SCRAPERAPI_KEY }}
         run: node update-data.js
 
       - name: Commit updated prices
