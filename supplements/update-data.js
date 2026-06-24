@@ -197,79 +197,11 @@ async function fetchWithCache(url, cacheKey) {
 }
 
 // ==========================================
-// 7. MOCK DATA
+// 7. MOCK DATA — DISABLED (now using real ScraperAPI Amazon data in production)
 // ==========================================
-function generateMockData() {
-    const brands = [
-        'Optimum Nutrition', 'Transparent Labs', 'Momentous', 'Thorne',
-        'Garden of Life', 'NOW Sports', 'Legion Athletics', 'Nutricost',
-        'Jacked Factory', 'Cellucor', 'Kaged', 'Dymatize',
-        'Nature Made', 'Ritual', 'LMNT', 'Liquid IV',
-        'Muscle Feast', 'Naked Nutrition', 'BulkSupplements', 'Promix',
-    ];
-
-    const products = [
-        // Whey
-        { brand: 'Optimum Nutrition', title: 'Gold Standard 100% Whey Protein Powder, Naturally Flavored, Gluten Free, 4.8 lb', cat: 'Whey', price: 64.99, servings: 68, rating: 4.7, reviews: 145230, asin: 'B000QSNYGI', weight: '4.8 lb', certs: ['Informed-Choice'], freeFrom: ['Gluten-Free'], fillers: [], proprietary: false, claims: [] },
-        { brand: 'Transparent Labs', title: '100% Grass-Fed Whey Protein Isolate, 28 Servings, No Artificial Sweeteners, Non-GMO, Gluten Free', cat: 'Whey', price: 59.99, servings: 28, rating: 4.5, reviews: 8432, asin: 'B0BXYZ1234', weight: '1.98 lb', certs: ['Third-Party Tested'], freeFrom: ['Gluten-Free', 'Non-GMO', 'No Artificial'], fillers: [], proprietary: false, claims: ['Transparent Label', 'Grass-Fed'] },
-        { brand: 'Momentous', title: 'Grass-Fed Whey Protein, NSF Certified for Sport, 24 Servings, No Fillers', cat: 'Whey', price: 55.95, servings: 24, rating: 4.6, reviews: 3210, asin: 'B0CABC5678', weight: '1.65 lb', certs: ['NSF'], freeFrom: ['No Artificial', 'Gluten-Free'], fillers: [], proprietary: false, claims: ['Grass-Fed', 'Lab Tested'] },
-        { brand: 'Thorne', title: 'Whey Protein Isolate, NSF Certified, 30 Servings, Chocolate, cGMP', cat: 'Whey', price: 52.00, servings: 30, rating: 4.4, reviews: 5678, asin: 'B07XYZ9012', weight: '1.87 lb', certs: ['NSF', 'cGMP'], freeFrom: ['Gluten-Free', 'Soy-Free'], fillers: [], proprietary: false, claims: ['Lab Tested'] },
-        { brand: 'Naked Nutrition', title: 'Naked Whey 5LB - Only 1 Ingredient, Grass Fed, No Artificial Sweeteners, Non-GMO, Gluten Free', cat: 'Whey', price: 94.99, servings: 76, rating: 4.5, reviews: 42150, asin: 'B00NBGZ3HA', weight: '5 lb', certs: ['Third-Party Tested'], freeFrom: ['Gluten-Free', 'Non-GMO', 'No Artificial', 'Soy-Free'], fillers: [], proprietary: false, claims: ['Transparent Label', 'Grass-Fed'] },
-        { brand: 'Muscle Feast', title: 'Grass Fed Whey Protein Isolate, All Natural, Hormone Free, No Maltodextrin, Gluten Free, 2lb', cat: 'Whey', price: 39.99, servings: 27, rating: 4.4, reviews: 6230, asin: 'B00ABCWHEY', weight: '2 lb', certs: ['Third-Party Tested'], freeFrom: ['Gluten-Free', 'Non-GMO'], fillers: [], proprietary: false, claims: ['Grass-Fed'] },
-
-        // Pre-Workout
-        { brand: 'Transparent Labs', title: 'BULK Pre-Workout, Clinically Dosed, No Artificial Sweeteners, Stevia, 30 Servings', cat: 'Pre-Workout', price: 49.99, servings: 30, rating: 4.5, reviews: 12430, asin: 'B0DEF12345', weight: '17.5 oz', certs: ['Third-Party Tested'], freeFrom: ['Sucralose-Free', 'No Artificial', 'Stevia'], fillers: [], proprietary: false, claims: ['Transparent Label', 'Clinically Studied'] },
-        { brand: 'Legion Athletics', title: 'Pulse Pre-Workout, Clinically Dosed, No Artificial Sweeteners, Stevia, 21 Servings', cat: 'Pre-Workout', price: 44.99, servings: 21, rating: 4.4, reviews: 18760, asin: 'B0GHI67890', weight: '12.2 oz', certs: ['Third-Party Tested'], freeFrom: ['Sucralose-Free', 'No Artificial', 'Stevia'], fillers: [], proprietary: false, claims: ['Transparent Label', 'Clinically Studied'] },
-        { brand: 'Kaged', title: 'Pre-Kaged Sport, Informed Sport Certified, 20 Servings, Third Party Tested', cat: 'Pre-Workout', price: 29.99, servings: 20, rating: 4.3, reviews: 4567, asin: 'B0JKL11223', weight: '9.3 oz', certs: ['Informed-Sport', 'Third-Party Tested'], freeFrom: ['Gluten-Free'], fillers: [], proprietary: false, claims: ['Clinically Studied'] },
-        { brand: 'Jacked Factory', title: 'Nitrosurge Pre Workout, No Proprietary Blends, Sucralose Free, 30 Servings', cat: 'Pre-Workout', price: 34.99, servings: 30, rating: 4.3, reviews: 25600, asin: 'B0MNO44556', weight: '8.9 oz', certs: [], freeFrom: ['Sucralose-Free'], fillers: [], proprietary: false, claims: ['Transparent Label'] },
-
-        // Creatine
-        { brand: 'Thorne', title: 'Creatine Monohydrate, NSF Certified for Sport, 90 Servings, cGMP', cat: 'Creatine', price: 35.00, servings: 90, rating: 4.7, reviews: 9870, asin: 'B0PCREAT01', weight: '16 oz', certs: ['NSF', 'cGMP'], freeFrom: ['Gluten-Free'], fillers: [], proprietary: false, claims: ['Lab Tested'] },
-        { brand: 'Momentous', title: 'Creatine Monohydrate, NSF Certified, Creapure, 60 Servings', cat: 'Creatine', price: 44.95, servings: 60, rating: 4.6, reviews: 4320, asin: 'B0QCREAT02', weight: '10.6 oz', certs: ['NSF'], freeFrom: ['Gluten-Free', 'Non-GMO'], fillers: [], proprietary: false, claims: ['Lab Tested'] },
-        { brand: 'Nutricost', title: 'Creatine Monohydrate Micronized, 500g, 100 Servings, Third Party Tested, Gluten Free', cat: 'Creatine', price: 15.95, servings: 100, rating: 4.6, reviews: 67800, asin: 'B0RCREAT03', weight: '17.6 oz', certs: ['Third-Party Tested'], freeFrom: ['Gluten-Free', 'Non-GMO'], fillers: [], proprietary: false, claims: [] },
-        { brand: 'BulkSupplements', title: 'Creatine Monohydrate Powder, 1 kg, 200 Servings, Lab Tested, No Fillers', cat: 'Creatine', price: 19.96, servings: 200, rating: 4.6, reviews: 89500, asin: 'B0SCREAT04', weight: '35.2 oz', certs: ['Third-Party Tested'], freeFrom: ['Gluten-Free', 'Soy-Free', 'Non-GMO'], fillers: [], proprietary: false, claims: ['Lab Tested'] },
-
-        // Electrolytes
-        { brand: 'LMNT', title: 'LMNT Electrolyte Drink Mix, No Sugar, No Artificial Ingredients, Keto, 30 Packets', cat: 'Electrolytes', price: 45.00, servings: 30, rating: 4.7, reviews: 38900, asin: 'B0TELEC01', weight: '7.2 oz', certs: [], freeFrom: ['Gluten-Free', 'No Artificial', 'Keto-Friendly'], fillers: [], proprietary: false, claims: [] },
-        { brand: 'Liquid IV', title: 'Hydration Multiplier Electrolyte Drink Mix, Non-GMO, 16 Packets', cat: 'Electrolytes', price: 23.99, servings: 16, rating: 4.6, reviews: 125000, asin: 'B0UELEC02', weight: '5.6 oz', certs: [], freeFrom: ['Non-GMO', 'Gluten-Free'], fillers: [], proprietary: true, claims: [] },
-        { brand: 'Promix', title: 'Electrolyte Powder, No Sugar, Third Party Tested, 90 Servings, Unflavored', cat: 'Electrolytes', price: 24.95, servings: 90, rating: 4.4, reviews: 2100, asin: 'B0VELEC03', weight: '12.7 oz', certs: ['Third-Party Tested'], freeFrom: ['Gluten-Free', 'No Artificial', 'Vegan'], fillers: [], proprietary: false, claims: ['Lab Tested'] },
-
-        // Multivitamin
-        { brand: 'Thorne', title: 'Basic Nutrients 2/Day, NSF Certified, Multivitamin, 60 Capsules, cGMP', cat: 'Multivitamin', price: 29.00, servings: 30, rating: 4.6, reviews: 11200, asin: 'B0WMULTI01', weight: '4.2 oz', certs: ['NSF', 'cGMP'], freeFrom: ['Gluten-Free', 'Soy-Free'], fillers: [], proprietary: false, claims: [] },
-        { brand: 'Nature Made', title: 'Multivitamin Complete, USP Verified, 250 Tablets', cat: 'Multivitamin', price: 16.59, servings: 250, rating: 4.7, reviews: 98700, asin: 'B0XMULTI02', weight: '8.1 oz', certs: ['USP'], freeFrom: ['Gluten-Free'], fillers: [], proprietary: false, claims: [] },
-        { brand: 'Ritual', title: 'Essential for Men 18+ Multivitamin, Third Party Tested, Vegan, 30 Day Supply', cat: 'Multivitamin', price: 35.00, servings: 30, rating: 4.3, reviews: 5670, asin: 'B0YMULTI03', weight: '3.5 oz', certs: ['Third-Party Tested', 'USP'], freeFrom: ['Gluten-Free', 'Vegan', 'Non-GMO', 'No Artificial'], fillers: [], proprietary: false, claims: ['Transparent Label'] },
-        { brand: 'Garden of Life', title: 'Vitamin Code Raw One for Men, Whole Food Multivitamin, 75 Capsules, Non-GMO, Gluten Free', cat: 'Multivitamin', price: 32.49, servings: 75, rating: 4.5, reviews: 24300, asin: 'B0ZMULTI04', weight: '5.8 oz', certs: ['Third-Party Tested'], freeFrom: ['Gluten-Free', 'Non-GMO', 'Vegan'], fillers: [], proprietary: false, claims: [] },
-    ];
-
-    return products.map((p, i) => ({
-        id: p.asin,
-        scrapeDate: new Date().toISOString().split('T')[0],
-        marketplace: 'Amazon US',
-        brand: p.brand,
-        title: p.title,
-        asinUrl: `https://www.amazon.com/dp/${p.asin}`,
-        category: p.cat,
-        priceListed: p.price,
-        shippingInfo: 'Prime',
-        servingsDeclared: p.servings,
-        totalWeight: p.weight,
-        pricePerServing: p.servings > 0 ? Math.round((p.price / p.servings) * 100) / 100 : null,
-        servingsVerified: p.servings > 0,
-        thirdPartyCerts: p.certs,
-        thirdPartyFlag: p.certs.length > 0,
-        freeFromTags: p.freeFrom,
-        proprietaryBlend: p.proprietary,
-        fillers: p.fillers,
-        additivesFlag: p.fillers.length > 0,
-        claims: p.claims,
-        reviewsCount: p.reviews,
-        avgRating: p.rating,
-        sponsoredFlag: false,
-        matchedKeywords: [],
-        trustScore: 0,
-        gapScore: 0,
-    }));
-}
+// function generateMockData() { ... }
+// Mock data was used during development. Now disabled.
+// To re-enable for dev, uncomment the full function in git history (commit 4cddb4c).
 
 // ==========================================
 // 8. NORMALIZE RAW AMAZON ITEM
@@ -290,7 +222,7 @@ function normalizeAmazonItem(raw) {
         asinUrl: raw.url || raw.link || `https://www.amazon.com/dp/${raw.asin}`,
         category: detectCategory(title),
         priceListed: price,
-        shippingInfo: raw.is_prime ? 'Prime' : (raw.shipping || 'Standard'),
+        shippingInfo: (raw.is_prime || raw.has_prime) ? 'Prime' : (raw.shipping || 'Standard'),
         servingsDeclared: servings,
         totalWeight: weight ? `${weight.value} ${weight.unit}` : null,
         pricePerServing: (servings && price) ? Math.round((price / servings) * 100) / 100 : null,
@@ -302,9 +234,10 @@ function normalizeAmazonItem(raw) {
         fillers: tags.fillers,
         additivesFlag: tags.fillers.length > 0,
         claims: tags.claims,
-        reviewsCount: raw.reviews_count || raw.ratings_total || parseInt(raw.reviews) || 0,
+        reviewsCount: raw.total_reviews || raw.reviews_count || raw.ratings_total || parseInt(raw.reviews) || 0,
         avgRating: parseFloat(raw.rating || raw.stars || 0),
         sponsoredFlag: !!raw.is_sponsored,
+        image: raw.image || raw.image_url || raw.thumbnail || null,
         matchedKeywords: [],
         trustScore: 0,
         gapScore: 0,
@@ -352,7 +285,10 @@ function buildStaticRow(item) {
     const trustClass = item.trustScore >= 70 ? 'score-high' : item.trustScore >= 40 ? 'score-mid' : 'score-low';
     const gapClass = item.gapScore >= 60 ? 'score-high' : item.gapScore >= 30 ? 'score-mid' : 'score-low';
 
+    const imgHtml = item.image ? `<img src="${item.image}" alt="${item.brand}" loading="lazy" class="product-thumb">` : '';
+
     return `                    <tr data-category="${item.category}" data-brand="${item.brand}" data-id="${item.id}">
+                        <td class="col-essential col-img">${imgHtml}</td>
                         <td class="col-essential">${item.brand}</td>
                         <td class="col-essential col-title"><a href="${item.asinUrl}" target="_blank" rel="nofollow sponsored">${item.title}</a></td>
                         <td class="col-essential">${item.category}</td>
@@ -369,6 +305,7 @@ function buildStaticRow(item) {
                         <td class="col-trust"><span class="${trustClass}">${item.trustScore}</span></td>
                         <td class="col-seo"><span class="${gapClass}">${item.gapScore}</span></td>
                         <td class="col-seo">${item.sponsoredFlag ? '⚠️ Yes' : 'No'}</td>
+                        <td class="col-essential"><a href="${item.asinUrl}" target="_blank" rel="nofollow sponsored" class="buy-btn">Buy ↗</a></td>
                     </tr>`;
 }
 
@@ -411,26 +348,14 @@ function updateHtml(products) {
 // ==========================================
 async function main() {
     console.log(`\n🧪 Amazon Supplements Scraper`);
-    console.log(`   Mode: ${IS_MOCK ? 'MOCK' : IS_FULL ? 'FULL' : 'LIGHT'}`);
+    console.log(`   Mode: ${IS_FULL ? 'FULL' : 'LIGHT'}`);
     console.log(`   Pages per query: ${MAX_PAGES}\n`);
 
     let db = fs.existsSync(DB_FILE) ? JSON.parse(fs.readFileSync(DB_FILE, 'utf8')) : [];
     const knownIds = new Set(db.map(p => p.id));
     console.log(`📦 DB: ${db.length} products loaded`);
 
-    if (IS_MOCK) {
-        console.log('\n🎭 Generating mock data...');
-        const mockProducts = generateMockData();
-        let added = 0;
-        for (const p of mockProducts) {
-            if (!knownIds.has(p.id)) {
-                knownIds.add(p.id);
-                db.push(p);
-                added++;
-            }
-        }
-        console.log(`   ✅ +${added} mock products`);
-    } else {
+    {
         for (const query of QUERIES) {
             for (let page = 1; page <= MAX_PAGES; page++) {
                 const cacheKey = `${query.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_p${page}`;
