@@ -65,6 +65,13 @@ const QUERIES = [
     'liquid fish oil high potency',
     'algae omega 3 vegan DHA',
     'fish oil no burp enteric coated',
+    // Probiotics
+    'probiotics third party tested',
+    'best probiotics CFU count billion',
+    'shelf stable probiotics no refrigeration',
+    'women probiotics gut health',
+    'probiotics with prebiotics synbiotic',
+    'NSF certified probiotics',
 ];
 
 // ==========================================
@@ -78,6 +85,7 @@ function detectCategory(title) {
     if (/electrolyte|hydration|lyte/.test(t)) return 'Electrolytes';
     if (/multivitamin|multi[\s-]?vitamin|daily vitamin/.test(t)) return 'Multivitamin';
     if (/fish oil|omega[\s-]?3|epa.*dha|dha.*epa|cod liver oil|krill oil|algae.*omega/.test(t)) return 'Fish Oil';
+    if (/probiotic|acidophilus|lactobacillus|bifidobacterium|gut flora|digestive enzymes.*probiotic/i.test(t)) return 'Probiotics';
     if (/bcaa|amino|eaa/.test(t)) return 'Amino Acids';
     if (/collagen/.test(t)) return 'Collagen';
     return 'Other';
@@ -117,6 +125,8 @@ const FILLER_PATTERNS = [
 ];
 
 const CLAIM_PATTERNS = [
+    { regex: /shelf[\s-]?stable/i, tag: 'Shelf-Stable' },
+    { regex: /delayed[\s-]?release/i, tag: 'Delayed Release' },
     { regex: /transparent\s*label/i, tag: 'Transparent Label' },
     { regex: /clinically\s*(studied|dosed|proven)/i, tag: 'Clinically Studied' },
     { regex: /lab[\s-]?tested/i, tag: 'Lab Tested' },
@@ -150,16 +160,29 @@ function parseEpaDha(text) {
     return { epa, dha, totalOmega3: epa + dha };
 }
 
+function parseCFU(text) {
+    const t = (text || '');
+    const b = t.match(/(\d+)\s*billion\s*(?:CFU|cfu|active|live)/i);
+    if (b) return parseInt(b[1]);
+    const b2 = t.match(/(\d+)\s*(?:B|bil)\s*CFU/i);
+    if (b2) return parseInt(b2[1]);
+    const raw = t.match(/(\d[\d,]+)\s*CFU/i);
+    if (raw) return Math.round(parseInt(raw[1].replace(/,/g, '')) / 1e9);
+    return 0;
+}
+
 // ==========================================
 // 4. SERVING/SIZE PARSING
 // ==========================================
 function parseServings(title) {
     const m = title.match(/(\d+)\s*serv/i);
     if (m) return parseInt(m[1]);
-    const alt = title.match(/(\d+)\s*(?:stickpack|stick\s*pack|packet|count|pouch|sachet|stick|capsule|tablet|softgel|gummie|piece|pop)s?\b/i);
+    const alt = title.match(/(\d+)\s*(?:stickpack|stick\s*pack|packet|ct\b|count|pouch|sachet|stick|(?:veggie\s*|vegetarian\s*|veg\s*|delayed[\s-]?release\s*|enteric[\s-]?coated\s*|mini\s*)?capsule|(?:veggie\s*|veg\s*)?cap|tablet|softgel|soft\s*gel|gummie|gummy|chew|lozenge|piece|pop|dose)s?\b/i);
     if (alt) return parseInt(alt[1]);
     const packOf = title.match(/pack\s*of\s*(\d+)/i);
-    if (packOf) return parseInt(packOf[1]);
+    if (packOf && parseInt(packOf[1]) > 1) return parseInt(packOf[1]);
+    const countDash = title.match(/(\d+)[-\s](?:count|ct|pack)\b/i);
+    if (countDash && parseInt(countDash[1]) > 1) return parseInt(countDash[1]);
     return null;
 }
 
@@ -258,6 +281,12 @@ function normalizeAmazonItem(raw) {
         ? Math.round((price / (omega.totalOmega3 * servings / 1000)) * 100) / 100
         : null;
 
+    // CFU parsing for Probiotics — price per 10 billion CFU
+    const cfuBillions = category === 'Probiotics' ? parseCFU(fullText) : 0;
+    const pricePer10bCFU = (cfuBillions > 0 && servings && price)
+        ? Math.round((price / (cfuBillions * servings / 10)) * 100) / 100
+        : null;
+
     return {
         id: raw.asin || raw.product_id || raw.id,
         scrapeDate: new Date().toISOString().split('T')[0],
@@ -283,6 +312,8 @@ function normalizeAmazonItem(raw) {
         dhaMg: omega.dha,
         totalOmega3Mg: omega.totalOmega3,
         pricePerGramOmega3: pricePerGramOmega3,
+        cfuBillions: cfuBillions,
+        pricePer10bCFU: pricePer10bCFU,
         reviewsCount: raw.total_reviews || raw.reviews_count || raw.ratings_total || parseInt(raw.reviews) || 0,
         avgRating: parseFloat(raw.rating || raw.stars || 0),
         sponsoredFlag: !!raw.is_sponsored,
@@ -336,6 +367,9 @@ function buildStaticRow(item) {
     const omegaBadge = (item.totalOmega3Mg > 0)
         ? `<span class="badge badge-cert">EPA ${item.epaMg}mg</span><span class="badge badge-cert">DHA ${item.dhaMg}mg</span>${item.pricePerGramOmega3 ? '<span class="badge badge-free">$' + item.pricePerGramOmega3.toFixed(2) + '/g Ω3</span>' : ''}`
         : '';
+    const cfuBadge = (item.cfuBillions > 0)
+        ? `<span class="badge badge-cert">${item.cfuBillions}B CFU</span>${item.pricePer10bCFU ? '<span class="badge badge-free">$' + item.pricePer10bCFU.toFixed(2) + '/10B CFU</span>' : ''}`
+        : '';
 
     const imgHtml = item.image ? `<img src="${item.image}" alt="${item.brand}" loading="lazy" class="product-thumb">` : '';
 
@@ -352,7 +386,7 @@ function buildStaticRow(item) {
                         <td class="col-ingredients">${propBlend}</td>
                         <td class="col-ingredients">${freeFromBadges || '—'}</td>
                         <td class="col-ingredients">${fillerBadges || '<span class="badge badge-ok">None</span>'}</td>
-                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}</td>
+                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}</td>
                         <td class="col-trust">${certBadges || '<span class="badge badge-none">None</span>'}</td>
                         <td class="col-trust"><span class="${trustClass}">${item.trustScore}</span></td>
                         <td class="col-value"><span class="${gapClass}">${item.gapScore}</span></td>
@@ -447,17 +481,15 @@ async function main() {
         }
     }
 
-    // Re-parse servings for products missing them
+    // Re-parse servings for all products (fixes stale data from old regex)
     let reParsed = 0;
     for (const p of db) {
-        if (!p.servingsDeclared) {
-            const s = parseServings(p.title);
-            if (s) {
-                p.servingsDeclared = s;
-                p.servingsVerified = true;
-                p.pricePerServing = Math.round((p.priceListed / s) * 100) / 100;
-                reParsed++;
-            }
+        const freshServings = parseServings(p.title);
+        if (freshServings !== p.servingsDeclared) {
+            p.servingsDeclared = freshServings;
+            p.servingsVerified = !!freshServings;
+            p.pricePerServing = (freshServings && p.priceListed) ? Math.round((p.priceListed / freshServings) * 100) / 100 : null;
+            reParsed++;
         }
     }
     if (reParsed > 0) console.log(`🔄 Re-parsed servings for ${reParsed} products`);
@@ -478,6 +510,20 @@ async function main() {
         }
     }
     if (omegaEnriched > 0) console.log(`🐟 Enriched EPA/DHA for ${omegaEnriched} fish oil products`);
+
+    // Re-enrich CFU for Probiotics missing data
+    let cfuEnriched = 0;
+    for (const p of db) {
+        if (p.category === 'Probiotics' && !p.cfuBillions) {
+            const cfu = parseCFU(p.title);
+            p.cfuBillions = cfu;
+            if (cfu > 0) cfuEnriched++;
+        }
+        if (p.category === 'Probiotics' && p.cfuBillions > 0 && !p.pricePer10bCFU && p.servingsDeclared && p.priceListed) {
+            p.pricePer10bCFU = Math.round((p.priceListed / (p.cfuBillions * p.servingsDeclared / 10)) * 100) / 100;
+        }
+    }
+    if (cfuEnriched > 0) console.log(`🦠 Enriched CFU for ${cfuEnriched} probiotic products`);
 
     // Compute scores
     computeAllScores(db);
