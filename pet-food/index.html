@@ -27936,9 +27936,11 @@
         function updateStickyBar() {
             const scrollY = window.scrollY + window.innerHeight * 0.85;
             const trackerTop = trackerSection ? trackerSection.offsetTop : Infinity;
+            const trackerBottom = trackerSection ? trackerSection.offsetTop + trackerSection.offsetHeight : Infinity;
             const calcTop = calcSection ? calcSection.offsetTop : Infinity;
-            const browseVisible = scrollY < trackerTop;
-            const calcVisible = scrollY < calcTop;
+            const calcBottom = calcSection ? calcSection.offsetTop + calcSection.offsetHeight : Infinity;
+            const browseVisible = scrollY < trackerTop || scrollY > trackerBottom;
+            const calcVisible = scrollY < calcTop || scrollY > calcBottom;
             stickyBrowse.classList.toggle('hidden', !browseVisible);
             stickyCalc.classList.toggle('hidden', !calcVisible);
             const pastHero = window.scrollY > 200;
