@@ -315,9 +315,34 @@
             .calc-inputs { grid-template-columns: 1fr; }
             .calc-results { grid-template-columns: repeat(2, 1fr); }
         }
+
+        /* ── Sticky CTA Bar ── */
+        #sticky-cta-bar {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+            display: flex; gap: 0.75rem; justify-content: center; align-items: center;
+            padding: 0.75rem 1rem;
+            background: rgba(10, 12, 20, 0.92);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid var(--border-color);
+            transform: translateY(100%);
+            transition: transform 0.25s ease;
+        }
+        #sticky-cta-bar.visible { transform: translateY(0); }
+        .sticky-btn { padding: 0.55rem 1.2rem; border-radius: 8px; font-size: 0.82rem; font-weight: 700; cursor: pointer; border: none; transition: all 0.15s; white-space: nowrap; }
+        .sticky-btn-primary { background: var(--brand-primary); color: #fff; }
+        .sticky-btn-primary:hover { filter: brightness(1.15); }
+        .sticky-btn-secondary { background: transparent; color: var(--brand-accent); border: 1px solid var(--brand-primary) !important; }
+        .sticky-btn-secondary:hover { background: var(--brand-glow); }
+        .sticky-btn.hidden { display: none; }
     </style>
 </head>
 <body>
+
+    <!-- ── Sticky CTA Bar ── -->
+    <div id="sticky-cta-bar">
+        <button class="sticky-btn sticky-btn-primary" id="sticky-browse" onclick="document.getElementById('tracker-section').scrollIntoView({behavior:'smooth',block:'start'})">Browse Pet Food ↓</button>
+        <button class="sticky-btn sticky-btn-secondary" id="sticky-calc" onclick="document.getElementById('budget-calculator').scrollIntoView({behavior:'smooth',block:'start'})">Calculate My Budget ↓</button>
+    </div>
 
 <!-- ===== NAVIGATION ===== -->
 <nav class="nav-bar">
@@ -27900,6 +27925,28 @@
         initScrollNav();
         filterTable();
         document.getElementById('calc-product-count').textContent = PRODUCTS_DATA.length;
+
+        // ── Sticky CTA Bar scroll logic ──
+        const stickyBar = document.getElementById('sticky-cta-bar');
+        const stickyBrowse = document.getElementById('sticky-browse');
+        const stickyCalc = document.getElementById('sticky-calc');
+        const trackerSection = document.getElementById('tracker-section');
+        const calcSection = document.getElementById('budget-calculator');
+
+        function updateStickyBar() {
+            const scrollY = window.scrollY + window.innerHeight * 0.85;
+            const trackerTop = trackerSection ? trackerSection.offsetTop : Infinity;
+            const calcTop = calcSection ? calcSection.offsetTop : Infinity;
+            const browseVisible = scrollY < trackerTop;
+            const calcVisible = scrollY < calcTop;
+            stickyBrowse.classList.toggle('hidden', !browseVisible);
+            stickyCalc.classList.toggle('hidden', !calcVisible);
+            const pastHero = window.scrollY > 200;
+            stickyBar.classList.toggle('visible', pastHero && (browseVisible || calcVisible));
+        }
+
+        window.addEventListener('scroll', updateStickyBar, { passive: true });
+        updateStickyBar();
     });
 </script>
 
