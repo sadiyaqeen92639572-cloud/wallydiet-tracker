@@ -158,6 +158,10 @@ const CLAIM_PATTERNS = [
     { regex: /type\s*i\s*(?:and|&|\+)\s*(?:type\s*)?iii|type\s*1\s*(?:and|&|\+)\s*(?:type\s*)?3/i, tag: 'Type I+III' },
     { regex: /type\s*ii\b|type\s*2\s*collagen/i, tag: 'Type II' },
     { regex: /hydrolyzed\s*collagen|collagen\s*peptide/i, tag: 'Hydrolyzed' },
+    { regex: /verisol/i, tag: 'Verisol' },
+    { regex: /fortigel/i, tag: 'Fortigel' },
+    { regex: /fortibone/i, tag: 'Fortibone' },
+    { regex: /tendofor/i, tag: 'Tendofor' },
 ];
 
 function detectTags(text) {
@@ -700,6 +704,17 @@ async function main() {
         p.collagenSource = parseCollagenSource(p.title);
     }
     if (collagenEnriched > 0) console.log(`🫘 Enriched Collagen grams for ${collagenEnriched} products`);
+
+    // Re-apply CLAIM_PATTERNS to all products (picks up newly added tags on existing products)
+    let claimsUpdated = 0;
+    for (const p of db) {
+        const t = (p.title || '') + ' ' + (p.brand || '');
+        const freshClaims = CLAIM_PATTERNS.filter(pt => pt.regex.test(t)).map(pt => pt.tag);
+        const prev = JSON.stringify((p.claims || []).sort());
+        const next = JSON.stringify(freshClaims.sort());
+        if (prev !== next) { p.claims = freshClaims; claimsUpdated++; }
+    }
+    if (claimsUpdated > 0) console.log(`🏷️ Re-applied claims for ${claimsUpdated} products`);
 
     // Compute scores
     computeAllScores(db);
