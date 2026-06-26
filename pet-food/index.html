@@ -540,6 +540,7 @@
         </div>
 
         <!-- CATEGORY FILTER -->
+        <p id="tag-filter-hint" style="font-size:0.75rem;color:var(--text-muted);margin:0 0 0.5rem;font-style:italic;">Select a category above to refine these filters</p>
         <div class="tag-filter-section">
             <span class="tag-group-label">Category</span>
             <div class="tag-pills" id="catPills">
@@ -27570,6 +27571,7 @@
             pill.classList.add('active-' + type);
         }
         filterTable();
+        if (MASTER_CATEGORIES && MASTER_CATEGORIES.has(tag)) filterTagsByCategory(tag);
         const summary = document.getElementById('activeTagsSummary');
         const list = document.getElementById('activeTagsList');
         if (activeTags.size > 0) { summary.style.display = 'flex'; list.textContent = [...activeTags].join(' + '); }
@@ -27713,6 +27715,18 @@
         counts['budget'] = PRODUCTS_DATA.filter(p => p.pricePerLb > 0 && p.pricePerLb <= 1.50).length;
         counts['top-rated'] = PRODUCTS_DATA.filter(p => p.rating >= 4.5).length;
 
+        // Per-category tag counts for dynamic pill filtering
+        const tagCatCounts = {};
+        for (const p of PRODUCTS_DATA) {
+            const allTags = [...(p.dietTags||[]), ...(p.healthTags||[]), ...(p.extraTags||[]), ...(p.proteinSources||[]), p.category].filter(Boolean);
+            for (const t of allTags) {
+                if (!tagCatCounts[t]) tagCatCounts[t] = {};
+                tagCatCounts[t][p.category] = (tagCatCounts[t][p.category] || 0) + 1;
+            }
+        }
+        window._tagAllCounts = counts;
+        window._tagCatCounts = tagCatCounts;
+
         // Price range per tag ($/lb)
         const tagPrices = {};
         for (const p of PRODUCTS_DATA) {
@@ -27747,6 +27761,48 @@
             }
         });
     }
+
+    function updateTagHint(cat) {
+        const hint = document.getElementById('tag-filter-hint');
+        if (!hint) return;
+        hint.textContent = cat
+            ? `Showing filters relevant to ${cat} — select a tag to narrow results`
+            : 'Select a category above to refine these filters';
+    }
+
+    function filterTagsByCategory(cat) {
+        updateTagHint(cat);
+        document.querySelectorAll('.tag-pill').forEach(pill => {
+            const tag = pill.dataset.tag;
+            const countEl = pill.querySelector('.tag-count');
+            if (!cat) {
+                const total = (window._tagAllCounts || {})[tag] || 0;
+                pill.style.display = '';
+                pill.style.opacity = total === 0 ? '0.4' : '';
+                pill.style.pointerEvents = total === 0 ? 'none' : '';
+                if (countEl) countEl.textContent = `(${total})`;
+            } else {
+                const catCount = ((window._tagCatCounts || {})[tag] || {})[cat] || 0;
+                if (catCount === 0) {
+                    if (activeTags.has(tag)) { activeTags.delete(tag); pill.classList.remove(`active-${pill.dataset.type}`); }
+                    pill.style.display = 'none';
+                } else {
+                    pill.style.display = '';
+                    pill.style.opacity = '';
+                    pill.style.pointerEvents = '';
+                    if (countEl) countEl.textContent = `(${catCount})`;
+                }
+            }
+        });
+        document.querySelectorAll('.tag-pills').forEach(group => {
+            const visible = [...group.querySelectorAll('.tag-pill')].some(p => p.style.display !== 'none');
+            const label = group.previousElementSibling;
+            if (label && label.classList.contains('tag-group-label')) label.style.display = visible ? '' : 'none';
+        });
+    }
+
+    // Master category values (p.category field) — used to detect CTA category tags
+    const MASTER_CATEGORIES = new Set(PRODUCTS_DATA.map(p => p.category).filter(Boolean));
 
     document.querySelectorAll('.tag-pill').forEach(pill => {
         pill.addEventListener('click', () => {
