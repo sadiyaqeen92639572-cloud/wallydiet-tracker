@@ -117,6 +117,14 @@ const QUERIES = [
     'zinc supplement no nausea sensitive stomach',
     'zinc picolinate 50mg best absorbed form',
     'zinc gluconate lozenges best value price',
+    // CoQ10 / Ubiquinol
+    'ubiquinol CoQ10 Kaneka third party tested',
+    'CoQ10 200mg best absorbed softgel',
+    'ubiquinol vs ubiquinone best form CoQ10',
+    'CoQ10 statin users heart health mitochondria',
+    'best CoQ10 price per 100mg value',
+    'MicroActive CoQ10 sustained release',
+    'CoQ10 100mg softgel high absorption oil',
     // Vitamin D
     'vitamin D3 K2 MK7 third party tested',
     'best vitamin D3 5000 IU price per serving',
@@ -145,6 +153,7 @@ function detectCategory(title) {
     if (/magnesium|mag.*glycinate|mag.*threonate|mag.*citrate|mag.*malate|\bmagnesium\s*(?:glycinate|bisglycinate|threonate|citrate|malate|taurate|oxide|chloride)\b/i.test(t)) return 'Magnesium';
     if (/vitamin[\s-]?d[23]?(?:\s|$|\b)|cholecalciferol|d3.*iu|\bvit\.?\s*d\b/i.test(t)) return 'Vitamin D';
     if (/\bzinc\b/i.test(t)) return 'Zinc';
+    if (/coq[\s-]?10|coenzyme[\s-]?q[\s-]?10|\bubiquinol\b|\bubiquinone\b/i.test(t)) return 'CoQ10';
     if (/bcaa|amino|eaa/.test(t)) return 'Amino Acids';
     if (/collagen/.test(t)) return 'Collagen';
     return 'Other';
@@ -238,6 +247,9 @@ const CLAIM_PATTERNS = [
     { regex: /\bnovasol\b|micellar\s*curcumin/i, tag: 'NovaSOL' },
     { regex: /\btraacs\b/i, tag: 'TRAACS' },
     { regex: /\boptizinc\b/i, tag: 'OptiZinc' },
+    { regex: /\bkaneka\b/i, tag: 'Kaneka' },
+    { regex: /\bmicroactive\b/i, tag: 'MicroActive' },
+    { regex: /\bubiquinol\b/i, tag: 'Ubiquinol' },
 ];
 
 function detectTags(text) {
@@ -415,6 +427,33 @@ function parseZincForm(text) {
     if (/zinc\s+oxide\b/i.test(t)) return 'Oxide';
     if (/zinc\s+sulfate\b/i.test(t)) return 'Sulfate';
     return null;
+}
+
+function parseCoQ10Mg(text) {
+    const t = (text || '');
+    const num = s => parseInt((s || '').replace(/,/g, ''));
+    const COQ = /coq[\s-]?10|coenzyme[\s-]?q[\s-]?10|ubiquinol|ubiquinone/i;
+
+    // "CoQ10 200mg" or "Ubiquinol 100mg"
+    const fwd = t.match(/(?:coq[\s-]?10|coenzyme[\s-]?q[\s-]?10|ubiquinol|ubiquinone)\s+(\d+(?:\.\d+)?)\s*mg\b/i);
+    if (fwd) { const v = num(fwd[1]); if (v >= 10 && v <= 600) return v; }
+
+    // "200mg CoQ10" or "100mg Ubiquinol"
+    const rev = t.match(/(\d+(?:\.\d+)?)\s*mg\s+(?:coq[\s-]?10|coenzyme[\s-]?q[\s-]?10|ubiquinol|ubiquinone)\b/i);
+    if (rev) { const v = num(rev[1]); if (v >= 10 && v <= 600) return v; }
+
+    // Gap fallback: "CoQ10 ... 100mg" (up to 50 chars)
+    const gap = t.match(/(?:coq[\s-]?10|ubiquinol|ubiquinone).{0,50}?(\d+(?:\.\d+)?)\s*mg\b/i);
+    if (gap) { const v = num(gap[1]); if (v >= 10 && v <= 600) return v; }
+
+    return 0;
+}
+
+function parseCoQ10Form(text) {
+    const t = (text || '');
+    if (/\bubiquinol\b/i.test(t)) return 'Ubiquinol';
+    // "Ubiquinone" explicit or default (CoQ10 without form = oxidized classic form)
+    return 'Ubiquinone';
 }
 
 function parseSodiumMg(text) {
@@ -721,6 +760,12 @@ function normalizeAmazonItem(raw) {
     const pricePer10mgZinc = (zincMg > 0 && servings && price)
         ? Math.round((price / (zincMg * servings / 10)) * 100) / 100 : null;
 
+    // CoQ10 — mg, form (Ubiquinol/Ubiquinone), price per 100mg
+    const coq10Mg = category === 'CoQ10' ? parseCoQ10Mg(fullText) : 0;
+    const coq10Form = category === 'CoQ10' ? parseCoQ10Form(fullText) : null;
+    const pricePer100mgCoQ10 = (coq10Mg > 0 && servings && price)
+        ? Math.round((price / (coq10Mg * servings / 100)) * 100) / 100 : null;
+
     // Ashwagandha — withanolides mg, price per mg withanolides, extract type
     const withanolidesMg = category === 'Ashwagandha' ? parseWithanolidesMg(fullText) : 0;
     const pricePerMgWithanolides = (withanolidesMg > 0 && servings && price)
@@ -776,6 +821,9 @@ function normalizeAmazonItem(raw) {
         zincMg: zincMg,
         zincForm: zincForm,
         pricePer10mgZinc: pricePer10mgZinc,
+        coq10Mg: coq10Mg,
+        coq10Form: coq10Form,
+        pricePer100mgCoQ10: pricePer100mgCoQ10,
         withanolidesMg: withanolidesMg,
         pricePerMgWithanolides: pricePerMgWithanolides,
         ashwagandhaExtract: ashwagandhaExtract,
@@ -868,6 +916,11 @@ function buildStaticRow(item) {
         ? `<span class="badge badge-cert">${item.zincMg}mg Zinc</span>${item.pricePer10mgZinc ? '<span class="badge badge-free">$' + item.pricePer10mgZinc.toFixed(2) + '/10mg</span>' : ''}${item.zincForm ? '<span class="badge ' + (zincFormColors[item.zincForm] || 'badge-none') + '">' + item.zincForm + '</span>' : ''}`
         : (item.zincForm ? `<span class="badge ${zincFormColors[item.zincForm] || 'badge-none'}">${item.zincForm}</span>` : '');
 
+    const coq10FormColors = { 'Ubiquinol': 'badge-cert', 'Ubiquinone': 'badge-claim' };
+    const coq10Badge = (item.coq10Mg > 0)
+        ? `<span class="badge ${coq10FormColors[item.coq10Form] || 'badge-none'}">${item.coq10Form || 'CoQ10'}</span><span class="badge badge-cert">${item.coq10Mg}mg</span>${item.pricePer100mgCoQ10 ? '<span class="badge badge-free">$' + item.pricePer100mgCoQ10.toFixed(2) + '/100mg</span>' : ''}`
+        : (item.coq10Form === 'Ubiquinol' ? `<span class="badge badge-cert">Ubiquinol</span>` : '');
+
     const imgHtml = item.image ? `<img src="${item.image}" alt="${item.brand}" loading="lazy" class="product-thumb">` : '';
 
     return `                    <tr data-category="${item.category}" data-brand="${item.brand}" data-id="${item.id}">
@@ -883,7 +936,7 @@ function buildStaticRow(item) {
                         <td class="col-ingredients">${propBlend}</td>
                         <td class="col-ingredients">${freeFromBadges || '—'}</td>
                         <td class="col-ingredients">${fillerBadges || '<span class="badge badge-ok">None</span>'}</td>
-                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}${collagenBadge || ''}${berberineBadge || ''}${ashwagandhaB || ''}${sodiumBadge || ''}${vitaminDBadge || ''}${magnesiumBadge || ''}${turmericBadge || ''}${zincBadge || ''}</td>
+                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}${collagenBadge || ''}${berberineBadge || ''}${ashwagandhaB || ''}${sodiumBadge || ''}${vitaminDBadge || ''}${magnesiumBadge || ''}${turmericBadge || ''}${zincBadge || ''}${coq10Badge || ''}</td>
                         <td class="col-trust">${certBadges || '<span class="badge badge-none">None</span>'}</td>
                         <td class="col-trust"><span class="${trustClass}">${item.trustScore}</span></td>
                         <td class="col-value"><span class="${gapClass}">${item.gapScore}</span></td>
@@ -1227,6 +1280,36 @@ async function main() {
         p.claims = [...claimsSet];
     }
     if (zincEnriched > 0) console.log(`🔵 Enriched Zinc for ${zincEnriched} zinc products`);
+
+    // Re-enrich CoQ10 — always re-parse mg + form + Softgel tag
+    let coq10Enriched = 0;
+    for (const p of db) {
+        if (p.category !== 'CoQ10') continue;
+        const freshMg = parseCoQ10Mg(p.title);
+        const freshForm = parseCoQ10Form(p.title);
+        if (freshMg !== p.coq10Mg || freshForm !== p.coq10Form) {
+            p.coq10Mg = freshMg;
+            p.coq10Form = freshForm;
+            p.pricePer100mgCoQ10 = null;
+        }
+        if (p.coq10Mg > 0) {
+            coq10Enriched++;
+            if (!p.pricePer100mgCoQ10 && p.servingsDeclared && p.priceListed) {
+                p.pricePer100mgCoQ10 = Math.round((p.priceListed / (p.coq10Mg * p.servingsDeclared / 100)) * 100) / 100;
+            }
+        } else {
+            p.pricePer100mgCoQ10 = null;
+        }
+        // Softgel tag — critical for CoQ10 fat-soluble absorption
+        const claimsSet = new Set(p.claims || []);
+        if (/\bsoftgel\b/i.test(p.title)) {
+            claimsSet.add('Softgel');
+        } else {
+            claimsSet.delete('Softgel');
+        }
+        p.claims = [...claimsSet];
+    }
+    if (coq10Enriched > 0) console.log(`⚡ Enriched CoQ10 for ${coq10Enriched} products`);
 
     // Compute scores
     computeAllScores(db);
