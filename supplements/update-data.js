@@ -112,7 +112,7 @@ function detectCategory(title) {
     if (/pre[\s-]?work|preworkout|pre workout/.test(t)) return 'Pre-Workout';
     if (/creatine|creapure/.test(t)) return 'Creatine';
     if (/electrolyte|hydration|lyte/.test(t)) return 'Electrolytes';
-    if (/multivitamin|multi[\s-]?vitamin|daily vitamin/.test(t)) return 'Multivitamin';
+    if (/multivitamin|multi[\s-]?vitamin/.test(t)) return 'Multivitamin';
     if (/fish oil|omega[\s-]?3|epa.*dha|dha.*epa|cod liver oil|krill oil|algae.*omega/.test(t)) return 'Fish Oil';
     if (/probiotic|acidophilus|lactobacillus|bifidobacterium|gut flora|digestive enzymes.*probiotic/i.test(t)) return 'Probiotics';
     if (/berberine/i.test(t)) return 'Berberine';
