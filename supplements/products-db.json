@@ -39237,7 +39237,9 @@
     "image": "https://m.media-amazon.com/images/I/51fDjrJOONL.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Phytosome",
+    "complexIngredients": []
   },
   {
     "id": "B0DF83J5CL",
@@ -39274,7 +39276,9 @@
     "image": "https://m.media-amazon.com/images/I/61+4x7GrjbL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0FL6VJKD9",
@@ -39315,7 +39319,11 @@
     "image": "https://m.media-amazon.com/images/I/617jNKPF8qL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Chromium"
+    ]
   },
   {
     "id": "B0F2D5J235",
@@ -39352,7 +39360,12 @@
     "image": "https://m.media-amazon.com/images/I/71zbYHZOOaL.jpg",
     "matchedKeywords": [],
     "trustScore": 41,
-    "gapScore": 15
+    "gapScore": 15,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Cinnamon",
+      "Chromium"
+    ]
   },
   {
     "id": "B0DD6B85NL",
@@ -39393,7 +39406,13 @@
     "image": "https://m.media-amazon.com/images/I/61IR-jFrF4L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Chromium"
+    ]
   },
   {
     "id": "B0CNQC2TWG",
@@ -39432,7 +39451,9 @@
     "image": "https://m.media-amazon.com/images/I/71KdyGDfBbL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0G8JKFFY1",
@@ -39472,7 +39493,9 @@
     "image": "https://m.media-amazon.com/images/I/7129lBo5cfL.jpg",
     "matchedKeywords": [],
     "trustScore": 56,
-    "gapScore": 15
+    "gapScore": 15,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B08HHQWBBZ",
@@ -39511,7 +39534,12 @@
     "image": "https://m.media-amazon.com/images/I/719uyMENXoL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B08KS4HPWX",
@@ -39587,7 +39615,15 @@
     "image": "https://m.media-amazon.com/images/I/71aTkjVqWXL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Chromium",
+      "Gymnema",
+      "Bitter Melon"
+    ]
   },
   {
     "id": "B07PSMZ3J1",
@@ -39624,7 +39660,9 @@
     "image": "https://m.media-amazon.com/images/I/71ERYV36a4L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0DZX98BJ6",
@@ -39661,7 +39699,12 @@
     "image": "https://m.media-amazon.com/images/I/71xLVYhEuaL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0FXNQY3H3",
@@ -39698,7 +39741,14 @@
     "image": "https://m.media-amazon.com/images/I/71yWYCE8v6L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Chromium",
+      "Bitter Melon"
+    ]
   },
   {
     "id": "B0C16JBYZ2",
@@ -39735,7 +39785,14 @@
     "image": "https://m.media-amazon.com/images/I/81YWV3BoFBL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Gymnema",
+      "Bitter Melon"
+    ]
   },
   {
     "id": "B009LI7VRC",
@@ -39774,7 +39831,9 @@
     "image": "https://m.media-amazon.com/images/I/710CGlMIhbL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Phytosome",
+    "complexIngredients": []
   },
   {
     "id": "B0DB2RHYJC",
@@ -39813,7 +39872,12 @@
     "image": "https://m.media-amazon.com/images/I/71rbBY2YSOL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0BTTWT7VZ",
@@ -39852,7 +39916,13 @@
     "image": "https://m.media-amazon.com/images/I/81ExSkoQZmL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Cinnamon",
+      "Bitter Melon",
+      "Banaba Leaf"
+    ]
   },
   {
     "id": "B0B3DDSB11",
@@ -39889,7 +39959,9 @@
     "image": "https://m.media-amazon.com/images/I/61G5BKoOHxL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B07X4B7QFM",
@@ -39931,7 +40003,9 @@
     "image": "https://m.media-amazon.com/images/I/81Pvz0WA9VL.jpg",
     "matchedKeywords": [],
     "trustScore": 98,
-    "gapScore": 85
+    "gapScore": 85,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B08DHC29R6",
@@ -39973,7 +40047,9 @@
     "image": "https://m.media-amazon.com/images/I/51wHq+Rf6oL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0CD8PV49D",
@@ -40010,7 +40086,9 @@
     "image": "https://m.media-amazon.com/images/I/71uFQjr6PhL.jpg",
     "matchedKeywords": [],
     "trustScore": 59,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Phytosome",
+    "complexIngredients": []
   },
   {
     "id": "B08WT5MVV2",
@@ -40049,7 +40127,9 @@
     "image": "https://m.media-amazon.com/images/I/61SfWn6vGuL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0DG2VXTSM",
@@ -40089,7 +40169,14 @@
     "image": "https://m.media-amazon.com/images/I/71OQMP7wOML.jpg",
     "matchedKeywords": [],
     "trustScore": 42,
-    "gapScore": 15
+    "gapScore": 15,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Chromium",
+      "Bitter Melon"
+    ]
   },
   {
     "id": "B0CBBHM3RZ",
@@ -40126,7 +40213,13 @@
     "image": "https://m.media-amazon.com/images/I/61AnihCtFyL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Cinnamon",
+      "Chromium",
+      "Banaba Leaf"
+    ]
   },
   {
     "id": "B0F3JSLZV9",
@@ -40163,7 +40256,9 @@
     "image": "https://m.media-amazon.com/images/I/61pbn5L8RiL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B01152Y426",
@@ -40205,7 +40300,9 @@
     "image": "https://m.media-amazon.com/images/I/61Qkw9vwiSL.jpg",
     "matchedKeywords": [],
     "trustScore": 98,
-    "gapScore": 70
+    "gapScore": 70,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0BHFCW4C5",
@@ -40242,7 +40339,14 @@
     "image": "https://m.media-amazon.com/images/I/71v7RM9bFtL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Gymnema",
+      "Bitter Melon"
+    ]
   },
   {
     "id": "B0D152P5MB",
@@ -40279,7 +40383,13 @@
     "image": "https://m.media-amazon.com/images/I/71ZXfwjL-1L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Bitter Melon"
+    ]
   },
   {
     "id": "B0G4LX1S57",
@@ -40316,7 +40426,15 @@
     "image": "https://m.media-amazon.com/images/I/81Y6nWN1XML.jpg",
     "matchedKeywords": [],
     "trustScore": 42,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Chromium",
+      "Gymnema",
+      "Bitter Melon"
+    ]
   },
   {
     "id": "B0FMR33C6Y",
@@ -40358,7 +40476,14 @@
     "image": "https://m.media-amazon.com/images/I/71w33s0wVQL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Chromium",
+      "Bitter Melon"
+    ]
   },
   {
     "id": "B0CYR7H7LC",
@@ -40398,7 +40523,14 @@
     "image": "https://m.media-amazon.com/images/I/81gp1h8wgIL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Gymnema",
+      "Bitter Melon"
+    ]
   },
   {
     "id": "B07V2ZLY4N",
@@ -40435,7 +40567,9 @@
     "image": "https://m.media-amazon.com/images/I/81yWTCrhRGL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B087YD4LSH",
@@ -40477,7 +40611,9 @@
     "image": "https://m.media-amazon.com/images/I/71RGE2d0tVL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0DCTL1BV2",
@@ -40518,7 +40654,9 @@
     "image": "https://m.media-amazon.com/images/I/811RE8qFLML.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B07F9565LN",
@@ -40558,7 +40696,9 @@
     "image": "https://m.media-amazon.com/images/I/71lECYuUByL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0FBRZVND6",
@@ -40634,7 +40774,12 @@
     "image": "https://m.media-amazon.com/images/I/719U55jsqBL.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Cinnamon",
+      "Gymnema"
+    ]
   },
   {
     "id": "B01ADU1OYW",
@@ -40679,7 +40824,9 @@
     "image": "https://m.media-amazon.com/images/I/81UZgqVchyL.jpg",
     "matchedKeywords": [],
     "trustScore": 98,
-    "gapScore": 100
+    "gapScore": 100,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0CBCLCWCY",
@@ -40716,7 +40863,9 @@
     "image": "https://m.media-amazon.com/images/I/61IdwVMM1QL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B01DWUEOYC",
@@ -40758,7 +40907,12 @@
     "image": "https://m.media-amazon.com/images/I/71vUaKS83LL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "HCl",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0C5HZN8ZT",
@@ -40800,7 +40954,12 @@
     "image": "https://m.media-amazon.com/images/I/714nDg2hqFL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "HCl",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0G2MXZ48M",
@@ -40837,7 +40996,9 @@
     "image": "https://m.media-amazon.com/images/I/81NJVFtKHeL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0GHSX7KXJ",
@@ -40876,7 +41037,13 @@
     "image": "https://m.media-amazon.com/images/I/81RwCjpXQlL.jpg",
     "matchedKeywords": [],
     "trustScore": 59,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Chromium"
+    ]
   },
   {
     "id": "B0G5QQFMG2",
@@ -40916,7 +41083,9 @@
     "image": "https://m.media-amazon.com/images/I/71ikdLGykvL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0FGDQNW2P",
@@ -40953,7 +41122,12 @@
     "image": "https://m.media-amazon.com/images/I/61safo0VZwL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0DXM7Q176",
@@ -40992,7 +41166,9 @@
     "image": "https://m.media-amazon.com/images/I/710Gsv0o3NL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B00VKJQ2TI",
@@ -41072,7 +41248,14 @@
     "image": "https://m.media-amazon.com/images/I/71hVVi7c9iL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Alpha Lipoic Acid",
+      "Bitter Melon"
+    ]
   },
   {
     "id": "B07S5H5BDN",
@@ -41109,7 +41292,12 @@
     "image": "https://m.media-amazon.com/images/I/71HgIz1Q5bL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0GTWJX7C3",
@@ -41148,7 +41336,13 @@
     "image": "https://m.media-amazon.com/images/I/71TF+tvu4vL.jpg",
     "matchedKeywords": [],
     "trustScore": 59,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Chromium"
+    ]
   },
   {
     "id": "B0CZCVPQ6T",
@@ -41185,7 +41379,11 @@
     "image": "https://m.media-amazon.com/images/I/71qwzn0Ho9L.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0G56TTP1Y",
@@ -41222,7 +41420,15 @@
     "image": "https://m.media-amazon.com/images/I/81D8+-l9mSL.jpg",
     "matchedKeywords": [],
     "trustScore": 42,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Chromium",
+      "Gymnema",
+      "Bitter Melon"
+    ]
   },
   {
     "id": "B098TZ865L",
@@ -41259,7 +41465,13 @@
     "image": "https://m.media-amazon.com/images/I/61ogPjm-aFL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Cinnamon",
+      "Chromium",
+      "Banaba Leaf"
+    ]
   },
   {
     "id": "B0CBB1H324",
@@ -41301,7 +41513,9 @@
     "image": "https://m.media-amazon.com/images/I/61f5ho6dttL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B07BVZL4GB",
@@ -41343,7 +41557,9 @@
     "image": "https://m.media-amazon.com/images/I/61uujL81QuL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0D5MYQ6PP",
@@ -41384,7 +41600,12 @@
     "image": "https://m.media-amazon.com/images/I/81oDAIub+bL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0CGRYVKPV",
@@ -41461,7 +41682,14 @@
     "image": "https://m.media-amazon.com/images/I/81xl29gffRL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Chromium",
+      "Bitter Melon"
+    ]
   },
   {
     "id": "B0BX48S53M",
@@ -41503,7 +41731,9 @@
     "image": "https://m.media-amazon.com/images/I/81KwiRIvUWL.jpg",
     "matchedKeywords": [],
     "trustScore": 98,
-    "gapScore": 85
+    "gapScore": 85,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B079GH6V2Z",
@@ -41545,7 +41775,9 @@
     "image": "https://m.media-amazon.com/images/I/61EopaPXFPL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0C7FF131K",
@@ -41584,7 +41816,9 @@
     "image": "https://m.media-amazon.com/images/I/71aA+B9jwpL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0CJTL53NK",
@@ -41621,7 +41855,9 @@
     "image": "https://m.media-amazon.com/images/I/71PZFZJhavL.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0FPDQ38HG",
@@ -41664,7 +41900,12 @@
     "image": "https://m.media-amazon.com/images/I/619RmsfjCcL.jpg",
     "matchedKeywords": [],
     "trustScore": 98,
-    "gapScore": 100
+    "gapScore": 100,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0G3CJRZQS",
@@ -41708,7 +41949,12 @@
     "image": "https://m.media-amazon.com/images/I/71CgMmvmCDL.jpg",
     "matchedKeywords": [],
     "trustScore": 98,
-    "gapScore": 100
+    "gapScore": 100,
+    "berberineForm": "HCl",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0G3CTJH8S",
@@ -41749,7 +41995,9 @@
     "image": "https://m.media-amazon.com/images/I/719MFihlqrL.jpg",
     "matchedKeywords": [],
     "trustScore": 98,
-    "gapScore": 55
+    "gapScore": 55,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0GQWNWGRL",
@@ -41790,7 +42038,9 @@
     "image": "https://m.media-amazon.com/images/I/61GrJuydyBL.jpg",
     "matchedKeywords": [],
     "trustScore": 99,
-    "gapScore": 55
+    "gapScore": 55,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0BRNVGGPM",
@@ -41832,7 +42082,9 @@
     "image": "https://m.media-amazon.com/images/I/71XYY4mb59L.jpg",
     "matchedKeywords": [],
     "trustScore": 83,
-    "gapScore": 70
+    "gapScore": 70,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0D9ZHGLH7",
@@ -41875,7 +42127,9 @@
     "image": "https://m.media-amazon.com/images/I/81E6qt4y1YL.jpg",
     "matchedKeywords": [],
     "trustScore": 98,
-    "gapScore": 85
+    "gapScore": 85,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B082FTNRCQ",
@@ -41918,7 +42172,9 @@
     "image": "https://m.media-amazon.com/images/I/716obB7XFZL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0CGZZYT7Q",
@@ -41963,7 +42219,9 @@
     "image": "https://m.media-amazon.com/images/I/71xc7YtEaHL.jpg",
     "matchedKeywords": [],
     "trustScore": 97,
-    "gapScore": 40
+    "gapScore": 40,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0FJ3X2KQC",
@@ -42005,7 +42263,9 @@
     "image": "https://m.media-amazon.com/images/I/71xGiTxyhDL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0DW192P2Z",
@@ -42045,7 +42305,12 @@
     "image": "https://m.media-amazon.com/images/I/71VYn1hUATL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0C7FPF4TT",
@@ -42086,7 +42351,9 @@
     "image": "https://m.media-amazon.com/images/I/61LxNB--BLL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0C9JWJ3C2",
@@ -42129,7 +42396,9 @@
     "image": "https://m.media-amazon.com/images/I/71cNHxuTBBL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0F8P916DT",
@@ -42170,7 +42439,9 @@
     "image": "https://m.media-amazon.com/images/I/71cVYzqFxdL.jpg",
     "matchedKeywords": [],
     "trustScore": 59,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0CNS2PBHX",
@@ -42213,7 +42484,9 @@
     "image": "https://m.media-amazon.com/images/I/81sMVE4TGdL.jpg",
     "matchedKeywords": [],
     "trustScore": 98,
-    "gapScore": 85
+    "gapScore": 85,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0CCJYRSQ1",
@@ -42254,7 +42527,9 @@
     "image": "https://m.media-amazon.com/images/I/61UNcHh0o5L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0DH6H8MWH",
@@ -42298,7 +42573,12 @@
     "image": "https://m.media-amazon.com/images/I/71bXzpvVkSL.jpg",
     "matchedKeywords": [],
     "trustScore": 97,
-    "gapScore": 85
+    "gapScore": 85,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0CTKCNRQS",
@@ -42335,7 +42615,13 @@
     "image": "https://m.media-amazon.com/images/I/81FigyJZVbL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Bitter Melon"
+    ]
   },
   {
     "id": "B081ZH92R6",
@@ -42378,7 +42664,11 @@
     "image": "https://m.media-amazon.com/images/I/61T9EfWQDIL.jpg",
     "matchedKeywords": [],
     "trustScore": 98,
-    "gapScore": 85
+    "gapScore": 85,
+    "berberineForm": "HCl",
+    "complexIngredients": [
+      "Bitter Melon"
+    ]
   },
   {
     "id": "B0D86LWRMK",
@@ -42420,7 +42710,12 @@
     "image": "https://m.media-amazon.com/images/I/61SDGMOMATL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0G8748JJH",
@@ -42462,7 +42757,9 @@
     "image": "https://m.media-amazon.com/images/I/61edKu4U6vL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0FPFTSQ1F",
@@ -42504,7 +42801,12 @@
     "image": "https://m.media-amazon.com/images/I/71Z3ou9X59L.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "HCl",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B08HCY5T43",
@@ -42541,7 +42843,9 @@
     "image": "https://m.media-amazon.com/images/I/61dnC-h8LeL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0F98CLT2T",
@@ -42583,7 +42887,9 @@
     "image": "https://m.media-amazon.com/images/I/61MiXihpiiL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0F6T153WG",
@@ -42661,7 +42967,9 @@
     "image": "https://m.media-amazon.com/images/I/61ZwmmNQLDL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B09B3QL9JQ",
@@ -42702,7 +43010,9 @@
     "image": "https://m.media-amazon.com/images/I/71yUk9-2aWL.jpg",
     "matchedKeywords": [],
     "trustScore": 82,
-    "gapScore": 40
+    "gapScore": 40,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0DDMM94BF",
@@ -42742,7 +43052,9 @@
     "image": "https://m.media-amazon.com/images/I/716VnSkZ-LL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0DH8LTN7C",
@@ -42781,7 +43093,9 @@
     "image": "https://m.media-amazon.com/images/I/61SIjRRp18L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0CQ3V2PZW",
@@ -42823,7 +43137,12 @@
     "image": "https://m.media-amazon.com/images/I/81mGw0gjiHL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "HCl",
+    "complexIngredients": [
+      "Cinnamon",
+      "Chromium"
+    ]
   },
   {
     "id": "B00QSE5RNC",
@@ -42860,7 +43179,9 @@
     "image": "https://m.media-amazon.com/images/I/71rjmLi2ZZL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B08F2RD3RX",
@@ -42903,7 +43224,9 @@
     "image": "https://m.media-amazon.com/images/I/71zcgJGaL7L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0GDSG56CF",
@@ -42945,7 +43268,9 @@
     "image": "https://m.media-amazon.com/images/I/6153x2L+yJL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0CLB8YXL7",
@@ -42988,7 +43313,9 @@
     "image": "https://m.media-amazon.com/images/I/61zkoejjptL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B08GZ1NJ19",
@@ -43027,7 +43354,9 @@
     "image": "https://m.media-amazon.com/images/I/71Iq6KEFZgL.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B07HZ6SHSW",
@@ -43069,7 +43398,9 @@
     "image": "https://m.media-amazon.com/images/I/71pSB2fRJ5L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B08B1RDJBD",
@@ -43109,7 +43440,9 @@
     "image": "https://m.media-amazon.com/images/I/71sxfXfcUUL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B09PGQY9XR",
@@ -43146,7 +43479,9 @@
     "image": "https://m.media-amazon.com/images/I/71iNb7wPZKL.jpg",
     "matchedKeywords": [],
     "trustScore": 59,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0753FY66B",
@@ -43183,7 +43518,9 @@
     "image": "https://m.media-amazon.com/images/I/71I-id-+ZtL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0GS33VC5Y",
@@ -43226,7 +43563,9 @@
     "image": "https://m.media-amazon.com/images/I/61DeWpr1RbL.jpg",
     "matchedKeywords": [],
     "trustScore": 98,
-    "gapScore": 70
+    "gapScore": 70,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B07XG2DDM1",
@@ -43270,7 +43609,9 @@
     "image": "https://m.media-amazon.com/images/I/71O3ZjVmIYL.jpg",
     "matchedKeywords": [],
     "trustScore": 98,
-    "gapScore": 100
+    "gapScore": 100,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B01N2VP98K",
@@ -43313,7 +43654,9 @@
     "image": "https://m.media-amazon.com/images/I/71NteG96dzL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0DCZPTMLX",
@@ -43352,7 +43695,12 @@
     "image": "https://m.media-amazon.com/images/I/61cR-oDbpXL.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0DWH9FPKQ",
@@ -43389,7 +43737,12 @@
     "image": "https://m.media-amazon.com/images/I/710BX2PAnPL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Cinnamon",
+      "Chromium"
+    ]
   },
   {
     "id": "B06ZZX5DMB",
@@ -43428,7 +43781,12 @@
     "image": "https://m.media-amazon.com/images/I/61KVpzyfF6L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": [
+      "Cinnamon",
+      "Chromium"
+    ]
   },
   {
     "id": "B0C8S2MN8H",
@@ -43468,7 +43826,9 @@
     "image": "https://m.media-amazon.com/images/I/51oqrZecmWL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0CLTV338P",
@@ -43508,7 +43868,9 @@
     "image": "https://m.media-amazon.com/images/I/81jcEnLtlUL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B09J6JXS5Z",
@@ -43547,7 +43909,9 @@
     "image": "https://m.media-amazon.com/images/I/61oqhlNUOrL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B09KFBTCS9",
@@ -43586,7 +43950,12 @@
     "image": "https://m.media-amazon.com/images/I/71km8DpanIL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": [
+      "Cinnamon",
+      "Chromium"
+    ]
   },
   {
     "id": "B0CGTFWMKF",
@@ -43626,7 +43995,9 @@
     "image": "https://m.media-amazon.com/images/I/715FXslRccL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0GW52D765",
@@ -43669,7 +44040,12 @@
     "image": "https://m.media-amazon.com/images/I/714vwikY0YL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "Phytosome",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B00JVYT4JE",
@@ -43708,7 +44084,9 @@
     "image": "https://m.media-amazon.com/images/I/617UAdp+DuL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0FSQJZ1WN",
@@ -43749,7 +44127,13 @@
     "image": "https://m.media-amazon.com/images/I/61iJlLv66UL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Chromium"
+    ]
   },
   {
     "id": "B0FW4Z78PH",
@@ -43790,7 +44174,13 @@
     "image": "https://m.media-amazon.com/images/I/61rfzuP3u-L.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Chromium"
+    ]
   },
   {
     "id": "B0DFF4V26T",
@@ -43830,7 +44220,9 @@
     "image": "https://m.media-amazon.com/images/I/61jUjKQOGkL.jpg",
     "matchedKeywords": [],
     "trustScore": 60,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0D9BW4NRW",
@@ -43870,7 +44262,9 @@
     "image": "https://m.media-amazon.com/images/I/71HwQqySrAL.jpg",
     "matchedKeywords": [],
     "trustScore": 42,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0CNDDNKPQ",
@@ -43911,7 +44305,9 @@
     "image": "https://m.media-amazon.com/images/I/91-20f-zEwL.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 15
+    "gapScore": 15,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0GXF9YS1W",
@@ -43948,7 +44344,9 @@
     "image": "https://m.media-amazon.com/images/I/51ic8meycwL.jpg",
     "matchedKeywords": [],
     "trustScore": 45,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B01AO0IXKE",
@@ -43987,7 +44385,9 @@
     "image": "https://m.media-amazon.com/images/I/81U1ih-7j1L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B081K65ZCD",
@@ -44024,7 +44424,9 @@
     "image": "https://m.media-amazon.com/images/I/71UYtnh7tmL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B00F9EWOKQ",
@@ -44066,7 +44468,9 @@
     "image": "https://m.media-amazon.com/images/I/716+bap5wCL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0083V8UB4",
@@ -44103,7 +44507,9 @@
     "image": "https://m.media-amazon.com/images/I/712q+9T62YL.jpg",
     "matchedKeywords": [],
     "trustScore": 42,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0FXH8GNRW",
@@ -44142,7 +44548,9 @@
     "image": "https://m.media-amazon.com/images/I/71EKtdFu+zL.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 15
+    "gapScore": 15,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0GYN5CQVS",
@@ -44223,7 +44631,13 @@
     "image": "https://m.media-amazon.com/images/I/71U4P0umQVL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Alpha Lipoic Acid"
+    ]
   },
   {
     "id": "B0G2KT3BB1",
@@ -44264,7 +44678,9 @@
     "image": "https://m.media-amazon.com/images/I/81I0DaNtgdL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0D8LYYW3W",
@@ -44304,7 +44720,12 @@
     "image": "https://m.media-amazon.com/images/I/71l5PA51y4L.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0FMF2T61J",
@@ -44345,7 +44766,12 @@
     "image": "https://m.media-amazon.com/images/I/71iPj0Yr-aL.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0D4RMJ8NB",
@@ -44384,7 +44810,9 @@
     "image": "https://m.media-amazon.com/images/I/61gOQFCSD2L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B095JCB9B9",
@@ -44427,7 +44855,9 @@
     "image": "https://m.media-amazon.com/images/I/71wIECoPkUL.jpg",
     "matchedKeywords": [],
     "trustScore": 42,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0FMDZC3WQ",
@@ -44468,7 +44898,12 @@
     "image": "https://m.media-amazon.com/images/I/71SzcARdwEL.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0FQXZ685B",
@@ -44507,7 +44942,9 @@
     "image": "https://m.media-amazon.com/images/I/817h6A-KffL.jpg",
     "matchedKeywords": [],
     "trustScore": 42,
-    "gapScore": 15
+    "gapScore": 15,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0CWC6F56X",
@@ -44550,7 +44987,12 @@
     "image": "https://m.media-amazon.com/images/I/71crQ54BTpL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0D4RLLYQN",
@@ -44589,7 +45031,9 @@
     "image": "https://m.media-amazon.com/images/I/61slxG-ApKL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0FTBL925K",
@@ -44628,7 +45072,9 @@
     "image": "https://m.media-amazon.com/images/I/7147nR+3z1L.jpg",
     "matchedKeywords": [],
     "trustScore": 60,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0CDZR9QD8",
@@ -44668,7 +45114,12 @@
     "image": "https://m.media-amazon.com/images/I/71BepDtIRJL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Phytosome",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0FGNRSYCF",
@@ -44708,7 +45159,13 @@
     "image": "https://m.media-amazon.com/images/I/717aMYDP98L.jpg",
     "matchedKeywords": [],
     "trustScore": 56,
-    "gapScore": 15
+    "gapScore": 15,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Alpha Lipoic Acid"
+    ]
   },
   {
     "id": "B0GSYCZGL7",
@@ -44747,7 +45204,13 @@
     "image": "https://m.media-amazon.com/images/I/61wPTTcj-7L.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Bitter Melon"
+    ]
   },
   {
     "id": "B0FXDN44SM",
@@ -44786,7 +45249,11 @@
     "image": "https://m.media-amazon.com/images/I/61ccdiMFWvL.jpg",
     "matchedKeywords": [],
     "trustScore": 56,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0DF4HF7C5",
@@ -44825,7 +45292,11 @@
     "image": "https://m.media-amazon.com/images/I/71sOPNzr8SL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Alpha Lipoic Acid"
+    ]
   },
   {
     "id": "B0C3WMXLB5",
@@ -44868,7 +45339,9 @@
     "image": "https://m.media-amazon.com/images/I/61M4nXhMGOL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0GFVN8N2H",
@@ -44907,7 +45380,9 @@
     "image": "https://m.media-amazon.com/images/I/811kVNabyPL.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0B8LSMJZJ",
@@ -44946,7 +45421,13 @@
     "image": "https://m.media-amazon.com/images/I/81f1F3RtJ0L.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Cinnamon",
+      "Chromium",
+      "Bitter Melon"
+    ]
   },
   {
     "id": "B0DTFM7C1W",
@@ -44988,7 +45469,12 @@
     "image": "https://m.media-amazon.com/images/I/6198XFwKnfL.jpg",
     "matchedKeywords": [],
     "trustScore": 42,
-    "gapScore": 15
+    "gapScore": 15,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0F4DQCLBQ",
@@ -45028,7 +45514,12 @@
     "image": "https://m.media-amazon.com/images/I/61KmjP-tApL.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Cinnamon",
+      "Chromium"
+    ]
   },
   {
     "id": "B0D186Z1C8",
@@ -45067,7 +45558,9 @@
     "image": "https://m.media-amazon.com/images/I/614s8oxkNZL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0GS3XZ3VJ",
@@ -45106,7 +45599,9 @@
     "image": "https://m.media-amazon.com/images/I/918qt1UjrxL.jpg",
     "matchedKeywords": [],
     "trustScore": 60,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B09ST7X7Z1",
@@ -45145,7 +45640,12 @@
     "image": "https://m.media-amazon.com/images/I/71A6l-pI5gL.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0DNKMF384",
@@ -45184,7 +45684,13 @@
     "image": "https://m.media-amazon.com/images/I/819M5loQKxL.jpg",
     "matchedKeywords": [],
     "trustScore": 42,
-    "gapScore": 15
+    "gapScore": 15,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Chromium"
+    ]
   },
   {
     "id": "B0FN71NW1C",
@@ -45223,7 +45729,9 @@
     "image": "https://m.media-amazon.com/images/I/81h38OyyjVL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0DYP6326P",
@@ -45262,7 +45770,9 @@
     "image": "https://m.media-amazon.com/images/I/61XLVplCmEL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0FXWW9R2K",
@@ -45301,7 +45811,11 @@
     "image": "https://m.media-amazon.com/images/I/71WoSitQ4wL.jpg",
     "matchedKeywords": [],
     "trustScore": 55,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0FWTV3V3P",
@@ -45343,7 +45857,9 @@
     "image": "https://m.media-amazon.com/images/I/71Lq2M1DS2L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0BHJDTX82",
@@ -45384,7 +45900,9 @@
     "image": "https://m.media-amazon.com/images/I/61yQAL2OJTL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0FJB844SJ",
@@ -45424,7 +45942,12 @@
     "image": "https://m.media-amazon.com/images/I/71kBjR3Zh4L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B08J2R3LTQ",
@@ -45466,7 +45989,12 @@
     "image": "https://m.media-amazon.com/images/I/71yVTepMGuL.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B086H6328T",
@@ -45506,7 +46034,11 @@
     "image": "https://m.media-amazon.com/images/I/71UNyaOeJ3L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Alpha Lipoic Acid"
+    ]
   },
   {
     "id": "B0F9YL3BWJ",
@@ -45585,7 +46117,13 @@
     "image": "https://m.media-amazon.com/images/I/81BJIXgCAEL.jpg",
     "matchedKeywords": [],
     "trustScore": 42,
-    "gapScore": 15
+    "gapScore": 15,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Chromium"
+    ]
   },
   {
     "id": "B0D9NLGV6W",
@@ -45625,7 +46163,13 @@
     "image": "https://m.media-amazon.com/images/I/71W4O4AP-ZL.jpg",
     "matchedKeywords": [],
     "trustScore": 41,
-    "gapScore": 15
+    "gapScore": 15,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Chromium"
+    ]
   },
   {
     "id": "B0DNJPH5ZN",
@@ -45665,7 +46209,13 @@
     "image": "https://m.media-amazon.com/images/I/71DlqcvH-QL.jpg",
     "matchedKeywords": [],
     "trustScore": 40,
-    "gapScore": 15
+    "gapScore": 15,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Chromium"
+    ]
   },
   {
     "id": "B0D1GCZ1MX",
@@ -45746,7 +46296,9 @@
     "image": "https://m.media-amazon.com/images/I/61KNgSZGebL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0CWLGTNRN",
@@ -45785,7 +46337,9 @@
     "image": "https://m.media-amazon.com/images/I/71POzByutxL.jpg",
     "matchedKeywords": [],
     "trustScore": 98,
-    "gapScore": 55
+    "gapScore": 55,
+    "berberineForm": "Phytosome",
+    "complexIngredients": []
   },
   {
     "id": "B0FH5HGWDL",
@@ -45825,7 +46379,9 @@
     "image": "https://m.media-amazon.com/images/I/61YjlxVulJL.jpg",
     "matchedKeywords": [],
     "trustScore": 56,
-    "gapScore": 15
+    "gapScore": 15,
+    "berberineForm": "Dihydroberberine",
+    "complexIngredients": []
   },
   {
     "id": "B0B4FC8FTC",
@@ -45869,7 +46425,9 @@
     "image": "https://m.media-amazon.com/images/I/81FtCeF5ZpL.jpg",
     "matchedKeywords": [],
     "trustScore": 98,
-    "gapScore": 70
+    "gapScore": 70,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0D192MC5Z",
@@ -45909,7 +46467,9 @@
     "image": "https://m.media-amazon.com/images/I/61qNj1V9IFL.jpg",
     "matchedKeywords": [],
     "trustScore": 59,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0FBKVLYG1",
@@ -45946,7 +46506,15 @@
     "image": "https://m.media-amazon.com/images/I/81pgF0or6QL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon",
+      "Chromium",
+      "Gymnema",
+      "Bitter Melon"
+    ]
   },
   {
     "id": "B0CWLGL7MP",
@@ -45985,7 +46553,9 @@
     "image": "https://m.media-amazon.com/images/I/71kph6CFc7L.jpg",
     "matchedKeywords": [],
     "trustScore": 98,
-    "gapScore": 55
+    "gapScore": 55,
+    "berberineForm": "Phytosome",
+    "complexIngredients": []
   },
   {
     "id": "B0DYVPK45R",
@@ -46024,7 +46594,11 @@
     "image": "https://m.media-amazon.com/images/I/618Wu66ER1L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Phytosome",
+    "complexIngredients": [
+      "Chromium"
+    ]
   },
   {
     "id": "B08HFN997X",
@@ -46063,7 +46637,9 @@
     "image": "https://m.media-amazon.com/images/I/71kBdHAEOuL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0CX1RRZC6",
@@ -46105,7 +46681,9 @@
     "image": "https://m.media-amazon.com/images/I/61YyiadlSwL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0GDDRCHWM",
@@ -46144,7 +46722,9 @@
     "image": "https://m.media-amazon.com/images/I/71S6mqAF94L.jpg",
     "matchedKeywords": [],
     "trustScore": 98,
-    "gapScore": 55
+    "gapScore": 55,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0FMRSMMHR",
@@ -46187,7 +46767,9 @@
     "image": "https://m.media-amazon.com/images/I/51S54DkWH5L.jpg",
     "matchedKeywords": [],
     "trustScore": 57,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B00F5US2BY",
@@ -46224,7 +46806,9 @@
     "image": "https://m.media-amazon.com/images/I/715oaaBQf8L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B00U7UHB5U",
@@ -46266,7 +46850,11 @@
     "image": "https://m.media-amazon.com/images/I/71cWbYuU3VL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 45
+    "gapScore": 45,
+    "berberineForm": "HCl",
+    "complexIngredients": [
+      "Alpha Lipoic Acid"
+    ]
   },
   {
     "id": "B0DJC3YYX9",
@@ -46305,7 +46893,12 @@
     "image": "https://m.media-amazon.com/images/I/71bAhZ4XmDL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B07978NYC5",
@@ -46342,7 +46935,9 @@
     "image": "https://m.media-amazon.com/images/I/613S1B3gR+L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B075X3MC4J",
@@ -46383,7 +46978,9 @@
     "image": "https://m.media-amazon.com/images/I/51Ge7-GXPFL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0DNRKKL1G",
@@ -46422,7 +47019,9 @@
     "image": "https://m.media-amazon.com/images/I/712LDLq8vYL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0D7D2HF7J",
@@ -46461,7 +47060,9 @@
     "image": "https://m.media-amazon.com/images/I/71At3nZRUVL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0FFTK21RK",
@@ -46501,7 +47102,12 @@
     "image": "https://m.media-amazon.com/images/I/71uKHYQuZIL.jpg",
     "matchedKeywords": [],
     "trustScore": 59,
-    "gapScore": 75
+    "gapScore": 75,
+    "berberineForm": "Complex",
+    "complexIngredients": [
+      "Bitter Melon",
+      "Banaba Leaf"
+    ]
   },
   {
     "id": "B07WQSSDBD",
@@ -46540,7 +47146,9 @@
     "image": "https://m.media-amazon.com/images/I/71KHt9GNbNL.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0D2Z7XN2H",
@@ -46581,7 +47189,9 @@
     "image": "https://m.media-amazon.com/images/I/71R0ex6d54L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 60
+    "gapScore": 60,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B07CCBS5G4",
@@ -46618,7 +47228,9 @@
     "image": "https://m.media-amazon.com/images/I/71Q9oVLy5+L.jpg",
     "matchedKeywords": [],
     "trustScore": 58,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": []
   },
   {
     "id": "B0GSP9ZCBF",
@@ -46661,7 +47273,12 @@
     "image": "https://m.media-amazon.com/images/I/711CtINc+mL.jpg",
     "matchedKeywords": [],
     "trustScore": 56,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   },
   {
     "id": "B0DGBS5H4M",
@@ -46700,7 +47317,9 @@
     "image": "https://m.media-amazon.com/images/I/51nkA6AgggL.jpg",
     "matchedKeywords": [],
     "trustScore": 43,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "Phytosome",
+    "complexIngredients": []
   },
   {
     "id": "B0GQXZRQ72",
@@ -46739,6 +47358,11 @@
     "image": "https://m.media-amazon.com/images/I/71UmiAX91WL.jpg",
     "matchedKeywords": [],
     "trustScore": 44,
-    "gapScore": 30
+    "gapScore": 30,
+    "berberineForm": "HCl",
+    "complexIngredients": [
+      "Ceylon Cinnamon",
+      "Cinnamon"
+    ]
   }
 ]

@@ -196,6 +196,27 @@ function parseBerberineMg(text) {
     return 0;
 }
 
+function parseBerberineForm(text) {
+    const t = (text || '');
+    if (/phytosome|berbevis/i.test(t)) return 'Phytosome';
+    if (/dihydroberberine|\bdhb\b/i.test(t)) return 'Dihydroberberine';
+    if (/berberine\s*hcl/i.test(t)) return 'HCl';
+    // Complex = berberine + other metabolic ingredients
+    if (/cinnamon|chromium|alpha[\s-]?lipoic|gymnema|bitter\s*melon|banaba|mulberry/i.test(t)) return 'Complex';
+    return 'HCl';
+}
+
+const BERBERINE_COMPLEX_PATTERNS = [
+    { regex: /ceylon\s*cinnamon/i, tag: 'Ceylon Cinnamon' },
+    { regex: /cinnamon(?!\s*extract\s*\d)/i, tag: 'Cinnamon' },
+    { regex: /chromium/i, tag: 'Chromium' },
+    { regex: /alpha[\s-]?lipoic/i, tag: 'Alpha Lipoic Acid' },
+    { regex: /gymnema/i, tag: 'Gymnema' },
+    { regex: /bitter\s*melon/i, tag: 'Bitter Melon' },
+    { regex: /banaba/i, tag: 'Banaba Leaf' },
+    { regex: /mulberry/i, tag: 'Mulberry' },
+];
+
 // ==========================================
 // 4. SERVING/SIZE PARSING
 // ==========================================
@@ -312,11 +333,15 @@ function normalizeAmazonItem(raw) {
         ? Math.round((price / (cfuBillions * servings / 10)) * 100) / 100
         : null;
 
-    // Berberine mg — price per 500mg dose
+    // Berberine mg — price per 500mg dose + form + complex ingredients
     const berberineMg = category === 'Berberine' ? parseBerberineMg(fullText) : 0;
     const pricePer500mg = (berberineMg > 0 && servings && price)
         ? Math.round((price / (berberineMg * servings / 500)) * 100) / 100
         : null;
+    const berberineForm = category === 'Berberine' ? parseBerberineForm(fullText) : null;
+    const complexIngredients = category === 'Berberine'
+        ? BERBERINE_COMPLEX_PATTERNS.filter(p => p.regex.test(fullText)).map(p => p.tag)
+        : [];
 
     return {
         id: raw.asin || raw.product_id || raw.id,
@@ -347,6 +372,8 @@ function normalizeAmazonItem(raw) {
         pricePer10bCFU: pricePer10bCFU,
         berberineMg: berberineMg,
         pricePer500mg: pricePer500mg,
+        berberineForm: berberineForm,
+        complexIngredients: complexIngredients,
         reviewsCount: raw.total_reviews || raw.reviews_count || raw.ratings_total || parseInt(raw.reviews) || 0,
         avgRating: parseFloat(raw.rating || raw.stars || 0),
         sponsoredFlag: !!raw.is_sponsored,
@@ -403,8 +430,9 @@ function buildStaticRow(item) {
     const cfuBadge = (item.cfuBillions > 0)
         ? `<span class="badge badge-cert">${item.cfuBillions}B CFU</span>${item.pricePer10bCFU ? '<span class="badge badge-free">$' + item.pricePer10bCFU.toFixed(2) + '/10B CFU</span>' : ''}`
         : '';
+    const formColors = { 'Phytosome': 'badge-cert', 'Dihydroberberine': 'badge-claim', 'HCl': 'badge-none', 'Complex': 'badge-warn' };
     const berberineBadge = (item.berberineMg > 0)
-        ? `<span class="badge badge-cert">${item.berberineMg}mg Berberine</span>${item.pricePer500mg ? '<span class="badge badge-free">$' + item.pricePer500mg.toFixed(2) + '/500mg</span>' : ''}`
+        ? `<span class="badge badge-cert">${item.berberineMg}mg Berberine</span>${item.pricePer500mg ? '<span class="badge badge-free">$' + item.pricePer500mg.toFixed(2) + '/500mg</span>' : ''}${item.berberineForm ? '<span class="badge ' + (formColors[item.berberineForm] || 'badge-none') + '">' + item.berberineForm + '</span>' : ''}${(item.complexIngredients || []).map(c => '<span class="badge badge-warn">' + c + '</span>').join('')}`
         : '';
 
     const imgHtml = item.image ? `<img src="${item.image}" alt="${item.brand}" loading="lazy" class="product-thumb">` : '';
@@ -561,15 +589,21 @@ async function main() {
     }
     if (cfuEnriched > 0) console.log(`🦠 Enriched CFU for ${cfuEnriched} probiotic products`);
 
-    // Re-enrich Berberine missing data
+    // Re-enrich Berberine — mg, price, form, complex ingredients
     let berbEnriched = 0;
     for (const p of db) {
-        if (p.category === 'Berberine' && !p.berberineMg) {
+        if (p.category !== 'Berberine') continue;
+        if (!p.berberineMg) {
             p.berberineMg = parseBerberineMg(p.title);
             if (p.berberineMg > 0) berbEnriched++;
         }
-        if (p.category === 'Berberine' && p.berberineMg > 0 && !p.pricePer500mg && p.servingsDeclared && p.priceListed) {
+        if (p.berberineMg > 0 && !p.pricePer500mg && p.servingsDeclared && p.priceListed) {
             p.pricePer500mg = Math.round((p.priceListed / (p.berberineMg * p.servingsDeclared / 500)) * 100) / 100;
+        }
+        // Backfill form + complex (always re-parse — new fields)
+        if (!p.berberineForm) p.berberineForm = parseBerberineForm(p.title);
+        if (!p.complexIngredients || p.complexIngredients.length === 0) {
+            p.complexIngredients = BERBERINE_COMPLEX_PATTERNS.filter(pt => pt.regex.test(p.title)).map(pt => pt.tag);
         }
     }
     if (berbEnriched > 0) console.log(`🌿 Enriched Berberine mg for ${berbEnriched} products`);
