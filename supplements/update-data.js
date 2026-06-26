@@ -86,6 +86,13 @@ const QUERIES = [
     'collagen peptides NSF certified clean label',
     'collagen supplement price per gram',
     'collagen powder no fillers unflavored',
+    // Ashwagandha
+    'ashwagandha KSM-66 third party tested',
+    'ashwagandha NSF certified withanolides',
+    'ashwagandha root extract best value',
+    'Sensoril ashwagandha stress anxiety sleep',
+    'ashwagandha withanolides price comparison',
+    'organic ashwagandha root powder no fillers',
 ];
 
 // ==========================================
@@ -101,6 +108,7 @@ function detectCategory(title) {
     if (/fish oil|omega[\s-]?3|epa.*dha|dha.*epa|cod liver oil|krill oil|algae.*omega/.test(t)) return 'Fish Oil';
     if (/probiotic|acidophilus|lactobacillus|bifidobacterium|gut flora|digestive enzymes.*probiotic/i.test(t)) return 'Probiotics';
     if (/berberine/i.test(t)) return 'Berberine';
+    if (/ashwagandha|withania\s*somnifera|\bksm[\s-]?66\b|\bsensoril\b|\bshoden\b/i.test(t)) return 'Ashwagandha';
     if (/bcaa|amino|eaa/.test(t)) return 'Amino Acids';
     if (/collagen/.test(t)) return 'Collagen';
     return 'Other';
@@ -162,6 +170,10 @@ const CLAIM_PATTERNS = [
     { regex: /fortigel/i, tag: 'Fortigel' },
     { regex: /fortibone/i, tag: 'Fortibone' },
     { regex: /tendofor/i, tag: 'Tendofor' },
+    { regex: /\bksm[\s-]?66\b/i, tag: 'KSM-66' },
+    { regex: /\bsensoril\b/i, tag: 'Sensoril' },
+    { regex: /\bshoden\b/i, tag: 'Shoden' },
+    { regex: /ashwagandha\s*root|root\s*(?:extract|powder|only)/i, tag: 'Root Extract' },
 ];
 
 function detectTags(text) {
@@ -256,6 +268,41 @@ function parseBerberineForm(text) {
     return 'HCl';
 }
 
+function parseWithanolidesMg(text) {
+    const t = (text || '');
+    // Explicit withanolide mg: "10mg withanolides"
+    const explicit = t.match(/(\d+(?:\.\d+)?)\s*mg\s*(?:of\s*)?withanolides?/i) ||
+                     t.match(/withanolides?\s*(\d+(?:\.\d+)?)\s*mg/i);
+    if (explicit) return parseFloat(explicit[1]);
+    // Withanolide % × dose mg: "500mg 5% withanolides" → 25mg
+    const pct = t.match(/(\d+)\s*mg[^,]{0,30}?(\d+(?:\.\d+)?)\s*%\s*withanolides?/i) ||
+                t.match(/(\d+(?:\.\d+)?)\s*%\s*withanolides?[^,]{0,30}?(\d+)\s*mg/i);
+    if (pct) {
+        const mg = parseFloat(pct[1]);
+        const pctVal = parseFloat(pct[2]);
+        if (mg > 0 && pctVal > 0 && pctVal <= 100) return Math.round(mg * pctVal / 100 * 10) / 10;
+    }
+    // Known extract defaults: KSM-66=5%, Sensoril=10%, Shoden=35%
+    const doseMatch = t.match(/(\d+)\s*mg\s*(?:ashwagandha|withania)/i) ||
+                      t.match(/ashwagandha[^,]{0,20}?(\d+)\s*mg/i);
+    const dose = doseMatch ? parseInt(doseMatch[1]) : 0;
+    if (dose > 0) {
+        if (/\bshoden\b/i.test(t)) return Math.round(dose * 0.35 * 10) / 10;
+        if (/\bsensoril\b/i.test(t)) return Math.round(dose * 0.10 * 10) / 10;
+        if (/\bksm[\s-]?66\b/i.test(t)) return Math.round(dose * 0.05 * 10) / 10;
+    }
+    return 0;
+}
+
+function parseAshwagandhaExtract(text) {
+    const t = (text || '');
+    if (/\bshoden\b/i.test(t)) return 'Shoden';
+    if (/\bksm[\s-]?66\b/i.test(t)) return 'KSM-66';
+    if (/\bsensoril\b/i.test(t)) return 'Sensoril';
+    if (/\bwithania\s*somnifera\b/i.test(t)) return 'Standardized';
+    return 'Generic';
+}
+
 const BERBERINE_COMPLEX_PATTERNS = [
     { regex: /ceylon\s*cinnamon/i, tag: 'Ceylon Cinnamon' },
     { regex: /cinnamon(?!\s*extract\s*\d)/i, tag: 'Cinnamon' },
@@ -278,16 +325,22 @@ function parseServings(title) {
     //    BulkSupplements "90 Count (Pack of 1)" was returning 1 instead of 90
     const countMatch = title.match(/(\d+)[-\s](?:counts?|cts?)\b/i);
     if (countMatch && parseInt(countMatch[1]) > 1) return parseInt(countMatch[1]);
-    // 3. Unit-based formats — guard small numbers to avoid "Omega 3 Gummies" → 3
-    const alt = title.match(/(\d+)\s*(?:stickpack|stick\s*pack|packet|pouch|sachet|stick|(?:veggie\s*|vegetarian\s*|veg\s*|delayed[\s-]?release\s*|enteric[\s-]?coated\s*|mini\s*)?capsule|(?:veggie\s*|veg\s*)?cap|tablet|softgel|soft\s*gel|gummie|gummy|chew|lozenge|piece|pop|dose)s?\b/i);
-    if (alt) {
-        const n = parseInt(alt[1]);
-        if (n <= 3) {
-            // "Omega 3 Gummies" — 3 is acid type, not count
-            const pre = title.substring(Math.max(0, title.indexOf(alt[0]) - 15), title.indexOf(alt[0]));
-            if (/omega[\s-]?\d*\s*$/i.test(pre) || /vitamin\s+[a-z\d]+\s*$/i.test(pre)) return null;
-        }
-        return n;
+    // 3. Unit-based formats — use matchAll to find ALL matches and pick largest valid n
+    //    Guards: n<=1 = serving instruction ("1 Capsule Daily"), n<=3 with omega/vitamin prefix
+    const altRe = /(\d+)\s*(?:stickpack|stick\s*pack|packet|pouch|sachet|stick|(?:veggie\s*|vegetarian\s*|veg\s*|vegan\s*|delayed[\s-]?release\s*|enteric[\s-]?coated\s*|mini\s*)?capsule|(?:veggie\s*|veg\s*|vegan\s*)?cap|tablet|softgel|soft\s*gel|gummie|gummy|chew|lozenge|piece|pop|dose)s?\b/gi;
+    const altMatches = [...title.matchAll(altRe)];
+    if (altMatches.length > 0) {
+        const candidates = altMatches
+            .map(m => ({ n: parseInt(m[1]), idx: m.index, raw: m[0] }))
+            .filter(({ n, idx, raw }) => {
+                if (n <= 1) return false; // serving instruction ("1 Capsule Daily")
+                if (n <= 3) {
+                    const pre = title.substring(Math.max(0, idx - 15), idx);
+                    if (/omega[\s-]?\d*\s*$/i.test(pre) || /vitamin\s+[a-z\d]+\s*$/i.test(pre)) return false;
+                }
+                return true;
+            });
+        if (candidates.length > 0) return Math.max(...candidates.map(c => c.n));
     }
     return null;
 }
@@ -411,6 +464,13 @@ function normalizeAmazonItem(raw) {
         ? BERBERINE_COMPLEX_PATTERNS.filter(p => p.regex.test(fullText)).map(p => p.tag)
         : [];
 
+    // Ashwagandha — withanolides mg, price per mg withanolides, extract type
+    const withanolidesMg = category === 'Ashwagandha' ? parseWithanolidesMg(fullText) : 0;
+    const pricePerMgWithanolides = (withanolidesMg > 0 && servings && price)
+        ? Math.round((price / (withanolidesMg * servings)) * 1000) / 1000
+        : null;
+    const ashwagandhaExtract = category === 'Ashwagandha' ? parseAshwagandhaExtract(fullText) : null;
+
     return {
         id: raw.asin || raw.product_id || raw.id,
         scrapeDate: new Date().toISOString().split('T')[0],
@@ -446,6 +506,9 @@ function normalizeAmazonItem(raw) {
         pricePer500mg: pricePer500mg,
         berberineForm: berberineForm,
         complexIngredients: complexIngredients,
+        withanolidesMg: withanolidesMg,
+        pricePerMgWithanolides: pricePerMgWithanolides,
+        ashwagandhaExtract: ashwagandhaExtract,
         reviewsCount: raw.total_reviews || raw.reviews_count || raw.ratings_total || parseInt(raw.reviews) || 0,
         avgRating: parseFloat(raw.rating || raw.stars || 0),
         sponsoredFlag: !!raw.is_sponsored,
@@ -509,6 +572,12 @@ function buildStaticRow(item) {
     const berberineBadge = (item.berberineMg > 0)
         ? `<span class="badge badge-cert">${item.berberineMg}mg Berberine</span>${item.pricePer500mg ? '<span class="badge badge-free">$' + item.pricePer500mg.toFixed(2) + '/500mg</span>' : ''}${item.berberineForm ? '<span class="badge ' + (formColors[item.berberineForm] || 'badge-none') + '">' + item.berberineForm + '</span>' : ''}${(item.complexIngredients || []).map(c => '<span class="badge badge-warn">' + c + '</span>').join('')}`
         : '';
+    const extractColors = { 'KSM-66': 'badge-cert', 'Sensoril': 'badge-claim', 'Shoden': 'badge-cert', 'Standardized': 'badge-none', 'Generic': 'badge-none' };
+    const ashwagandhaB = (item.withanolidesMg > 0)
+        ? `<span class="badge badge-cert">${item.withanolidesMg}mg withanolides</span>${item.pricePerMgWithanolides ? '<span class="badge badge-free">$' + item.pricePerMgWithanolides.toFixed(3) + '/mg</span>' : ''}${item.ashwagandhaExtract ? '<span class="badge ' + (extractColors[item.ashwagandhaExtract] || 'badge-none') + '">' + item.ashwagandhaExtract + '</span>' : ''}`
+        : (item.ashwagandhaExtract && item.ashwagandhaExtract !== 'Generic'
+            ? `<span class="badge ${extractColors[item.ashwagandhaExtract] || 'badge-none'}">${item.ashwagandhaExtract}</span>`
+            : '');
 
     const imgHtml = item.image ? `<img src="${item.image}" alt="${item.brand}" loading="lazy" class="product-thumb">` : '';
 
@@ -525,7 +594,7 @@ function buildStaticRow(item) {
                         <td class="col-ingredients">${propBlend}</td>
                         <td class="col-ingredients">${freeFromBadges || '—'}</td>
                         <td class="col-ingredients">${fillerBadges || '<span class="badge badge-ok">None</span>'}</td>
-                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}${collagenBadge || ''}${berberineBadge || ''}</td>
+                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}${collagenBadge || ''}${berberineBadge || ''}${ashwagandhaB || ''}</td>
                         <td class="col-trust">${certBadges || '<span class="badge badge-none">None</span>'}</td>
                         <td class="col-trust"><span class="${trustClass}">${item.trustScore}</span></td>
                         <td class="col-value"><span class="${gapClass}">${item.gapScore}</span></td>
@@ -715,6 +784,27 @@ async function main() {
         if (prev !== next) { p.claims = freshClaims; claimsUpdated++; }
     }
     if (claimsUpdated > 0) console.log(`🏷️ Re-applied claims for ${claimsUpdated} products`);
+
+    // Re-enrich Ashwagandha — always re-parse withanolides + extract type
+    let ashEnriched = 0;
+    for (const p of db) {
+        if (p.category !== 'Ashwagandha') continue;
+        const freshWitha = parseWithanolidesMg(p.title);
+        if (freshWitha !== p.withanolidesMg) {
+            p.withanolidesMg = freshWitha;
+            p.pricePerMgWithanolides = null;
+        }
+        if (p.withanolidesMg > 0) {
+            ashEnriched++;
+            if (!p.pricePerMgWithanolides && p.servingsDeclared && p.priceListed) {
+                p.pricePerMgWithanolides = Math.round((p.priceListed / (p.withanolidesMg * p.servingsDeclared)) * 1000) / 1000;
+            }
+        } else {
+            p.pricePerMgWithanolides = null;
+        }
+        p.ashwagandhaExtract = parseAshwagandhaExtract(p.title);
+    }
+    if (ashEnriched > 0) console.log(`🌿 Enriched withanolides for ${ashEnriched} ashwagandha products`);
 
     // Compute scores
     computeAllScores(db);
