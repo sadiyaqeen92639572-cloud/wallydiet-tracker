@@ -267,13 +267,24 @@ const BERBERINE_COMPLEX_PATTERNS = [
 // 4. SERVING/SIZE PARSING
 // ==========================================
 function parseServings(title) {
+    // 1. Explicit "X servings"
     const m = title.match(/(\d+)\s*serv/i);
     if (m) return parseInt(m[1]);
-    const alt = title.match(/(\d+)\s*(?:stickpack|stick\s*pack|packet|ct\b|count|pouch|sachet|stick|(?:veggie\s*|vegetarian\s*|veg\s*|delayed[\s-]?release\s*|enteric[\s-]?coated\s*|mini\s*)?capsule|(?:veggie\s*|veg\s*)?cap|tablet|softgel|soft\s*gel|gummie|gummy|chew|lozenge|piece|pop|dose)s?\b/i);
-    if (alt) return parseInt(alt[1]);
-    // "X-count" / "X-ct" = serving count. "X-Pack" and "Pack of X" = multi-box (excluded)
-    const countDash = title.match(/(\d+)[-\s](?:count|ct)\b/i);
-    if (countDash && parseInt(countDash[1]) > 1) return parseInt(countDash[1]);
+    // 2. "N Count" / "N-ct" / "N Cts" — check BEFORE unit patterns to avoid "1 Softgel per Serving" confusion
+    //    BulkSupplements "90 Count (Pack of 1)" was returning 1 instead of 90
+    const countMatch = title.match(/(\d+)[-\s](?:counts?|cts?)\b/i);
+    if (countMatch && parseInt(countMatch[1]) > 1) return parseInt(countMatch[1]);
+    // 3. Unit-based formats — guard small numbers to avoid "Omega 3 Gummies" → 3
+    const alt = title.match(/(\d+)\s*(?:stickpack|stick\s*pack|packet|pouch|sachet|stick|(?:veggie\s*|vegetarian\s*|veg\s*|delayed[\s-]?release\s*|enteric[\s-]?coated\s*|mini\s*)?capsule|(?:veggie\s*|veg\s*)?cap|tablet|softgel|soft\s*gel|gummie|gummy|chew|lozenge|piece|pop|dose)s?\b/i);
+    if (alt) {
+        const n = parseInt(alt[1]);
+        if (n <= 3) {
+            // "Omega 3 Gummies" — 3 is acid type, not count
+            const pre = title.substring(Math.max(0, title.indexOf(alt[0]) - 15), title.indexOf(alt[0]));
+            if (/omega[\s-]?\d*\s*$/i.test(pre) || /vitamin\s+[a-z\d]+\s*$/i.test(pre)) return null;
+        }
+        return n;
+    }
     return null;
 }
 
