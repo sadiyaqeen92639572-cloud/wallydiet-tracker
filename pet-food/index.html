@@ -181,13 +181,21 @@
         .tag-filter-section { margin-bottom: 1rem; }
         .tag-group-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 0.4rem; display: block; }
         .tag-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
-        .tag-pill { padding: 0.35rem 0.7rem; border-radius: 20px; border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-secondary); cursor: pointer; font-size: 0.75rem; font-weight: 500; transition: all 0.15s; user-select: none; }
+        .tag-pill { padding: 0.35rem 0.7rem; border-radius: 20px; border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-secondary); cursor: pointer; font-size: 0.75rem; font-weight: 500; transition: all 0.15s; user-select: none; position: relative; }
         .tag-pill:hover { border-color: var(--brand-primary); color: var(--text-primary); }
         .tag-pill.active-diet { background: rgba(59,130,246,0.15); border-color: #60a5fa; color: #60a5fa; }
         .tag-pill.active-protein { background: rgba(16,185,129,0.15); border-color: var(--brand-primary); color: var(--brand-accent); }
         .tag-pill.active-health { background: rgba(168,85,247,0.15); border-color: #a855f7; color: #c084fc; }
         .tag-pill.active-value { background: rgba(245,158,11,0.15); border-color: #f59e0b; color: #fbbf24; }
         .tag-pill .tag-count { font-size: 0.65rem; opacity: 0.7; margin-left: 0.3rem; font-family: 'JetBrains Mono', monospace; }
+        .pill-tooltip { visibility: hidden; opacity: 0; position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--bg-elevated); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.6rem 0.8rem; font-size: 0.72rem; line-height: 1.55; color: var(--text-secondary); z-index: 100; pointer-events: none; transition: opacity 0.15s, visibility 0.15s; max-width: 280px; white-space: normal; text-align: left; box-shadow: 0 4px 16px rgba(0,0,0,0.4); }
+        .pill-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: var(--border-color); }
+        .pill-tooltip .tt-line1 { color: var(--text-primary); font-weight: 600; display: block; margin-bottom: 0.2rem; }
+        .pill-tooltip .tt-price { color: var(--brand-accent); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; }
+        .pill-tooltip .tt-desc { color: var(--text-muted); font-size: 0.68rem; display: block; margin-top: 0.15rem; }
+        .tag-pill:hover .pill-tooltip { visibility: visible; opacity: 1; }
+        .tag-pill.tooltip-visible .pill-tooltip { visibility: visible; opacity: 1; }
+        @media (max-width: 768px) { .pill-tooltip { left: 0; transform: none; max-width: 240px; } .pill-tooltip::after { left: 20px; } }
 
         /* ACTIVE TAGS SUMMARY */
         .active-tags-summary { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); border-radius: 8px; padding: 0.5rem 1rem; margin-bottom: 0.75rem; font-size: 0.8rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
@@ -27602,6 +27610,49 @@
     }
 
     // ===== TAG PILLS =====
+    const TAG_DESCRIPTIONS = {
+        // Category
+        'Dog Food Dry': 'Dog Dry Food — kibble for adult dogs, price per pound is the key metric, look for named meat as first ingredient',
+        'Dog Food Wet': 'Dog Wet Food — canned or pouched for hydration and palatability, higher moisture content than dry kibble',
+        'Cat Food': 'Cat Dry Food — kibble formulated for obligate carnivores, high protein requirement vs dogs',
+        'Cat Food Wet': 'Cat Wet Food — critical for cats who drink little water, helps prevent urinary tract issues',
+        'Puppy Food': 'Puppy Food — higher protein, calcium, and DHA for brain development, AAFCO "growth" life stage required',
+        'Kitten Food': 'Kitten Food — high-calorie, high-protein formula for rapid growth phase, up to 12 months',
+        'Senior Food': 'Senior Pet Food — lower calorie, joint support (glucosamine), reduced phosphorus for kidney health',
+        'Treats': 'Pet Treats — single-ingredient or limited ingredient preferred, avoid artificial colors and propylene glycol',
+        // Diet
+        'Grain-Free': 'Grain-Free Pet Food — no wheat, corn, or rice. FDA investigating DCM link when combined with peas/lentils as protein replacers',
+        'Pea-Free': 'Pea-Free Formula — eliminates peas, lentils, chickpeas linked to FDA DCM investigation in dogs. Safer grain-free option',
+        'Legume-Free': 'Legume-Free Pet Food — no peas, lentils, chickpeas, or beans. Addresses FDA DCM (dilated cardiomyopathy) concern in dogs',
+        'With Wholesome Grains': 'With Wholesome Grains — brown rice, oatmeal, barley as digestible energy. Preferred by vets post-FDA DCM alert on grain-free',
+        'Corn, Wheat & Soy Free': 'No Corn, Wheat or Soy — eliminates top 3 common pet allergens, suitable for food-sensitive dogs and cats',
+        'Chicken-Free': 'Chicken-Free Formula — for pets with chicken protein allergy, uses novel proteins like duck, salmon, or lamb instead',
+        'Beef-Free': 'Beef-Free Formula — for pets with beef sensitivity, common in limited ingredient elimination diets',
+        // Proteins
+        'Salmon': 'Salmon Protein — omega-3 rich novel protein, excellent for skin and coat, anti-inflammatory for dogs with allergies',
+        'Whitefish': 'Whitefish Protein — lean novel protein (cod, pollock, haddock), hypoallergenic alternative to chicken or beef',
+        'Duck': 'Duck Protein — popular novel protein for elimination diets, higher fat than chicken, good for allergic dogs',
+        'Lamb': 'Lamb Protein — novel protein for dogs that have been exposed to common proteins like chicken and beef',
+        'Venison': 'Venison Protein — wild game novel protein, very low allergy risk, lean and nutrient-dense',
+        'Turkey': 'Turkey Protein — alternative poultry protein, lower fat than duck, good for weight management formulas',
+        'Pork/Boar': 'Pork or Wild Boar — emerging novel protein, rarely used historically so low sensitization risk',
+        'Bison/Buffalo': 'Bison or Buffalo Protein — grass-fed novel protein, rich in B12, zinc, and iron, low fat relative to beef',
+        'Chicken': 'Chicken Protein — most common pet food protein, high biological value but high sensitization rate in allergic pets',
+        'Beef': 'Beef Protein — second most common allergen in dogs, rich in protein and zinc, avoid in elimination diets',
+        // Health
+        'No BHA/BHT': 'No BHA/BHT — free from petroleum-derived preservatives linked to carcinogenicity in animal studies. Uses tocopherols instead',
+        'No Artificial Colors/Flavors': 'No Artificial Colors or Flavors — clean label without FD&C dyes or synthetic flavor enhancers, safer for sensitive pets',
+        'Real Meat 1st': 'Real Meat as First Ingredient — named whole meat (not "meat meal") listed first by weight before cooking',
+        'Sensitive Skin/Stomach': 'Sensitive Skin and Stomach Formula — limited ingredients, single protein, highly digestible carbs (sweet potato, oatmeal)',
+        'High Protein': 'High Protein Formula — 30%+ protein content (dry matter basis), ideal for active breeds and muscle maintenance',
+        'Limited Ingredient': 'Limited Ingredient Diet (LID) — single protein, single carbohydrate for elimination diet and allergy management',
+        'Weight Management': 'Weight Management Formula — reduced fat and calories, higher fiber for satiety, L-carnitine for fat metabolism',
+        'Joint Support': 'Joint Support Formula — added glucosamine and chondroitin sulfate for cartilage health in large breeds and seniors',
+        // Value
+        'budget': 'Budget Pick ≤$1.50/lb — best value dry pet food under $1.50 per pound, good for multi-pet households',
+        'top-rated': 'Top Rated 4.5+ Stars — highest rated pet foods on Amazon by verified buyers, minimum 4.5 star rating',
+    };
+
     function initTagPills() {
         const counts = {};
         for (const p of PRODUCTS_DATA) {
@@ -27609,14 +27660,41 @@
                 if (t) counts[t] = (counts[t] || 0) + 1;
             }
         }
-        // Budget + top-rated counts
         counts['budget'] = PRODUCTS_DATA.filter(p => p.pricePerLb > 0 && p.pricePerLb <= 1.50).length;
         counts['top-rated'] = PRODUCTS_DATA.filter(p => p.rating >= 4.5).length;
 
+        // Price range per tag ($/lb)
+        const tagPrices = {};
+        for (const p of PRODUCTS_DATA) {
+            if (!p.pricePerLb || p.pricePerLb <= 0) continue;
+            const allTags = [...(p.dietTags || []), ...(p.healthTags || []), ...(p.extraTags || []), ...(p.proteinSources || []), p.category].filter(Boolean);
+            for (const t of allTags) {
+                if (!tagPrices[t]) tagPrices[t] = [];
+                tagPrices[t].push(p.pricePerLb);
+            }
+        }
+
         document.querySelectorAll('.tag-pill').forEach(pill => {
-            const count = counts[pill.dataset.tag] || 0;
+            const tag = pill.dataset.tag;
+            const count = counts[tag] || 0;
             pill.insertAdjacentHTML('beforeend', `<span class="tag-count">(${count})</span>`);
             if (count === 0) { pill.style.opacity = '0.4'; pill.style.pointerEvents = 'none'; }
+
+            const desc = TAG_DESCRIPTIONS[tag];
+            if (desc && count > 0) {
+                const prices = tagPrices[tag] || [];
+                let priceHtml = prices.length > 0
+                    ? `<span class="tt-price">$${Math.min(...prices).toFixed(2)}–$${Math.max(...prices).toFixed(2)}/lb · ${count} products</span>`
+                    : `<span class="tt-price">${count} products</span>`;
+                const parts = desc.split(' — ');
+                pill.insertAdjacentHTML('beforeend',
+                    `<span class="pill-tooltip" aria-hidden="false">` +
+                    `<span class="tt-line1">${parts[0]}</span>` +
+                    priceHtml +
+                    (parts[1] ? `<span class="tt-desc">${parts.slice(1).join(' — ')}</span>` : '') +
+                    `</span>`
+                );
+            }
         });
     }
 
@@ -27628,6 +27706,17 @@
             else { activeTags.add(tag); pill.classList.add(activeClass); }
             filterTable();
         });
+        let pressTimer;
+        pill.addEventListener('touchstart', e => {
+            pressTimer = setTimeout(() => {
+                e.preventDefault();
+                document.querySelectorAll('.tag-pill.tooltip-visible').forEach(p => p.classList.remove('tooltip-visible'));
+                pill.classList.add('tooltip-visible');
+                setTimeout(() => pill.classList.remove('tooltip-visible'), 3000);
+            }, 400);
+        }, { passive: false });
+        pill.addEventListener('touchend', () => clearTimeout(pressTimer));
+        pill.addEventListener('touchmove', () => clearTimeout(pressTimer));
     });
 
     // ===== ACTIVE TAGS SUMMARY =====
