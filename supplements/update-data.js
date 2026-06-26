@@ -221,11 +221,12 @@ const CLAIM_PATTERNS = [
     { regex: /\bmk[\s-]?4\b|menaquinone[\s-]?4|menatetrenone/i, tag: 'MK-4' },
     { regex: /\blichen\b|plant[\s-]?based\s*d3|vegan\s*d3/i, tag: 'Lichen D3' },
     { regex: /liquid\s*drops?|(?:d3|vitamin\s*d).*drops?|drops?.*(?:d3|vitamin\s*d)/i, tag: 'Liquid Drops' },
-    { regex: /bioperine|\bpiperine\b|\bblack\s*pepper\s*extract\b/i, tag: 'BioPerine' },
+    { regex: /bioperine|\bpiperine\b|\bblack\s*pepper\b/i, tag: 'BioPerine' },
     { regex: /\btheracurmin\b/i, tag: 'Theracurmin' },
     { regex: /\bbcm[\s-]?95\b|bio[\s-]?curcumax/i, tag: 'BCM-95' },
     { regex: /95%?\s*curcuminoids?|curcuminoids?\s*95%?/i, tag: '95% Curcuminoids' },
     { regex: /\bliposomal\b.*(?:curcumin|turmeric)|(?:curcumin|turmeric).*\bliposomal\b/i, tag: 'Liposomal Curcumin' },
+    { regex: /\bnovasol\b|micellar\s*curcumin/i, tag: 'NovaSOL' },
 ];
 
 function detectTags(text) {
@@ -1113,6 +1114,15 @@ async function main() {
         } else {
             p.pricePer100mgCurcuminoids = null;
         }
+        // BioPerine-Free: Turmeric product with no piperine/black pepper in title
+        const hasPiperine = /bioperine|\bpiperine\b|\bblack\s*pepper\b/i.test(p.title);
+        const claimsSet = new Set(p.claims || []);
+        if (!hasPiperine) {
+            claimsSet.add('BioPerine-Free');
+        } else {
+            claimsSet.delete('BioPerine-Free');
+        }
+        p.claims = [...claimsSet];
     }
     if (turmericEnriched > 0) console.log(`🌿 Enriched curcuminoids for ${turmericEnriched} turmeric products`);
 
