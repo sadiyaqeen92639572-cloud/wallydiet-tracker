@@ -157,6 +157,9 @@ const CLAIM_PATTERNS = [
     { regex: /cold[\s-]?process/i, tag: 'Cold-Processed' },
     { regex: /zero sugar|sugar[- ]free|no sugar/i, tag: 'Sugar-Free' },
     { regex: /1000\s*mg.*(?:sodium|potassium)|(?:sodium|potassium).*1000\s*mg|high sodium/i, tag: 'High Sodium' },
+    { regex: /stick[\s-]?pack|stickpack|individual\s*packet|single[\s-]?serve\s*packet/i, tag: 'Stick Pack' },
+    { regex: /\bbulk\s*(?:tub|jug|bag|container|powder)\b|\btub\b|\bcanister\b/i, tag: 'Bulk Tub' },
+    { regex: /effervescent|fizzing?\s*tablet|\bnuun\b/i, tag: 'Effervescent' },
     { regex: /berberine\s*hcl/i, tag: 'Berberine HCl' },
     { regex: /dihydroberberine|\bdhb\b/i, tag: 'Dihydroberberine' },
     { regex: /blood\s*sugar\s*support/i, tag: 'Blood Sugar Support' },
@@ -266,6 +269,20 @@ function parseBerberineForm(text) {
     // Complex = berberine + other metabolic ingredients
     if (/cinnamon|chromium|alpha[\s-]?lipoic|gymnema|bitter\s*melon|banaba|mulberry/i.test(t)) return 'Complex';
     return 'HCl';
+}
+
+function parseSodiumMg(text) {
+    const t = (text || '');
+    // "800mg Sodium" / "800 mg sodium" / "1,000mg Sodium"
+    const fwd = t.match(/(\d[\d,]*)\s*mg\s*(?:of\s*)?sodium/i);
+    if (fwd) return parseInt(fwd[1].replace(/,/g, ''));
+    // "Sodium 800mg" / "Sodium: 1000mg"
+    const rev = t.match(/\bsodium[:\s]+(\d[\d,]*)\s*mg/i);
+    if (rev) return parseInt(rev[1].replace(/,/g, ''));
+    // "800mg Na" (shorthand)
+    const na = t.match(/(\d[\d,]*)\s*mg\s*Na\b/i);
+    if (na) return parseInt(na[1].replace(/,/g, ''));
+    return 0;
 }
 
 function parseWithanolidesMg(text) {
@@ -464,6 +481,12 @@ function normalizeAmazonItem(raw) {
         ? BERBERINE_COMPLEX_PATTERNS.filter(p => p.regex.test(fullText)).map(p => p.tag)
         : [];
 
+    // Electrolytes — sodium mg, price per 1000mg sodium
+    const sodiumMg = category === 'Electrolytes' ? parseSodiumMg(fullText) : 0;
+    const pricePer1gSodium = (sodiumMg > 0 && servings && price)
+        ? Math.round((price / (sodiumMg * servings / 1000)) * 100) / 100
+        : null;
+
     // Ashwagandha — withanolides mg, price per mg withanolides, extract type
     const withanolidesMg = category === 'Ashwagandha' ? parseWithanolidesMg(fullText) : 0;
     const pricePerMgWithanolides = (withanolidesMg > 0 && servings && price)
@@ -506,6 +529,8 @@ function normalizeAmazonItem(raw) {
         pricePer500mg: pricePer500mg,
         berberineForm: berberineForm,
         complexIngredients: complexIngredients,
+        sodiumMg: sodiumMg,
+        pricePer1gSodium: pricePer1gSodium,
         withanolidesMg: withanolidesMg,
         pricePerMgWithanolides: pricePerMgWithanolides,
         ashwagandhaExtract: ashwagandhaExtract,
@@ -572,6 +597,9 @@ function buildStaticRow(item) {
     const berberineBadge = (item.berberineMg > 0)
         ? `<span class="badge badge-cert">${item.berberineMg}mg Berberine</span>${item.pricePer500mg ? '<span class="badge badge-free">$' + item.pricePer500mg.toFixed(2) + '/500mg</span>' : ''}${item.berberineForm ? '<span class="badge ' + (formColors[item.berberineForm] || 'badge-none') + '">' + item.berberineForm + '</span>' : ''}${(item.complexIngredients || []).map(c => '<span class="badge badge-warn">' + c + '</span>').join('')}`
         : '';
+    const sodiumBadge = (item.sodiumMg > 0)
+        ? `<span class="badge badge-cert">${item.sodiumMg}mg Na</span>${item.pricePer1gSodium ? '<span class="badge badge-free">$' + item.pricePer1gSodium.toFixed(2) + '/g Na</span>' : ''}`
+        : '';
     const extractColors = { 'KSM-66': 'badge-cert', 'Sensoril': 'badge-claim', 'Shoden': 'badge-cert', 'Standardized': 'badge-none', 'Generic': 'badge-none' };
     const ashwagandhaB = (item.withanolidesMg > 0)
         ? `<span class="badge badge-cert">${item.withanolidesMg}mg withanolides</span>${item.pricePerMgWithanolides ? '<span class="badge badge-free">$' + item.pricePerMgWithanolides.toFixed(3) + '/mg</span>' : ''}${item.ashwagandhaExtract ? '<span class="badge ' + (extractColors[item.ashwagandhaExtract] || 'badge-none') + '">' + item.ashwagandhaExtract + '</span>' : ''}`
@@ -594,7 +622,7 @@ function buildStaticRow(item) {
                         <td class="col-ingredients">${propBlend}</td>
                         <td class="col-ingredients">${freeFromBadges || '—'}</td>
                         <td class="col-ingredients">${fillerBadges || '<span class="badge badge-ok">None</span>'}</td>
-                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}${collagenBadge || ''}${berberineBadge || ''}${ashwagandhaB || ''}</td>
+                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}${collagenBadge || ''}${berberineBadge || ''}${ashwagandhaB || ''}${sodiumBadge || ''}</td>
                         <td class="col-trust">${certBadges || '<span class="badge badge-none">None</span>'}</td>
                         <td class="col-trust"><span class="${trustClass}">${item.trustScore}</span></td>
                         <td class="col-value"><span class="${gapClass}">${item.gapScore}</span></td>
@@ -805,6 +833,26 @@ async function main() {
         p.ashwagandhaExtract = parseAshwagandhaExtract(p.title);
     }
     if (ashEnriched > 0) console.log(`🌿 Enriched withanolides for ${ashEnriched} ashwagandha products`);
+
+    // Re-enrich Electrolytes — sodium mg + price per 1g sodium
+    let naEnriched = 0;
+    for (const p of db) {
+        if (p.category !== 'Electrolytes') continue;
+        const freshNa = parseSodiumMg(p.title);
+        if (freshNa !== p.sodiumMg) {
+            p.sodiumMg = freshNa;
+            p.pricePer1gSodium = null;
+        }
+        if (p.sodiumMg > 0) {
+            naEnriched++;
+            if (!p.pricePer1gSodium && p.servingsDeclared && p.priceListed) {
+                p.pricePer1gSodium = Math.round((p.priceListed / (p.sodiumMg * p.servingsDeclared / 1000)) * 100) / 100;
+            }
+        } else {
+            p.pricePer1gSodium = null;
+        }
+    }
+    if (naEnriched > 0) console.log(`🧂 Enriched sodium for ${naEnriched} electrolyte products`);
 
     // Compute scores
     computeAllScores(db);
