@@ -101,6 +101,14 @@ const QUERIES = [
     'magnesium citrate vs glycinate best value',
     'magnesium malate energy fibromyalgia',
     'magnesium complex multi-form supplement',
+    // Turmeric / Curcumin
+    'turmeric curcumin 95 curcuminoids third party tested',
+    'best turmeric supplement bioperine absorption',
+    'curcumin phytosome meriva bcm-95 bioavailable',
+    'liposomal curcumin high absorption',
+    'turmeric curcumin price per serving best value',
+    'curcumin supplement no bioperine clean label',
+    'theracurmin curcumin best bioavailability',
     // Vitamin D
     'vitamin D3 K2 MK7 third party tested',
     'best vitamin D3 5000 IU price per serving',
@@ -124,6 +132,7 @@ function detectCategory(title) {
     if (/fish oil|omega[\s-]?3|epa.*dha|dha.*epa|cod liver oil|krill oil|algae.*omega/.test(t)) return 'Fish Oil';
     if (/probiotic|acidophilus|lactobacillus|bifidobacterium|gut flora|digestive enzymes.*probiotic/i.test(t)) return 'Probiotics';
     if (/berberine/i.test(t)) return 'Berberine';
+    if (/turmeric|curcumin|curcuma\s*longa/i.test(t)) return 'Turmeric';
     if (/ashwagandha|withania\s*somnifera|\bksm[\s-]?66\b|\bsensoril\b|\bshoden\b/i.test(t)) return 'Ashwagandha';
     if (/magnesium|mag.*glycinate|mag.*threonate|mag.*citrate|mag.*malate|\bmagnesium\s*(?:glycinate|bisglycinate|threonate|citrate|malate|taurate|oxide|chloride)\b/i.test(t)) return 'Magnesium';
     if (/vitamin[\s-]?d[23]?(?:\s|$|\b)|cholecalciferol|d3.*iu|\bvit\.?\s*d\b/i.test(t)) return 'Vitamin D';
@@ -212,6 +221,11 @@ const CLAIM_PATTERNS = [
     { regex: /\bmk[\s-]?4\b|menaquinone[\s-]?4|menatetrenone/i, tag: 'MK-4' },
     { regex: /\blichen\b|plant[\s-]?based\s*d3|vegan\s*d3/i, tag: 'Lichen D3' },
     { regex: /liquid\s*drops?|(?:d3|vitamin\s*d).*drops?|drops?.*(?:d3|vitamin\s*d)/i, tag: 'Liquid Drops' },
+    { regex: /bioperine|\bpiperine\b|\bblack\s*pepper\s*extract\b/i, tag: 'BioPerine' },
+    { regex: /\btheracurmin\b/i, tag: 'Theracurmin' },
+    { regex: /\bbcm[\s-]?95\b|bio[\s-]?curcumax/i, tag: 'BCM-95' },
+    { regex: /95%?\s*curcuminoids?|curcuminoids?\s*95%?/i, tag: '95% Curcuminoids' },
+    { regex: /\bliposomal\b.*(?:curcumin|turmeric)|(?:curcumin|turmeric).*\bliposomal\b/i, tag: 'Liposomal Curcumin' },
 ];
 
 function detectTags(text) {
@@ -304,6 +318,28 @@ function parseBerberineForm(text) {
     // Complex = berberine + other metabolic ingredients
     if (/cinnamon|chromium|alpha[\s-]?lipoic|gymnema|bitter\s*melon|banaba|mulberry/i.test(t)) return 'Complex';
     return 'HCl';
+}
+
+function parseCurcuminoids(text) {
+    const t = (text || '');
+    // Explicit: "500mg curcuminoids" or "curcuminoids 500mg"
+    const explicit = t.match(/(\d+)\s*mg\s*(?:of\s*)?(?:standardized\s*)?curcuminoids?/i) ||
+                     t.match(/curcuminoids?[:\s]+(\d+)\s*mg/i);
+    if (explicit) return parseInt(explicit[1]);
+    // "Xmg Turmeric Extract Y% Curcuminoids"
+    const extract = t.match(/(\d+)\s*mg\s*(?:turmeric\s*)?(?:root\s*)?extract[^%]{0,30}(\d+)%?\s*curcuminoids?/i);
+    if (extract) {
+        const dose = parseInt(extract[1]); const pct = parseInt(extract[2]);
+        if (dose > 0 && pct > 0 && pct <= 100) return Math.round(dose * pct / 100);
+    }
+    // "Xmg Curcumin" (standalone = already standardized)
+    const curcumin = t.match(/(\d+)\s*mg\s*curcumin(?!\s*(?:phytosome|complex))/i);
+    if (curcumin) { const v = parseInt(curcumin[1]); if (v > 0 && v <= 2000) return v; }
+    // "Xmg Turmeric 95%"
+    const turmeric95 = t.match(/(\d+)\s*mg\s*turmeric[^%]{0,20}95%/i);
+    if (turmeric95) return Math.round(parseInt(turmeric95[1]) * 0.95);
+    // Raw turmeric without % → skip (3-5% natural curcuminoids, too noisy)
+    return 0;
 }
 
 function parseSodiumMg(text) {
@@ -599,6 +635,11 @@ function normalizeAmazonItem(raw) {
     const pricePer1000IU = (vitaminDIU > 0 && servings && price)
         ? Math.round((price / (vitaminDIU * servings / 1000)) * 100) / 100 : null;
 
+    // Turmeric — curcuminoids mg, price per 100mg curcuminoids
+    const turmericCurcuminoids = category === 'Turmeric' ? parseCurcuminoids(fullText) : 0;
+    const pricePer100mgCurcuminoids = (turmericCurcuminoids > 0 && servings && price)
+        ? Math.round((price / (turmericCurcuminoids * servings / 100)) * 100) / 100 : null;
+
     // Ashwagandha — withanolides mg, price per mg withanolides, extract type
     const withanolidesMg = category === 'Ashwagandha' ? parseWithanolidesMg(fullText) : 0;
     const pricePerMgWithanolides = (withanolidesMg > 0 && servings && price)
@@ -649,6 +690,8 @@ function normalizeAmazonItem(raw) {
         vitaminDIU: vitaminDIU,
         k2mcg: k2mcg,
         pricePer1000IU: pricePer1000IU,
+        turmericCurcuminoids: turmericCurcuminoids,
+        pricePer100mgCurcuminoids: pricePer100mgCurcuminoids,
         withanolidesMg: withanolidesMg,
         pricePerMgWithanolides: pricePerMgWithanolides,
         ashwagandhaExtract: ashwagandhaExtract,
@@ -732,6 +775,10 @@ function buildStaticRow(item) {
             ? `<span class="badge ${extractColors[item.ashwagandhaExtract] || 'badge-none'}">${item.ashwagandhaExtract}</span>`
             : '');
 
+    const turmericBadge = (item.turmericCurcuminoids > 0)
+        ? `<span class="badge badge-cert">${item.turmericCurcuminoids}mg Curcuminoids</span>${item.pricePer100mgCurcuminoids ? '<span class="badge badge-free">$' + item.pricePer100mgCurcuminoids.toFixed(2) + '/100mg</span>' : ''}`
+        : '';
+
     const imgHtml = item.image ? `<img src="${item.image}" alt="${item.brand}" loading="lazy" class="product-thumb">` : '';
 
     return `                    <tr data-category="${item.category}" data-brand="${item.brand}" data-id="${item.id}">
@@ -747,7 +794,7 @@ function buildStaticRow(item) {
                         <td class="col-ingredients">${propBlend}</td>
                         <td class="col-ingredients">${freeFromBadges || '—'}</td>
                         <td class="col-ingredients">${fillerBadges || '<span class="badge badge-ok">None</span>'}</td>
-                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}${collagenBadge || ''}${berberineBadge || ''}${ashwagandhaB || ''}${sodiumBadge || ''}${vitaminDBadge || ''}${magnesiumBadge || ''}</td>
+                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}${collagenBadge || ''}${berberineBadge || ''}${ashwagandhaB || ''}${sodiumBadge || ''}${vitaminDBadge || ''}${magnesiumBadge || ''}${turmericBadge || ''}</td>
                         <td class="col-trust">${certBadges || '<span class="badge badge-none">None</span>'}</td>
                         <td class="col-trust"><span class="${trustClass}">${item.trustScore}</span></td>
                         <td class="col-value"><span class="${gapClass}">${item.gapScore}</span></td>
@@ -1023,6 +1070,26 @@ async function main() {
         if (!p.magnesiumForm) p.magnesiumForm = freshForm;
     }
     if (mgEnriched > 0) console.log(`🧲 Enriched Mg for ${mgEnriched} magnesium products`);
+
+    // Re-enrich Turmeric — always re-parse curcuminoids
+    let turmericEnriched = 0;
+    for (const p of db) {
+        if (p.category !== 'Turmeric') continue;
+        const freshCurc = parseCurcuminoids(p.title);
+        if (freshCurc !== p.turmericCurcuminoids) {
+            p.turmericCurcuminoids = freshCurc;
+            p.pricePer100mgCurcuminoids = null;
+        }
+        if (p.turmericCurcuminoids > 0) {
+            turmericEnriched++;
+            if (!p.pricePer100mgCurcuminoids && p.servingsDeclared && p.priceListed) {
+                p.pricePer100mgCurcuminoids = Math.round((p.priceListed / (p.turmericCurcuminoids * p.servingsDeclared / 100)) * 100) / 100;
+            }
+        } else {
+            p.pricePer100mgCurcuminoids = null;
+        }
+    }
+    if (turmericEnriched > 0) console.log(`🌿 Enriched curcuminoids for ${turmericEnriched} turmeric products`);
 
     // Compute scores
     computeAllScores(db);
