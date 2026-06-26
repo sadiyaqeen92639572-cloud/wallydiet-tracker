@@ -210,9 +210,16 @@ function parseBerberineMg(text) {
 
 function parseCollagenGrams(text) {
     const t = (text || '');
-    const gMatch = t.match(/(\d+(?:\.\d+)?)\s*g(?:rams?)?\s*(?:of\s*)?collagen/i) ||
-                   t.match(/collagen[^,]*?(\d+(?:\.\d+)?)\s*g(?:rams?)?/i);
-    if (gMatch) return parseFloat(gMatch[1]);
+    // Pattern 1: "Xg of collagen" — explicit forward, word boundary on g to avoid "Grass"
+    const fwd = t.match(/(\d+(?:\.\d+)?)\s*g(?:rams?)?\b\s*(?:of\s*)?(?:per\s*serving\s*)?(?:hydrolyzed\s*)?collagen/i);
+    if (fwd) { const v = parseFloat(fwd[1]); if (v >= 1 && v < 50) return v; }
+    // Pattern 2: "XG Collagen" — number+G immediately before "Collagen" (with word boundary)
+    const direct = t.match(/(\d+(?:\.\d+)?)\s*G\b\s+(?:of\s+)?(?:hydrolyzed\s*)?Collagen/);
+    if (direct) { const v = parseFloat(direct[1]); if (v >= 1 && v < 50) return v; }
+    // Pattern 3: "collagen...Xg" — short-range, requires word boundary after g to prevent "Grass"
+    const rev = t.match(/\bcollagen\b[^0-9]{1,25}(\d+(?:\.\d+)?)\s*g(?:rams?)?\b(?!\s*(?:protein|fat|carb|fiber|sugar|sodium|calories|cal\b|glyc|lyc|lute|lucose))/i);
+    if (rev) { const v = parseFloat(rev[1]); if (v >= 1 && v < 50) return v; }
+    // Pattern 4: mg collagen
     const mgMatch = t.match(/(\d+)\s*mg\s*(?:of\s*)?collagen/i);
     if (mgMatch) return Math.round(parseInt(mgMatch[1]) / 1000 * 100) / 100;
     return 0;
@@ -264,9 +271,8 @@ function parseServings(title) {
     if (m) return parseInt(m[1]);
     const alt = title.match(/(\d+)\s*(?:stickpack|stick\s*pack|packet|ct\b|count|pouch|sachet|stick|(?:veggie\s*|vegetarian\s*|veg\s*|delayed[\s-]?release\s*|enteric[\s-]?coated\s*|mini\s*)?capsule|(?:veggie\s*|veg\s*)?cap|tablet|softgel|soft\s*gel|gummie|gummy|chew|lozenge|piece|pop|dose)s?\b/i);
     if (alt) return parseInt(alt[1]);
-    const packOf = title.match(/pack\s*of\s*(\d+)/i);
-    if (packOf && parseInt(packOf[1]) > 1) return parseInt(packOf[1]);
-    const countDash = title.match(/(\d+)[-\s](?:count|ct|pack)\b/i);
+    // "X-count" / "X-ct" = serving count. "X-Pack" and "Pack of X" = multi-box (excluded)
+    const countDash = title.match(/(\d+)[-\s](?:count|ct)\b/i);
     if (countDash && parseInt(countDash[1]) > 1) return parseInt(countDash[1]);
     return null;
 }
@@ -662,19 +668,25 @@ async function main() {
     }
     if (berbEnriched > 0) console.log(`🌿 Enriched Berberine mg for ${berbEnriched} products`);
 
-    // Re-enrich Collagen — grams, price per gram, type, source
+    // Re-enrich Collagen — always re-parse grams to pick up regex improvements
     let collagenEnriched = 0;
     for (const p of db) {
         if (p.category !== 'Collagen') continue;
-        if (!p.collagenGrams) {
-            p.collagenGrams = parseCollagenGrams(p.title);
-            if (p.collagenGrams > 0) collagenEnriched++;
+        const freshGrams = parseCollagenGrams(p.title);
+        if (freshGrams !== p.collagenGrams) {
+            p.collagenGrams = freshGrams;
+            p.pricePerGramCollagen = null; // force recalc below
         }
-        if (p.collagenGrams > 0 && !p.pricePerGramCollagen && p.servingsDeclared && p.priceListed) {
-            p.pricePerGramCollagen = Math.round((p.priceListed / (p.collagenGrams * p.servingsDeclared)) * 100) / 100;
+        if (p.collagenGrams > 0) {
+            collagenEnriched++;
+            if (!p.pricePerGramCollagen && p.servingsDeclared && p.priceListed) {
+                p.pricePerGramCollagen = Math.round((p.priceListed / (p.collagenGrams * p.servingsDeclared)) * 100) / 100;
+            }
+        } else {
+            p.pricePerGramCollagen = null;
         }
-        if (!p.collagenType) p.collagenType = parseCollagenType(p.title);
-        if (!p.collagenSource) p.collagenSource = parseCollagenSource(p.title);
+        p.collagenType = parseCollagenType(p.title);
+        p.collagenSource = parseCollagenSource(p.title);
     }
     if (collagenEnriched > 0) console.log(`🫘 Enriched Collagen grams for ${collagenEnriched} products`);
 
