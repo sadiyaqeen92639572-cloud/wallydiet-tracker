@@ -155,6 +155,8 @@
         .niche-card:hover { transform: translateY(-2px); border-color: var(--brand-primary); }
         .niche-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
         .support-line { font-size: 0.75rem; color: var(--text-muted); font-style: italic; padding-top: 0.5rem; border-top: 1px dashed var(--border-color); margin-top: 0.75rem; }
+        .card-cta { display: inline-block; margin-top: 0.75rem; padding: 0.4rem 0.9rem; border-radius: 6px; background: var(--brand-glow); border: 1px solid var(--brand-primary); color: var(--brand-accent); font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.15s; text-decoration: none; }
+        .card-cta:hover { background: var(--brand-primary); color: #fff; }
 
         /* TAG CARDS */
         .tag-card { cursor: pointer; position: relative; }
@@ -474,21 +476,25 @@
                 <h3>🐕 Dry Dog Food</h3>
                 <p><strong>Perfect for:</strong> everyday feeding, budget-conscious pet parents, multi-dog households. Dry kibble is the most cost-effective format at $0.60–$4.00/lb. Larger bags (30–50 lb) offer the best per-pound value. Store properly in airtight containers to prevent rancidity.</p>
                 <div class="support-line">Popular: cheap dog food per pound, best value dry dog food, bulk dog food</div>
+                <button class="card-cta" onclick="filterByTag('Dog Food Dry','diet')">Browse Dry Dog Food →</button>
             </div>
             <div class="niche-card">
                 <h3>🥫 Wet Dog Food</h3>
                 <p><strong>Perfect for:</strong> picky eaters, senior dogs with dental issues, hydration-sensitive dogs. Wet food costs $3–8/lb equivalent — 3–5x more than dry. Multi-packs (24-count) offer 15–20% savings over single cans. Watch for the multi-pack weight trap: "12 × 13.2 oz" = only 9.9 lbs total.</p>
                 <div class="support-line">Popular: cheapest canned dog food, wet dog food bulk pack, pate vs stew</div>
+                <button class="card-cta" onclick="filterByTag('Dog Food Wet','diet')">Browse Wet Dog Food →</button>
             </div>
             <div class="niche-card">
                 <h3>🐈 Cat Food</h3>
                 <p><strong>Perfect for:</strong> indoor cats, multi-cat homes, breed-specific needs. Cats are obligate carnivores — they need higher protein than dogs. Grain-free is more biologically appropriate for cats than dogs. Indoor cat formulas have fewer calories to prevent obesity.</p>
                 <div class="support-line">Popular: cheapest cat food per pound, high protein cat food, indoor cat food</div>
+                <button class="card-cta" onclick="filterByTag('Cat Food','diet')">Browse Cat Food →</button>
             </div>
             <div class="niche-card">
                 <h3>🦴 Limited Ingredient & Novel Protein</h3>
                 <p><strong>Perfect for:</strong> allergy-prone dogs, elimination diets, sensitive stomachs. LID formulas use a single protein source (duck, venison, salmon) and 5–10 ingredients. Expect $2.50–$4.50/lb — the "allergy tax" is real. Brands: Canidae Pure, Zignature, Natural Balance L.I.D.</p>
                 <div class="support-line">Popular: pea free dog food, chicken free dog food, limited ingredient diet dog food</div>
+                <button class="card-cta" onclick="filterByTag('Pea-Free','diet')">Browse LID / Pea-Free →</button>
             </div>
         </div>
     </section>
@@ -27525,6 +27531,19 @@
     let sortColumn = 'pricePerLb';
     let sortAsc = true;
     let searchQuery = '';
+
+    window.filterByTag = function(tag, type) {
+        const pill = document.querySelector('.tag-pill[data-tag="' + tag + '"]');
+        if (pill && !activeTags.has(tag)) {
+            activeTags.add(tag);
+            pill.classList.add('active-' + type);
+        }
+        filterTable();
+        const summary = document.getElementById('activeTagsSummary');
+        const list = document.getElementById('activeTagsList');
+        if (activeTags.size > 0) { summary.style.display = 'flex'; list.textContent = [...activeTags].join(' + '); }
+        document.getElementById('tracker-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
 
     // ===== FILTER TABLE (filter-in-place, never innerHTML='') =====
     function filterTable() {
