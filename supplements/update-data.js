@@ -93,6 +93,14 @@ const QUERIES = [
     'Sensoril ashwagandha stress anxiety sleep',
     'ashwagandha withanolides price comparison',
     'organic ashwagandha root powder no fillers',
+    // Magnesium
+    'magnesium glycinate sleep stress third party tested',
+    'magnesium L-threonate brain cognitive',
+    'best magnesium elemental absorption price comparison',
+    'non-buffered magnesium bisglycinate pure',
+    'magnesium citrate vs glycinate best value',
+    'magnesium malate energy fibromyalgia',
+    'magnesium complex multi-form supplement',
     // Vitamin D
     'vitamin D3 K2 MK7 third party tested',
     'best vitamin D3 5000 IU price per serving',
@@ -117,6 +125,7 @@ function detectCategory(title) {
     if (/probiotic|acidophilus|lactobacillus|bifidobacterium|gut flora|digestive enzymes.*probiotic/i.test(t)) return 'Probiotics';
     if (/berberine/i.test(t)) return 'Berberine';
     if (/ashwagandha|withania\s*somnifera|\bksm[\s-]?66\b|\bsensoril\b|\bshoden\b/i.test(t)) return 'Ashwagandha';
+    if (/magnesium|mag.*glycinate|mag.*threonate|mag.*citrate|mag.*malate|\bmagnesium\s*(?:glycinate|bisglycinate|threonate|citrate|malate|taurate|oxide|chloride)\b/i.test(t)) return 'Magnesium';
     if (/vitamin[\s-]?d[23]?(?:\s|$|\b)|cholecalciferol|d3.*iu|\bvit\.?\s*d\b/i.test(t)) return 'Vitamin D';
     if (/bcaa|amino|eaa/.test(t)) return 'Amino Acids';
     if (/collagen/.test(t)) return 'Collagen';
@@ -182,6 +191,15 @@ const CLAIM_PATTERNS = [
     { regex: /fortigel/i, tag: 'Fortigel' },
     { regex: /fortibone/i, tag: 'Fortibone' },
     { regex: /tendofor/i, tag: 'Tendofor' },
+    { regex: /\bbisglycinate\b/i, tag: 'Bisglycinate' },
+    { regex: /\bglycinate\b/i, tag: 'Glycinate' },
+    { regex: /l[\s-]?threonate|\bthreonate\b/i, tag: 'L-Threonate' },
+    { regex: /\bmalate\b/i, tag: 'Malate' },
+    { regex: /\bcitrate\b/i, tag: 'Citrate' },
+    { regex: /\btaurate\b/i, tag: 'Taurate' },
+    { regex: /\boxide\b/i, tag: 'Oxide' },
+    { regex: /non[\s-]?buffered|pure\s*(?:magnesium\s*)?bisglycinate|100%\s*(?:chelated|bisglycinate)/i, tag: 'Unbuffered' },
+    { regex: /magnesium\s*(?:complex|blend|breakthrough)|multi[\s-]?magnesium|full[\s-]?spectrum\s*magnesium/i, tag: 'Multi-Form' },
     { regex: /\bksm[\s-]?66\b/i, tag: 'KSM-66' },
     { regex: /\bsensoril\b/i, tag: 'Sensoril' },
     { regex: /\bshoden\b/i, tag: 'Shoden' },
@@ -296,6 +314,50 @@ function parseSodiumMg(text) {
     const na = t.match(/(\d[\d,]*)\s*mg\s*Na\b/i);
     if (na) return parseInt(na[1].replace(/,/g, ''));
     return 0;
+}
+
+function parseMagnesiumMg(text) {
+    const t = (text || '');
+    // Explicit elemental: "200mg elemental magnesium" or "elemental magnesium 200mg"
+    const explicit = t.match(/(\d+)\s*mg\s*(?:of\s*)?elemental\s*magnesium/i) ||
+                     t.match(/elemental\s*magnesium[:\s]+(\d+)\s*mg/i);
+    if (explicit) return parseInt(explicit[1]);
+
+    const FORM_RE = '(bisglycinate|glycinate|l[\\s\\-]?threonate|threonate|malate|citrate|taurate|oxide)';
+    function inferElemental(dose, formStr) {
+        const f = (formStr || '').toLowerCase().replace(/[\s-]/g, '');
+        if (dose <= 0 || dose > 2000) return 0;
+        if (f === 'bisglycinate' || f === 'glycinate') return Math.round(dose * 0.14);
+        if (f === 'lthreonate' || f === 'threonate') return Math.round(dose * 0.075);
+        if (f === 'malate') return Math.round(dose * 0.15);
+        if (f === 'citrate') return Math.round(dose * 0.16);
+        if (f === 'taurate') return Math.round(dose * 0.088);
+        if (f === 'oxide') return Math.round(dose * 0.60);
+        return 0;
+    }
+
+    // Forward: "400mg Glycinate" or "400mg Magnesium Glycinate"
+    const fwd = t.match(new RegExp('(\\d+)\\s*mg\\s*(?:magnesium\\s*)?' + FORM_RE, 'i'));
+    if (fwd) return inferElemental(parseInt(fwd[1]), fwd[2]);
+
+    // Reverse: "Glycinate 400mg" or "Magnesium Glycinate 400mg"
+    const rev = t.match(new RegExp('(?:magnesium\\s*)?' + FORM_RE + '\\s+(\\d+)\\s*mg', 'i'));
+    if (rev) return inferElemental(parseInt(rev[2]), rev[1]);
+
+    return 0;
+}
+
+function parseMagnesiumForm(text) {
+    const t = (text || '');
+    if (/l[\s-]?threonate|\bthreonate\b/i.test(t)) return 'L-Threonate';
+    if (/bisglycinate/i.test(t)) return 'Bisglycinate';
+    if (/\bglycinate\b/i.test(t)) return 'Glycinate';
+    if (/\bmalate\b/i.test(t)) return 'Malate';
+    if (/\bcitrate\b/i.test(t)) return 'Citrate';
+    if (/\btaurate\b/i.test(t)) return 'Taurate';
+    if (/\boxide\b/i.test(t)) return 'Oxide';
+    if (/complex|blend|breakthrough|multi[\s-]?magnesium/i.test(t)) return 'Multi-Form';
+    return null;
 }
 
 function parseIU(text) {
@@ -521,6 +583,12 @@ function normalizeAmazonItem(raw) {
         ? Math.round((price / (sodiumMg * servings / 1000)) * 100) / 100
         : null;
 
+    // Magnesium — elemental mg, form, price per 100mg elemental
+    const magnesiumMg = category === 'Magnesium' ? parseMagnesiumMg(fullText) : 0;
+    const magnesiumForm = category === 'Magnesium' ? parseMagnesiumForm(fullText) : null;
+    const pricePer100mgMg = (magnesiumMg > 0 && servings && price)
+        ? Math.round((price / (magnesiumMg * servings / 100)) * 100) / 100 : null;
+
     // Vitamin D — IU dose, K2 mcg, price per 1000 IU
     const vitaminDIU = category === 'Vitamin D' ? parseIU(fullText) : 0;
     const k2mcg = category === 'Vitamin D' ? parseK2mcg(fullText) : 0;
@@ -571,6 +639,9 @@ function normalizeAmazonItem(raw) {
         complexIngredients: complexIngredients,
         sodiumMg: sodiumMg,
         pricePer1gSodium: pricePer1gSodium,
+        magnesiumMg: magnesiumMg,
+        magnesiumForm: magnesiumForm,
+        pricePer100mgMg: pricePer100mgMg,
         vitaminDIU: vitaminDIU,
         k2mcg: k2mcg,
         pricePer1000IU: pricePer1000IU,
@@ -640,6 +711,10 @@ function buildStaticRow(item) {
     const berberineBadge = (item.berberineMg > 0)
         ? `<span class="badge badge-cert">${item.berberineMg}mg Berberine</span>${item.pricePer500mg ? '<span class="badge badge-free">$' + item.pricePer500mg.toFixed(2) + '/500mg</span>' : ''}${item.berberineForm ? '<span class="badge ' + (formColors[item.berberineForm] || 'badge-none') + '">' + item.berberineForm + '</span>' : ''}${(item.complexIngredients || []).map(c => '<span class="badge badge-warn">' + c + '</span>').join('')}`
         : '';
+    const mgFormColors = { 'Bisglycinate': 'badge-cert', 'Glycinate': 'badge-cert', 'L-Threonate': 'badge-claim', 'Malate': 'badge-claim', 'Citrate': 'badge-free', 'Taurate': 'badge-free', 'Oxide': 'badge-warn', 'Multi-Form': 'badge-none' };
+    const magnesiumBadge = (item.magnesiumMg > 0)
+        ? `<span class="badge badge-cert">${item.magnesiumMg}mg Mg</span>${item.pricePer100mgMg ? '<span class="badge badge-free">$' + item.pricePer100mgMg.toFixed(2) + '/100mg</span>' : ''}${item.magnesiumForm ? '<span class="badge ' + (mgFormColors[item.magnesiumForm] || 'badge-none') + '">' + item.magnesiumForm + '</span>' : ''}`
+        : (item.magnesiumForm ? `<span class="badge ${mgFormColors[item.magnesiumForm] || 'badge-none'}">${item.magnesiumForm}</span>` : '');
     const vitaminDBadge = (item.vitaminDIU > 0)
         ? `<span class="badge badge-cert">${item.vitaminDIU.toLocaleString()} IU</span>${item.k2mcg > 0 ? '<span class="badge badge-claim">K2 ' + item.k2mcg + 'mcg</span>' : ''}${item.pricePer1000IU ? '<span class="badge badge-free">$' + item.pricePer1000IU.toFixed(2) + '/1000 IU</span>' : ''}`
         : '';
@@ -668,7 +743,7 @@ function buildStaticRow(item) {
                         <td class="col-ingredients">${propBlend}</td>
                         <td class="col-ingredients">${freeFromBadges || '—'}</td>
                         <td class="col-ingredients">${fillerBadges || '<span class="badge badge-ok">None</span>'}</td>
-                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}${collagenBadge || ''}${berberineBadge || ''}${ashwagandhaB || ''}${sodiumBadge || ''}${vitaminDBadge || ''}</td>
+                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}${collagenBadge || ''}${berberineBadge || ''}${ashwagandhaB || ''}${sodiumBadge || ''}${vitaminDBadge || ''}${magnesiumBadge || ''}</td>
                         <td class="col-trust">${certBadges || '<span class="badge badge-none">None</span>'}</td>
                         <td class="col-trust"><span class="${trustClass}">${item.trustScore}</span></td>
                         <td class="col-value"><span class="${gapClass}">${item.gapScore}</span></td>
@@ -921,6 +996,29 @@ async function main() {
         }
     }
     if (vitDEnriched > 0) console.log(`☀️ Enriched IU for ${vitDEnriched} Vitamin D products`);
+
+    // Re-enrich Magnesium — always re-parse elemental mg + form
+    let mgEnriched = 0;
+    for (const p of db) {
+        if (p.category !== 'Magnesium') continue;
+        const freshMg = parseMagnesiumMg(p.title);
+        const freshForm = parseMagnesiumForm(p.title);
+        if (freshMg !== p.magnesiumMg || freshForm !== p.magnesiumForm) {
+            p.magnesiumMg = freshMg;
+            p.magnesiumForm = freshForm;
+            p.pricePer100mgMg = null;
+        }
+        if (p.magnesiumMg > 0) {
+            mgEnriched++;
+            if (!p.pricePer100mgMg && p.servingsDeclared && p.priceListed) {
+                p.pricePer100mgMg = Math.round((p.priceListed / (p.magnesiumMg * p.servingsDeclared / 100)) * 100) / 100;
+            }
+        } else {
+            p.pricePer100mgMg = null;
+        }
+        if (!p.magnesiumForm) p.magnesiumForm = freshForm;
+    }
+    if (mgEnriched > 0) console.log(`🧲 Enriched Mg for ${mgEnriched} magnesium products`);
 
     // Compute scores
     computeAllScores(db);
