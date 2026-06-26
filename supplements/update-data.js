@@ -72,6 +72,13 @@ const QUERIES = [
     'women probiotics gut health',
     'probiotics with prebiotics synbiotic',
     'NSF certified probiotics',
+    // Berberine
+    'berberine supplement blood sugar support',
+    'berberine HCl third party tested',
+    'berberine 500mg best value',
+    'dihydroberberine supplement DHB',
+    'berberine NSF certified clean label',
+    'best berberine price per 500mg',
 ];
 
 // ==========================================
@@ -86,6 +93,7 @@ function detectCategory(title) {
     if (/multivitamin|multi[\s-]?vitamin|daily vitamin/.test(t)) return 'Multivitamin';
     if (/fish oil|omega[\s-]?3|epa.*dha|dha.*epa|cod liver oil|krill oil|algae.*omega/.test(t)) return 'Fish Oil';
     if (/probiotic|acidophilus|lactobacillus|bifidobacterium|gut flora|digestive enzymes.*probiotic/i.test(t)) return 'Probiotics';
+    if (/berberine/i.test(t)) return 'Berberine';
     if (/bcaa|amino|eaa/.test(t)) return 'Amino Acids';
     if (/collagen/.test(t)) return 'Collagen';
     return 'Other';
@@ -134,6 +142,10 @@ const CLAIM_PATTERNS = [
     { regex: /cold[\s-]?process/i, tag: 'Cold-Processed' },
     { regex: /zero sugar|sugar[- ]free|no sugar/i, tag: 'Sugar-Free' },
     { regex: /1000\s*mg.*(?:sodium|potassium)|(?:sodium|potassium).*1000\s*mg|high sodium/i, tag: 'High Sodium' },
+    { regex: /berberine\s*hcl/i, tag: 'Berberine HCl' },
+    { regex: /dihydroberberine|\bdhb\b/i, tag: 'Dihydroberberine' },
+    { regex: /blood\s*sugar\s*support/i, tag: 'Blood Sugar Support' },
+    { regex: /glp[\s-]?1/i, tag: 'GLP-1 Support' },
 ];
 
 function detectTags(text) {
@@ -168,6 +180,19 @@ function parseCFU(text) {
     if (b2) return parseInt(b2[1]);
     const raw = t.match(/(\d[\d,]+)\s*CFU/i);
     if (raw) return Math.round(parseInt(raw[1].replace(/,/g, '')) / 1e9);
+    return 0;
+}
+
+function parseBerberineMg(text) {
+    const t = (text || '');
+    const explicit = t.match(/(\d+)\s*mg\s*(?:of\s*)?(?:berberine|berberine\s*hcl)/i) ||
+                     t.match(/berberine(?:\s*hcl)?\s*(\d+)\s*mg/i);
+    if (explicit) return parseInt(explicit[1]);
+    // Dihydroberberine is ~2x more bioavailable — treat 250mg DHB as 500mg equivalent
+    const dhb = t.match(/(\d+)\s*mg\s*dihydroberberine/i);
+    if (dhb) return parseInt(dhb[1]) * 2;
+    // Default: standard berberine capsule = 500mg
+    if (/berberine/i.test(t)) return 500;
     return 0;
 }
 
@@ -287,6 +312,12 @@ function normalizeAmazonItem(raw) {
         ? Math.round((price / (cfuBillions * servings / 10)) * 100) / 100
         : null;
 
+    // Berberine mg — price per 500mg dose
+    const berberineMg = category === 'Berberine' ? parseBerberineMg(fullText) : 0;
+    const pricePer500mg = (berberineMg > 0 && servings && price)
+        ? Math.round((price / (berberineMg * servings / 500)) * 100) / 100
+        : null;
+
     return {
         id: raw.asin || raw.product_id || raw.id,
         scrapeDate: new Date().toISOString().split('T')[0],
@@ -314,6 +345,8 @@ function normalizeAmazonItem(raw) {
         pricePerGramOmega3: pricePerGramOmega3,
         cfuBillions: cfuBillions,
         pricePer10bCFU: pricePer10bCFU,
+        berberineMg: berberineMg,
+        pricePer500mg: pricePer500mg,
         reviewsCount: raw.total_reviews || raw.reviews_count || raw.ratings_total || parseInt(raw.reviews) || 0,
         avgRating: parseFloat(raw.rating || raw.stars || 0),
         sponsoredFlag: !!raw.is_sponsored,
@@ -370,6 +403,9 @@ function buildStaticRow(item) {
     const cfuBadge = (item.cfuBillions > 0)
         ? `<span class="badge badge-cert">${item.cfuBillions}B CFU</span>${item.pricePer10bCFU ? '<span class="badge badge-free">$' + item.pricePer10bCFU.toFixed(2) + '/10B CFU</span>' : ''}`
         : '';
+    const berberineBadge = (item.berberineMg > 0)
+        ? `<span class="badge badge-cert">${item.berberineMg}mg Berberine</span>${item.pricePer500mg ? '<span class="badge badge-free">$' + item.pricePer500mg.toFixed(2) + '/500mg</span>' : ''}`
+        : '';
 
     const imgHtml = item.image ? `<img src="${item.image}" alt="${item.brand}" loading="lazy" class="product-thumb">` : '';
 
@@ -386,7 +422,7 @@ function buildStaticRow(item) {
                         <td class="col-ingredients">${propBlend}</td>
                         <td class="col-ingredients">${freeFromBadges || '—'}</td>
                         <td class="col-ingredients">${fillerBadges || '<span class="badge badge-ok">None</span>'}</td>
-                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}</td>
+                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}${berberineBadge || ''}</td>
                         <td class="col-trust">${certBadges || '<span class="badge badge-none">None</span>'}</td>
                         <td class="col-trust"><span class="${trustClass}">${item.trustScore}</span></td>
                         <td class="col-value"><span class="${gapClass}">${item.gapScore}</span></td>
@@ -524,6 +560,19 @@ async function main() {
         }
     }
     if (cfuEnriched > 0) console.log(`🦠 Enriched CFU for ${cfuEnriched} probiotic products`);
+
+    // Re-enrich Berberine missing data
+    let berbEnriched = 0;
+    for (const p of db) {
+        if (p.category === 'Berberine' && !p.berberineMg) {
+            p.berberineMg = parseBerberineMg(p.title);
+            if (p.berberineMg > 0) berbEnriched++;
+        }
+        if (p.category === 'Berberine' && p.berberineMg > 0 && !p.pricePer500mg && p.servingsDeclared && p.priceListed) {
+            p.pricePer500mg = Math.round((p.priceListed / (p.berberineMg * p.servingsDeclared / 500)) * 100) / 100;
+        }
+    }
+    if (berbEnriched > 0) console.log(`🌿 Enriched Berberine mg for ${berbEnriched} products`);
 
     // Compute scores
     computeAllScores(db);
