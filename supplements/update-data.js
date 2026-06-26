@@ -109,6 +109,14 @@ const QUERIES = [
     'turmeric curcumin price per serving best value',
     'curcumin supplement no bioperine clean label',
     'theracurmin curcumin best bioavailability',
+    // Zinc
+    'zinc picolinate third party tested',
+    'zinc bisglycinate chelated TRAACS gentle stomach',
+    'best zinc supplement with copper ratio',
+    'zinc lozenges cold immune support acetate',
+    'zinc supplement no nausea sensitive stomach',
+    'zinc picolinate 50mg best absorbed form',
+    'zinc gluconate lozenges best value price',
     // Vitamin D
     'vitamin D3 K2 MK7 third party tested',
     'best vitamin D3 5000 IU price per serving',
@@ -136,6 +144,7 @@ function detectCategory(title) {
     if (/ashwagandha|withania\s*somnifera|\bksm[\s-]?66\b|\bsensoril\b|\bshoden\b/i.test(t)) return 'Ashwagandha';
     if (/magnesium|mag.*glycinate|mag.*threonate|mag.*citrate|mag.*malate|\bmagnesium\s*(?:glycinate|bisglycinate|threonate|citrate|malate|taurate|oxide|chloride)\b/i.test(t)) return 'Magnesium';
     if (/vitamin[\s-]?d[23]?(?:\s|$|\b)|cholecalciferol|d3.*iu|\bvit\.?\s*d\b/i.test(t)) return 'Vitamin D';
+    if (/\bzinc\b/i.test(t)) return 'Zinc';
     if (/bcaa|amino|eaa/.test(t)) return 'Amino Acids';
     if (/collagen/.test(t)) return 'Collagen';
     return 'Other';
@@ -227,6 +236,8 @@ const CLAIM_PATTERNS = [
     { regex: /95%?\s*curcuminoids?|curcuminoids?\s*95%?/i, tag: '95% Curcuminoids' },
     { regex: /\bliposomal\b.*(?:curcumin|turmeric)|(?:curcumin|turmeric).*\bliposomal\b/i, tag: 'Liposomal Curcumin' },
     { regex: /\bnovasol\b|micellar\s*curcumin/i, tag: 'NovaSOL' },
+    { regex: /\btraacs\b/i, tag: 'TRAACS' },
+    { regex: /\boptizinc\b/i, tag: 'OptiZinc' },
 ];
 
 function detectTags(text) {
@@ -368,6 +379,44 @@ function parseCurcuminoids(text) {
     return 0;
 }
 
+function parseZincMg(text) {
+    const t = (text || '');
+    const num = s => parseInt((s || '').replace(/,/g, ''));
+
+    // "Zinc 50mg" or "Zinc Picolinate 50mg" (form between zinc and mg)
+    const fwd = t.match(/\bzinc(?:\s+(?:picolinate|gluconate|bisglycinate|citrate|oxide|sulfate|acetate|monomethionine|methionine|carnosine|chelate|chelated|glycinate|lozenges?))?\s+(\d+(?:\.\d+)?)\s*mg\b/i);
+    if (fwd) { const v = num(fwd[1]); if (v > 0 && v <= 100) return v; }
+
+    // "50mg Zinc" (standalone elemental, not part of larger compound list)
+    const rev = t.match(/(\d+(?:\.\d+)?)\s*mg\s+zinc\b/i);
+    if (rev) { const v = num(rev[1]); if (v > 0 && v <= 100) return v; }
+
+    // TRAACS / OptiZinc branded: "TRAACS 25mg" or "OptiZinc 30mg"
+    const branded = t.match(/(?:traacs|optizinc)(?:\s+zinc)?\s+(\d+(?:\.\d+)?)\s*mg\b/i);
+    if (branded) { const v = num(branded[1]); if (v > 0 && v <= 100) return v; }
+
+    // General gap: "Zinc [anything up to 50 chars] Xmg" — last resort
+    const gap = t.match(/\bzinc\b.{0,50}?(\d+(?:\.\d+)?)\s*mg\b/i);
+    if (gap) { const v = num(gap[1]); if (v >= 5 && v <= 100) return v; }
+
+    return 0;
+}
+
+function parseZincForm(text) {
+    const t = (text || '');
+    if (/\btraacs\b/i.test(t)) return 'TRAACS';
+    if (/\boptizinc\b/i.test(t) || /zinc\s+monomethionine/i.test(t)) return 'OptiZinc';
+    if (/zinc\s+bisglycinate\b/i.test(t)) return 'Bisglycinate';
+    if (/zinc\s+picolinate\b/i.test(t)) return 'Picolinate';
+    if (/zinc\s+(?:lozenges?|acetate)\b/i.test(t) || /zinc\s+acetate/i.test(t)) return 'Lozenge/Acetate';
+    if (/zinc\s+gluconate\b/i.test(t)) return 'Gluconate';
+    if (/zinc\s+citrate\b/i.test(t)) return 'Citrate';
+    if (/zinc\s+(?:amino\s*)?chelate\b|chelated\s*zinc/i.test(t)) return 'Chelate';
+    if (/zinc\s+oxide\b/i.test(t)) return 'Oxide';
+    if (/zinc\s+sulfate\b/i.test(t)) return 'Sulfate';
+    return null;
+}
+
 function parseSodiumMg(text) {
     const t = (text || '');
     // "800mg Sodium" / "800 mg sodium" / "1,000mg Sodium"
@@ -497,9 +546,9 @@ const BERBERINE_COMPLEX_PATTERNS = [
 // 4. SERVING/SIZE PARSING
 // ==========================================
 function parseServings(title) {
-    // 1. Explicit "X servings"
+    // 1. Explicit "X servings" — guard n>1 to avoid "1 Serving Per Day" dosage instruction
     const m = title.match(/(\d+)\s*serv/i);
-    if (m) return parseInt(m[1]);
+    if (m && parseInt(m[1]) > 1) return parseInt(m[1]);
     // 2. "N Count" / "N-ct" / "N Cts" — check BEFORE unit patterns to avoid "1 Softgel per Serving" confusion
     //    BulkSupplements "90 Count (Pack of 1)" was returning 1 instead of 90
     const countMatch = title.match(/(\d+)[-\s](?:counts?|cts?)\b/i);
@@ -666,6 +715,12 @@ function normalizeAmazonItem(raw) {
     const pricePer100mgCurcuminoids = (turmericCurcuminoids > 0 && servings && price)
         ? Math.round((price / (turmericCurcuminoids * servings / 100)) * 100) / 100 : null;
 
+    // Zinc — elemental mg, form, price per 10mg zinc
+    const zincMg = category === 'Zinc' ? parseZincMg(fullText) : 0;
+    const zincForm = category === 'Zinc' ? parseZincForm(fullText) : null;
+    const pricePer10mgZinc = (zincMg > 0 && servings && price)
+        ? Math.round((price / (zincMg * servings / 10)) * 100) / 100 : null;
+
     // Ashwagandha — withanolides mg, price per mg withanolides, extract type
     const withanolidesMg = category === 'Ashwagandha' ? parseWithanolidesMg(fullText) : 0;
     const pricePerMgWithanolides = (withanolidesMg > 0 && servings && price)
@@ -718,6 +773,9 @@ function normalizeAmazonItem(raw) {
         pricePer1000IU: pricePer1000IU,
         turmericCurcuminoids: turmericCurcuminoids,
         pricePer100mgCurcuminoids: pricePer100mgCurcuminoids,
+        zincMg: zincMg,
+        zincForm: zincForm,
+        pricePer10mgZinc: pricePer10mgZinc,
         withanolidesMg: withanolidesMg,
         pricePerMgWithanolides: pricePerMgWithanolides,
         ashwagandhaExtract: ashwagandhaExtract,
@@ -805,6 +863,11 @@ function buildStaticRow(item) {
         ? `<span class="badge badge-cert">${item.turmericCurcuminoids}mg Curcuminoids</span>${item.pricePer100mgCurcuminoids ? '<span class="badge badge-free">$' + item.pricePer100mgCurcuminoids.toFixed(2) + '/100mg</span>' : ''}`
         : '';
 
+    const zincFormColors = { 'TRAACS': 'badge-cert', 'OptiZinc': 'badge-cert', 'Bisglycinate': 'badge-cert', 'Chelate': 'badge-cert', 'Picolinate': 'badge-claim', 'Gluconate': 'badge-none', 'Citrate': 'badge-none', 'Lozenge/Acetate': 'badge-none', 'Oxide': 'badge-warn', 'Sulfate': 'badge-warn' };
+    const zincBadge = (item.zincMg > 0)
+        ? `<span class="badge badge-cert">${item.zincMg}mg Zinc</span>${item.pricePer10mgZinc ? '<span class="badge badge-free">$' + item.pricePer10mgZinc.toFixed(2) + '/10mg</span>' : ''}${item.zincForm ? '<span class="badge ' + (zincFormColors[item.zincForm] || 'badge-none') + '">' + item.zincForm + '</span>' : ''}`
+        : (item.zincForm ? `<span class="badge ${zincFormColors[item.zincForm] || 'badge-none'}">${item.zincForm}</span>` : '');
+
     const imgHtml = item.image ? `<img src="${item.image}" alt="${item.brand}" loading="lazy" class="product-thumb">` : '';
 
     return `                    <tr data-category="${item.category}" data-brand="${item.brand}" data-id="${item.id}">
@@ -820,7 +883,7 @@ function buildStaticRow(item) {
                         <td class="col-ingredients">${propBlend}</td>
                         <td class="col-ingredients">${freeFromBadges || '—'}</td>
                         <td class="col-ingredients">${fillerBadges || '<span class="badge badge-ok">None</span>'}</td>
-                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}${collagenBadge || ''}${berberineBadge || ''}${ashwagandhaB || ''}${sodiumBadge || ''}${vitaminDBadge || ''}${magnesiumBadge || ''}${turmericBadge || ''}</td>
+                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}${collagenBadge || ''}${berberineBadge || ''}${ashwagandhaB || ''}${sodiumBadge || ''}${vitaminDBadge || ''}${magnesiumBadge || ''}${turmericBadge || ''}${zincBadge || ''}</td>
                         <td class="col-trust">${certBadges || '<span class="badge badge-none">None</span>'}</td>
                         <td class="col-trust"><span class="${trustClass}">${item.trustScore}</span></td>
                         <td class="col-value"><span class="${gapClass}">${item.gapScore}</span></td>
@@ -1125,6 +1188,45 @@ async function main() {
         p.claims = [...claimsSet];
     }
     if (turmericEnriched > 0) console.log(`🌿 Enriched curcuminoids for ${turmericEnriched} turmeric products`);
+
+    // Re-enrich Zinc — always re-parse mg + form + With Copper / Copper-Free / Zinc Lozenge
+    let zincEnriched = 0;
+    for (const p of db) {
+        if (p.category !== 'Zinc') continue;
+        const freshZinc = parseZincMg(p.title);
+        const freshForm = parseZincForm(p.title);
+        if (freshZinc !== p.zincMg || freshForm !== p.zincForm) {
+            p.zincMg = freshZinc;
+            p.zincForm = freshForm;
+            p.pricePer10mgZinc = null;
+        }
+        if (p.zincMg > 0) {
+            zincEnriched++;
+            if (!p.pricePer10mgZinc && p.servingsDeclared && p.priceListed) {
+                p.pricePer10mgZinc = Math.round((p.priceListed / (p.zincMg * p.servingsDeclared / 10)) * 100) / 100;
+            }
+        } else {
+            p.pricePer10mgZinc = null;
+        }
+        // With Copper / Copper-Free (safety filter: zinc depletes copper at high doses)
+        const hasCopper = /\bcopper\b/i.test(p.title);
+        const claimsSet = new Set(p.claims || []);
+        if (hasCopper) {
+            claimsSet.add('With Copper');
+            claimsSet.delete('Copper-Free');
+        } else {
+            claimsSet.add('Copper-Free');
+            claimsSet.delete('With Copper');
+        }
+        // Zinc Lozenge format tag
+        if (/\blozenges?\b/i.test(p.title)) {
+            claimsSet.add('Zinc Lozenge');
+        } else {
+            claimsSet.delete('Zinc Lozenge');
+        }
+        p.claims = [...claimsSet];
+    }
+    if (zincEnriched > 0) console.log(`🔵 Enriched Zinc for ${zincEnriched} zinc products`);
 
     // Compute scores
     computeAllScores(db);
