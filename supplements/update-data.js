@@ -93,6 +93,14 @@ const QUERIES = [
     'Sensoril ashwagandha stress anxiety sleep',
     'ashwagandha withanolides price comparison',
     'organic ashwagandha root powder no fillers',
+    // Vitamin D
+    'vitamin D3 K2 MK7 third party tested',
+    'best vitamin D3 5000 IU price per serving',
+    'lichen vegan vitamin D3 K2',
+    'liquid vitamin D3 drops MCT oil',
+    'vitamin D3 K2 USP verified',
+    'vitamin D3 10000 IU best value',
+    'vitamin D3 K2 MK7 200mcg third party tested',
 ];
 
 // ==========================================
@@ -109,6 +117,7 @@ function detectCategory(title) {
     if (/probiotic|acidophilus|lactobacillus|bifidobacterium|gut flora|digestive enzymes.*probiotic/i.test(t)) return 'Probiotics';
     if (/berberine/i.test(t)) return 'Berberine';
     if (/ashwagandha|withania\s*somnifera|\bksm[\s-]?66\b|\bsensoril\b|\bshoden\b/i.test(t)) return 'Ashwagandha';
+    if (/vitamin[\s-]?d[23]?(?:\s|$|\b)|cholecalciferol|d3.*iu|\bvit\.?\s*d\b/i.test(t)) return 'Vitamin D';
     if (/bcaa|amino|eaa/.test(t)) return 'Amino Acids';
     if (/collagen/.test(t)) return 'Collagen';
     return 'Other';
@@ -177,6 +186,10 @@ const CLAIM_PATTERNS = [
     { regex: /\bsensoril\b/i, tag: 'Sensoril' },
     { regex: /\bshoden\b/i, tag: 'Shoden' },
     { regex: /ashwagandha\s*root|root\s*(?:extract|powder|only)/i, tag: 'Root Extract' },
+    { regex: /\bmk[\s-]?7\b|menaquinone[\s-]?7/i, tag: 'MK-7' },
+    { regex: /\bmk[\s-]?4\b|menaquinone[\s-]?4|menatetrenone/i, tag: 'MK-4' },
+    { regex: /\blichen\b|plant[\s-]?based\s*d3|vegan\s*d3/i, tag: 'Lichen D3' },
+    { regex: /liquid\s*drops?|(?:d3|vitamin\s*d).*drops?|drops?.*(?:d3|vitamin\s*d)/i, tag: 'Liquid Drops' },
 ];
 
 function detectTags(text) {
@@ -282,6 +295,27 @@ function parseSodiumMg(text) {
     // "800mg Na" (shorthand)
     const na = t.match(/(\d[\d,]*)\s*mg\s*Na\b/i);
     if (na) return parseInt(na[1].replace(/,/g, ''));
+    return 0;
+}
+
+function parseIU(text) {
+    const t = (text || '');
+    // "5000 IU", "5,000 IU", "10000IU"
+    const m = t.match(/(\d[\d,]*)\s*IU/i);
+    if (m) {
+        const v = parseInt(m[1].replace(/,/g, ''));
+        if (v >= 100 && v <= 100000) return v;
+    }
+    return 0;
+}
+
+function parseK2mcg(text) {
+    const t = (text || '');
+    // "100mcg K2", "200 mcg MK-7", "K2 200mcg"
+    const fwd = t.match(/(\d+)\s*mcg\s*(?:of\s*)?(?:vitamin\s*)?k2|(\d+)\s*mcg\s*mk[\s-]?7/i);
+    if (fwd) return parseInt(fwd[1] || fwd[2]);
+    const rev = t.match(/(?:vitamin\s*)?k2.*?(\d+)\s*mcg|mk[\s-]?7.*?(\d+)\s*mcg/i);
+    if (rev) return parseInt(rev[1] || rev[2]);
     return 0;
 }
 
@@ -487,6 +521,12 @@ function normalizeAmazonItem(raw) {
         ? Math.round((price / (sodiumMg * servings / 1000)) * 100) / 100
         : null;
 
+    // Vitamin D — IU dose, K2 mcg, price per 1000 IU
+    const vitaminDIU = category === 'Vitamin D' ? parseIU(fullText) : 0;
+    const k2mcg = category === 'Vitamin D' ? parseK2mcg(fullText) : 0;
+    const pricePer1000IU = (vitaminDIU > 0 && servings && price)
+        ? Math.round((price / (vitaminDIU * servings / 1000)) * 100) / 100 : null;
+
     // Ashwagandha — withanolides mg, price per mg withanolides, extract type
     const withanolidesMg = category === 'Ashwagandha' ? parseWithanolidesMg(fullText) : 0;
     const pricePerMgWithanolides = (withanolidesMg > 0 && servings && price)
@@ -531,6 +571,9 @@ function normalizeAmazonItem(raw) {
         complexIngredients: complexIngredients,
         sodiumMg: sodiumMg,
         pricePer1gSodium: pricePer1gSodium,
+        vitaminDIU: vitaminDIU,
+        k2mcg: k2mcg,
+        pricePer1000IU: pricePer1000IU,
         withanolidesMg: withanolidesMg,
         pricePerMgWithanolides: pricePerMgWithanolides,
         ashwagandhaExtract: ashwagandhaExtract,
@@ -597,6 +640,9 @@ function buildStaticRow(item) {
     const berberineBadge = (item.berberineMg > 0)
         ? `<span class="badge badge-cert">${item.berberineMg}mg Berberine</span>${item.pricePer500mg ? '<span class="badge badge-free">$' + item.pricePer500mg.toFixed(2) + '/500mg</span>' : ''}${item.berberineForm ? '<span class="badge ' + (formColors[item.berberineForm] || 'badge-none') + '">' + item.berberineForm + '</span>' : ''}${(item.complexIngredients || []).map(c => '<span class="badge badge-warn">' + c + '</span>').join('')}`
         : '';
+    const vitaminDBadge = (item.vitaminDIU > 0)
+        ? `<span class="badge badge-cert">${item.vitaminDIU.toLocaleString()} IU</span>${item.k2mcg > 0 ? '<span class="badge badge-claim">K2 ' + item.k2mcg + 'mcg</span>' : ''}${item.pricePer1000IU ? '<span class="badge badge-free">$' + item.pricePer1000IU.toFixed(2) + '/1000 IU</span>' : ''}`
+        : '';
     const sodiumBadge = (item.sodiumMg > 0)
         ? `<span class="badge badge-cert">${item.sodiumMg}mg Na</span>${item.pricePer1gSodium ? '<span class="badge badge-free">$' + item.pricePer1gSodium.toFixed(2) + '/g Na</span>' : ''}`
         : '';
@@ -622,7 +668,7 @@ function buildStaticRow(item) {
                         <td class="col-ingredients">${propBlend}</td>
                         <td class="col-ingredients">${freeFromBadges || '—'}</td>
                         <td class="col-ingredients">${fillerBadges || '<span class="badge badge-ok">None</span>'}</td>
-                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}${collagenBadge || ''}${berberineBadge || ''}${ashwagandhaB || ''}${sodiumBadge || ''}</td>
+                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}${collagenBadge || ''}${berberineBadge || ''}${ashwagandhaB || ''}${sodiumBadge || ''}${vitaminDBadge || ''}</td>
                         <td class="col-trust">${certBadges || '<span class="badge badge-none">None</span>'}</td>
                         <td class="col-trust"><span class="${trustClass}">${item.trustScore}</span></td>
                         <td class="col-value"><span class="${gapClass}">${item.gapScore}</span></td>
@@ -853,6 +899,28 @@ async function main() {
         }
     }
     if (naEnriched > 0) console.log(`🧂 Enriched sodium for ${naEnriched} electrolyte products`);
+
+    // Re-enrich Vitamin D — always re-parse IU + K2 mcg
+    let vitDEnriched = 0;
+    for (const p of db) {
+        if (p.category !== 'Vitamin D') continue;
+        const freshIU = parseIU(p.title);
+        const freshK2 = parseK2mcg(p.title);
+        if (freshIU !== p.vitaminDIU || freshK2 !== p.k2mcg) {
+            p.vitaminDIU = freshIU;
+            p.k2mcg = freshK2;
+            p.pricePer1000IU = null;
+        }
+        if (p.vitaminDIU > 0) {
+            vitDEnriched++;
+            if (!p.pricePer1000IU && p.servingsDeclared && p.priceListed) {
+                p.pricePer1000IU = Math.round((p.priceListed / (p.vitaminDIU * p.servingsDeclared / 1000)) * 100) / 100;
+            }
+        } else {
+            p.pricePer1000IU = null;
+        }
+    }
+    if (vitDEnriched > 0) console.log(`☀️ Enriched IU for ${vitDEnriched} Vitamin D products`);
 
     // Compute scores
     computeAllScores(db);
