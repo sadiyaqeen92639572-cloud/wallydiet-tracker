@@ -79,6 +79,13 @@ const QUERIES = [
     'dihydroberberine supplement DHB',
     'berberine NSF certified clean label',
     'best berberine price per 500mg',
+    // Collagen
+    'collagen peptides grass fed third party tested',
+    'marine collagen powder hydrolyzed',
+    'hydrolyzed collagen type I III best value',
+    'collagen peptides NSF certified clean label',
+    'collagen supplement price per gram',
+    'collagen powder no fillers unflavored',
 ];
 
 // ==========================================
@@ -146,6 +153,11 @@ const CLAIM_PATTERNS = [
     { regex: /dihydroberberine|\bdhb\b/i, tag: 'Dihydroberberine' },
     { regex: /blood\s*sugar\s*support/i, tag: 'Blood Sugar Support' },
     { regex: /glp[\s-]?1/i, tag: 'GLP-1 Support' },
+    { regex: /grass[\s-]?fed\s*collagen|collagen.*grass[\s-]?fed/i, tag: 'Grass-Fed Collagen' },
+    { regex: /marine\s*collagen/i, tag: 'Marine Collagen' },
+    { regex: /type\s*i\s*(?:and|&|\+)\s*(?:type\s*)?iii|type\s*1\s*(?:and|&|\+)\s*(?:type\s*)?3/i, tag: 'Type I+III' },
+    { regex: /type\s*ii\b|type\s*2\s*collagen/i, tag: 'Type II' },
+    { regex: /hydrolyzed\s*collagen|collagen\s*peptide/i, tag: 'Hydrolyzed' },
 ];
 
 function detectTags(text) {
@@ -194,6 +206,33 @@ function parseBerberineMg(text) {
     // Default: standard berberine capsule = 500mg
     if (/berberine/i.test(t)) return 500;
     return 0;
+}
+
+function parseCollagenGrams(text) {
+    const t = (text || '');
+    const gMatch = t.match(/(\d+(?:\.\d+)?)\s*g(?:rams?)?\s*(?:of\s*)?collagen/i) ||
+                   t.match(/collagen[^,]*?(\d+(?:\.\d+)?)\s*g(?:rams?)?/i);
+    if (gMatch) return parseFloat(gMatch[1]);
+    const mgMatch = t.match(/(\d+)\s*mg\s*(?:of\s*)?collagen/i);
+    if (mgMatch) return Math.round(parseInt(mgMatch[1]) / 1000 * 100) / 100;
+    return 0;
+}
+
+function parseCollagenType(text) {
+    const t = (text || '');
+    if (/type\s*ii\b|type\s*2\s*collagen/i.test(t)) return 'Type II';
+    if (/type\s*i\s*(?:and|&|\+)\s*(?:type\s*)?iii|type\s*1\s*(?:and|&|\+)\s*(?:type\s*)?3/i.test(t)) return 'Type I+III';
+    if (/type\s*i\b|type\s*1\b/i.test(t)) return 'Type I';
+    return null;
+}
+
+function parseCollagenSource(text) {
+    const t = (text || '');
+    if (/marine|fish\s*collagen/i.test(t)) return 'Marine';
+    if (/bovine|beef\s*collagen|cow/i.test(t)) return 'Bovine';
+    if (/chicken\s*collagen/i.test(t)) return 'Chicken';
+    if (/vegan\s*collagen/i.test(t)) return 'Vegan';
+    return null;
 }
 
 function parseBerberineForm(text) {
@@ -333,6 +372,14 @@ function normalizeAmazonItem(raw) {
         ? Math.round((price / (cfuBillions * servings / 10)) * 100) / 100
         : null;
 
+    // Collagen — grams per serving, price per gram, type, source
+    const collagenGrams = category === 'Collagen' ? parseCollagenGrams(fullText) : 0;
+    const pricePerGramCollagen = (collagenGrams > 0 && servings && price)
+        ? Math.round((price / (collagenGrams * servings)) * 100) / 100
+        : null;
+    const collagenType = category === 'Collagen' ? parseCollagenType(fullText) : null;
+    const collagenSource = category === 'Collagen' ? parseCollagenSource(fullText) : null;
+
     // Berberine mg — price per 500mg dose + form + complex ingredients
     const berberineMg = category === 'Berberine' ? parseBerberineMg(fullText) : 0;
     const pricePer500mg = (berberineMg > 0 && servings && price)
@@ -370,6 +417,10 @@ function normalizeAmazonItem(raw) {
         pricePerGramOmega3: pricePerGramOmega3,
         cfuBillions: cfuBillions,
         pricePer10bCFU: pricePer10bCFU,
+        collagenGrams: collagenGrams,
+        pricePerGramCollagen: pricePerGramCollagen,
+        collagenType: collagenType,
+        collagenSource: collagenSource,
         berberineMg: berberineMg,
         pricePer500mg: pricePer500mg,
         berberineForm: berberineForm,
@@ -430,6 +481,9 @@ function buildStaticRow(item) {
     const cfuBadge = (item.cfuBillions > 0)
         ? `<span class="badge badge-cert">${item.cfuBillions}B CFU</span>${item.pricePer10bCFU ? '<span class="badge badge-free">$' + item.pricePer10bCFU.toFixed(2) + '/10B CFU</span>' : ''}`
         : '';
+    const collagenBadge = (item.collagenGrams > 0)
+        ? `<span class="badge badge-cert">${item.collagenGrams}g Collagen</span>${item.pricePerGramCollagen ? '<span class="badge badge-free">$' + item.pricePerGramCollagen.toFixed(2) + '/g</span>' : ''}${item.collagenType ? '<span class="badge badge-claim">' + item.collagenType + '</span>' : ''}${item.collagenSource ? '<span class="badge badge-none">' + item.collagenSource + '</span>' : ''}`
+        : '';
     const formColors = { 'Phytosome': 'badge-cert', 'Dihydroberberine': 'badge-claim', 'HCl': 'badge-none', 'Complex': 'badge-warn' };
     const berberineBadge = (item.berberineMg > 0)
         ? `<span class="badge badge-cert">${item.berberineMg}mg Berberine</span>${item.pricePer500mg ? '<span class="badge badge-free">$' + item.pricePer500mg.toFixed(2) + '/500mg</span>' : ''}${item.berberineForm ? '<span class="badge ' + (formColors[item.berberineForm] || 'badge-none') + '">' + item.berberineForm + '</span>' : ''}${(item.complexIngredients || []).map(c => '<span class="badge badge-warn">' + c + '</span>').join('')}`
@@ -450,7 +504,7 @@ function buildStaticRow(item) {
                         <td class="col-ingredients">${propBlend}</td>
                         <td class="col-ingredients">${freeFromBadges || '—'}</td>
                         <td class="col-ingredients">${fillerBadges || '<span class="badge badge-ok">None</span>'}</td>
-                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}${berberineBadge || ''}</td>
+                        <td class="col-ingredients">${claimBadges}${omegaBadge || ''}${cfuBadge || ''}${collagenBadge || ''}${berberineBadge || ''}</td>
                         <td class="col-trust">${certBadges || '<span class="badge badge-none">None</span>'}</td>
                         <td class="col-trust"><span class="${trustClass}">${item.trustScore}</span></td>
                         <td class="col-value"><span class="${gapClass}">${item.gapScore}</span></td>
@@ -607,6 +661,22 @@ async function main() {
         }
     }
     if (berbEnriched > 0) console.log(`🌿 Enriched Berberine mg for ${berbEnriched} products`);
+
+    // Re-enrich Collagen — grams, price per gram, type, source
+    let collagenEnriched = 0;
+    for (const p of db) {
+        if (p.category !== 'Collagen') continue;
+        if (!p.collagenGrams) {
+            p.collagenGrams = parseCollagenGrams(p.title);
+            if (p.collagenGrams > 0) collagenEnriched++;
+        }
+        if (p.collagenGrams > 0 && !p.pricePerGramCollagen && p.servingsDeclared && p.priceListed) {
+            p.pricePerGramCollagen = Math.round((p.priceListed / (p.collagenGrams * p.servingsDeclared)) * 100) / 100;
+        }
+        if (!p.collagenType) p.collagenType = parseCollagenType(p.title);
+        if (!p.collagenSource) p.collagenSource = parseCollagenSource(p.title);
+    }
+    if (collagenEnriched > 0) console.log(`🫘 Enriched Collagen grams for ${collagenEnriched} products`);
 
     // Compute scores
     computeAllScores(db);
