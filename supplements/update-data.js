@@ -322,22 +322,47 @@ function parseBerberineForm(text) {
 
 function parseCurcuminoids(text) {
     const t = (text || '');
+    const num = s => parseInt((s || '').replace(/,/g, ''));
+
     // Explicit: "500mg curcuminoids" or "curcuminoids 500mg"
-    const explicit = t.match(/(\d+)\s*mg\s*(?:of\s*)?(?:standardized\s*)?curcuminoids?/i) ||
-                     t.match(/curcuminoids?[:\s]+(\d+)\s*mg/i);
-    if (explicit) return parseInt(explicit[1]);
-    // "Xmg Turmeric Extract Y% Curcuminoids"
-    const extract = t.match(/(\d+)\s*mg\s*(?:turmeric\s*)?(?:root\s*)?extract[^%]{0,30}(\d+)%?\s*curcuminoids?/i);
+    const explicit = t.match(/(\d[\d,]*)\s*mg\s*(?:of\s*)?(?:standardized\s*)?curcuminoids?/i) ||
+                     t.match(/curcuminoids?[:\s]+(\d[\d,]*)\s*mg/i);
+    if (explicit) { const v = num(explicit[1]); if (v > 0 && v <= 5000) return v; }
+
+    // "Xmg Turmeric/Curcumin Extract Y% Curcuminoids" (gap up to 60 chars)
+    const extract = t.match(/(\d[\d,]*)\s*mg\s*(?:turmeric\s*)?(?:root\s*)?extract[^%]{0,60}(\d+(?:\.\d+)?)\s*%\s*(?:pure\s*|standardized\s*)?curcuminoids?/i);
     if (extract) {
-        const dose = parseInt(extract[1]); const pct = parseInt(extract[2]);
-        if (dose > 0 && pct > 0 && pct <= 100) return Math.round(dose * pct / 100);
+        const dose = num(extract[1]); const pct = parseFloat(extract[2]);
+        if (dose > 0 && pct >= 80 && pct <= 100) return Math.round(dose * pct / 100);
     }
-    // "Xmg Curcumin" (standalone = already standardized)
-    const curcumin = t.match(/(\d+)\s*mg\s*curcumin(?!\s*(?:phytosome|complex))/i);
-    if (curcumin) { const v = parseInt(curcumin[1]); if (v > 0 && v <= 2000) return v; }
-    // "Xmg Turmeric 95%"
-    const turmeric95 = t.match(/(\d+)\s*mg\s*turmeric[^%]{0,20}95%/i);
-    if (turmeric95) return Math.round(parseInt(turmeric95[1]) * 0.95);
+
+    // General: title contains "Y% curcuminoids" (any %) — find the most plausible dose mg
+    const pctMatch = t.match(/(\d+(?:\.\d+)?)\s*%\s*(?:pure\s*|standardized\s*)?curcuminoids?/i);
+    if (pctMatch) {
+        const pct = parseFloat(pctMatch[1]);
+        if (pct >= 80 && pct <= 100) {
+            // Collect all mg values from title, filter to plausible serving range
+            const mgAll = [...t.matchAll(/(\d[\d,]*)\s*mg/gi)]
+                .map(m => num(m[1]))
+                .filter(n => n >= 100 && n <= 5000);
+            if (mgAll.length > 0) {
+                // Pick smallest plausible: per-serving dose < total complex weight
+                return Math.round(Math.min(...mgAll) * pct / 100);
+            }
+        }
+    }
+
+    // "Xmg Curcumin" (standalone = already standardized) — exclude phytosome only
+    const curcumin = t.match(/(\d[\d,]*)\s*mg\s*curcumin(?!\s*phytosome)/i);
+    if (curcumin) { const v = num(curcumin[1]); if (v > 0 && v <= 2000) return v; }
+
+    // "Xmg Turmeric Y%" (gap up to 60 chars)
+    const turmericPct = t.match(/(\d[\d,]*)\s*mg\s*(?:turmeric|curcuma)[^%]{0,60}(\d+(?:\.\d+)?)\s*%/i);
+    if (turmericPct) {
+        const dose = num(turmericPct[1]); const pct = parseFloat(turmericPct[2]);
+        if (dose > 0 && pct >= 80 && pct <= 100) return Math.round(dose * pct / 100);
+    }
+
     // Raw turmeric without % → skip (3-5% natural curcuminoids, too noisy)
     return 0;
 }
