@@ -78,4 +78,14 @@ Prochaine auto-update: 1er août 2026 (puis 1er octobre, 1er décembre...)
 
 ---
 
+## Free Companion Tools
+
+Two standalone calculators for one-time decisions — before reaching for the full tracker:
+
+- **[Price Per Unit Calculator — Compare Cost Per oz, lb, or Count](https://sadiyaqeen92639572-cloud.github.io/price-per-unit-guide/)** — enter price and size for any two products, pick the unit (oz, lb, g, ml, count), get an instant winner. Built for the moment in the aisle when you're deciding between two sizes or brands. Same unit-price logic as the tracker, without needing historical data.
+
+- **[Supplement Ingredient Red Flag Checker](https://sadiyaqeen92639572-cloud.github.io/clean-label-guide/)** — paste any supplement's "Other Ingredients" list and get severity-rated flags: artificial dyes, titanium dioxide, proprietary blends, sucralose, hydrogenated oils. Covers NSF, USP, and Informed Sport certification verification. Useful before buying a supplement that isn't yet in the cleanlabeltracker.com database.
+
+---
+
 **Prochaine étape**: Acheter le `.com` et tout connecter!
