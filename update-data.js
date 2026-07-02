@@ -19,7 +19,7 @@ const path = require('path');
 // ==========================================
 // Priority: env vars override hardcoded values.
 // Set SCRAPER_API_KEY or (OXY_USER + OXY_PASS) to switch providers at runtime.
-const SCRAPERAPI_KEY      = process.env.SCRAPER_API_KEY || '9e6091af4f7987d1f035fa0490980022';
+const SCRAPERAPI_KEY      = process.env.SCRAPER_API_KEY;
 const SCRAPERAPI_ENDPOINT = 'https://api.scraperapi.com/structured/walmart/search';
 
 const OXY_USER = process.env.OXY_USER || null; // e.g. 'customer-yourlogin'
