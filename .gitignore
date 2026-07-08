@@ -3,3 +3,4 @@ api-cache/
 .env
 *.log
 .DS_Store
+.wrangler/
