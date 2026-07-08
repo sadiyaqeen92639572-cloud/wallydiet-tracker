@@ -23,6 +23,7 @@ const SCRAPERAPI_PRODUCT = 'https://api.scraperapi.com/structured/amazon/product
 
 const DB_FILE = path.join(__dirname, 'products-db.json');
 const HTML_FILE = path.join(__dirname, 'index.html');
+const PRODUCTS_JSON_FILE = path.join(__dirname, 'products-data.json');
 const CACHE_DIR = path.join(__dirname, 'api-cache');
 const CACHE_TTL_MS = 15 * 24 * 60 * 60 * 1000; // 15 days
 
@@ -948,18 +949,11 @@ function buildStaticRow(item) {
 function updateHtml(products) {
     let html = fs.readFileSync(HTML_FILE, 'utf8');
 
-    // JSON injection
-    const js1 = '/* START_JSON_DATA */';
-    const je1 = '/* END_JSON_DATA */';
-    const i1 = html.indexOf(js1);
-    const i2 = html.indexOf(je1);
-    if (i1 === -1 || i2 === -1) {
-        console.error('❌ Missing JSON markers in HTML');
-        return;
-    }
-    html = html.slice(0, i1) +
-        `${js1}\n        const PRODUCTS_DATA = ${JSON.stringify(products, null, 8)};\n        ${je1}` +
-        html.slice(i2 + je1.length);
+    // PRODUCTS_DATA lives in an external JSON file — Cloudflare Pages rejects
+    // files over 25 MiB, and inlining 5,000+ products into index.html exceeded
+    // that. index.html now fetches this file at runtime instead.
+    fs.writeFileSync(PRODUCTS_JSON_FILE, JSON.stringify(products));
+    console.log(`💾 products-data.json written (${(fs.statSync(PRODUCTS_JSON_FILE).size / 1e6).toFixed(1)} MB)`);
 
     // Static rows injection
     const rs = '<!-- START_TABLE_ROWS -->';
