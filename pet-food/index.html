@@ -334,6 +334,24 @@
         .sticky-btn-secondary { background: transparent; color: var(--brand-accent); border: 1px solid var(--brand-primary) !important; }
         .sticky-btn-secondary:hover { background: var(--brand-glow); }
         .sticky-btn.hidden { display: none; }
+        .eeat-section { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; margin: 2rem 0; }
+        .eeat-title { font-size: 1.2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.75rem; }
+        .eeat-title svg { color: var(--brand-primary); }
+        .eeat-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2rem; }
+        @media (max-width: 768px) { .eeat-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
+        .eeat-author-card { display: flex; gap: 1rem; align-items: flex-start; }
+        .eeat-avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent)); display: flex; align-items: center; justify-content: center; color: #052e20; font-weight: 800; font-size: 1.2rem; flex-shrink: 0; }
+        .eeat-author-info h3 { font-size: 1.02rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+        .eeat-author-subtitle { font-size: 0.76rem; font-weight: 700; color: var(--brand-primary); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px; }
+        .eeat-author-info p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+        .eeat-compliance { display: flex; flex-direction: column; gap: 1rem; }
+        .eeat-badge-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .eeat-badge { display: inline-flex; align-items: center; gap: 5px; background: rgba(16,185,129,0.1); color: var(--brand-accent); font-size: 0.72rem; font-weight: 700; padding: 5px 11px; border-radius: 20px; border: 1px solid rgba(16,185,129,.2); }
+        .eeat-compliance-item { display: flex; gap: 10px; align-items: flex-start; }
+        .eeat-compliance-icon { color: var(--brand-primary); flex-shrink: 0; margin-top: 3px; }
+        .eeat-compliance-text h4 { font-size: 0.88rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+        .eeat-compliance-text p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0; }
+        .eeat-compliance-text a { color: var(--brand-accent); text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -10819,6 +10837,58 @@
                 <div class="faq-answer"><p>Corn, wheat, and soy are the three cheapest fillers in pet food. They provide calories but limited nutritional value for dogs. "Corn, Wheat & Soy Free" means the formula uses higher-quality carbs like sweet potatoes, peas, or brown rice. This is considered the minimum quality standard — even if you don't go fully grain-free, avoiding these three fillers is a meaningful upgrade.</p></div>
             </div>
         </div>
+    </section>
+
+    <section>
+      <div class="eeat-section">
+        <h2 class="eeat-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+          Transparency &amp; Methodology
+        </h2>
+        <div class="eeat-grid">
+          <div class="eeat-author-card">
+            <div class="eeat-avatar">PF</div>
+            <div class="eeat-author-info">
+              <h3>Pet Food Price Tracker</h3>
+              <div class="eeat-author-subtitle">Independent, Open-Source Comparison Tool</div>
+              <p>An independent price and ingredient tracker — not affiliated with any pet food brand. Ingredient flags (grain-free, filler detection, novel protein) are computed from label text, not a veterinary review.</p>
+            </div>
+          </div>
+          <div class="eeat-compliance">
+            <div class="eeat-badge-list">
+              <span class="eeat-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Deterministic price-per-lb
+              </span>
+              <span class="eeat-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                No pay-to-rank
+              </span>
+            </div>
+            <div class="eeat-compliance-item">
+              <svg class="eeat-compliance-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+              <div class="eeat-compliance-text">
+                <h4>Methodology &amp; Standards Referenced</h4>
+                <p>Ingredient-order claims ("real meat first") follow <a href="https://www.aafco.org/" target="_blank" rel="noopener">AAFCO</a> labeling rules — verify current standards there. For choosing a food based on nutritional adequacy rather than label marketing, see the <a href="https://wsava.org/global-guidelines/global-nutrition-guidelines/" target="_blank" rel="noopener">WSAVA Global Nutrition Guidelines</a>.</p>
+              </div>
+            </div>
+            <div class="eeat-compliance-item">
+              <svg class="eeat-compliance-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <div class="eeat-compliance-text">
+                <h4>Not Veterinary Advice</h4>
+                <p>This site does not provide veterinary or medical advice and has no clinical review process. Always consult a licensed veterinarian before switching foods, especially for pets with allergies or health conditions. Pet food regulation in the US falls under the <a href="https://www.fda.gov/animal-veterinary/animal-foods-feeds/pet-food" target="_blank" rel="noopener">FDA</a>.</p>
+              </div>
+            </div>
+            <div class="eeat-compliance-item">
+              <svg class="eeat-compliance-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+              <div class="eeat-compliance-text">
+                <h4>Open Source</h4>
+                <p>The scraping, tagging and page-generation code is public. Inspect or suggest improvements on <a href="https://github.com/sadiyaqeen92639572-cloud/pet-food-tracker" target="_blank" rel="noopener">GitHub</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
 </div><!-- container -->
