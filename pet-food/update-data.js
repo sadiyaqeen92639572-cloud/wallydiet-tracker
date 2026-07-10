@@ -4,7 +4,7 @@ const path = require('path');
 // ==========================================
 // 1. CONFIGURATION & CREDENTIALS
 // ==========================================
-const SCRAPERAPI_KEY      = process.env.SCRAPER_API_KEY || '9e6091af4f7987d1f035fa0490980022';
+const SCRAPERAPI_KEY      = process.env.SCRAPER_API_KEY;
 const SCRAPERAPI_ENDPOINT_WALMART = 'https://api.scraperapi.com/structured/walmart/search';
 const SCRAPERAPI_ENDPOINT_AMAZON  = 'https://api.scraperapi.com/structured/amazon/search';
 
@@ -596,6 +596,42 @@ function buildStaticRow(item) {
 // ==========================================
 // 15. UPDATE HTML
 // ==========================================
+// Builds an ItemList/Product schema block so search engines can surface
+// individual product prices as rich results, not just the page as a whole.
+// Capped to the top 50 by price-per-lb (cheapest first) — 585 products is
+// too many for one ItemList to be useful, and Google doesn't reward size.
+// Regenerated on every run so prices in structured data never go stale
+// relative to what's actually shown on the page.
+function buildProductSchema(products) {
+    const top = [...products]
+        .filter(p => p.pricePerLb > 0)
+        .sort((a, b) => a.pricePerLb - b.pricePerLb)
+        .slice(0, 50);
+    const itemList = {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: 'Pet Food Ranked by Price Per Pound',
+        itemListElement: top.map((p, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            item: {
+                '@type': 'Product',
+                name: p.title,
+                brand: { '@type': 'Brand', name: p.brand },
+                image: p.image,
+                url: `https://pawperpound.com/#${p.id}`,
+                offers: {
+                    '@type': 'Offer',
+                    price: p.price.toFixed(2),
+                    priceCurrency: 'USD',
+                    availability: 'https://schema.org/InStock',
+                },
+            },
+        })),
+    };
+    return JSON.stringify(itemList);
+}
+
 function updateHtml(products) {
     let html = fs.readFileSync(HTML_FILE, 'utf8');
 
@@ -608,6 +644,17 @@ function updateHtml(products) {
         html = html.slice(0, i1) +
             `${js1}\n        const PRODUCTS_DATA = ${JSON.stringify(products, null, 8)};\n        ${je1}` +
             html.slice(i2 + je1.length);
+    }
+
+    // Inject product schema
+    const ps1 = '<!-- START_PRODUCT_SCHEMA -->';
+    const pe1 = '<!-- END_PRODUCT_SCHEMA -->';
+    const p1 = html.indexOf(ps1);
+    const p2 = html.indexOf(pe1);
+    if (p1 >= 0 && p2 >= 0) {
+        html = html.slice(0, p1) +
+            `${ps1}\n<script type="application/ld+json">${buildProductSchema(products)}</script>\n${pe1}` +
+            html.slice(p2 + pe1.length);
     }
 
     // Inject static rows
@@ -784,4 +831,8 @@ async function main() {
     console.log(`\n🎉 Pipeline complete! Total: ${db.length} products`);
 }
 
-main().catch(e => { console.error('❌ Fatal:', e); process.exit(1); });
+module.exports = { updateHtml, buildProductSchema };
+
+if (require.main === module) {
+  main().catch(e => { console.error('❌ Fatal:', e); process.exit(1); });
+}
