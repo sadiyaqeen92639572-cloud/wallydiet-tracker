@@ -16,6 +16,7 @@ const USE_OXYLABS = !!(OXY_USER && OXY_PASS);
 
 const DB_FILE    = path.join(__dirname, 'products-db.json');
 const HTML_FILE  = path.join(__dirname, 'index.html');
+const PRODUCTS_JSON_FILE = path.join(__dirname, 'products-data.json');
 const CACHE_DIR  = path.join(__dirname, 'api-cache');
 const CACHE_TTL_MS = 15 * 24 * 60 * 60 * 1000;
 
@@ -635,16 +636,10 @@ function buildProductSchema(products) {
 function updateHtml(products) {
     let html = fs.readFileSync(HTML_FILE, 'utf8');
 
-    // Inject JSON data
-    const js1 = '/* START_JSON_DATA */';
-    const je1 = '/* END_JSON_DATA */';
-    const i1 = html.indexOf(js1);
-    const i2 = html.indexOf(je1);
-    if (i1 >= 0 && i2 >= 0) {
-        html = html.slice(0, i1) +
-            `${js1}\n        const PRODUCTS_DATA = ${JSON.stringify(products, null, 8)};\n        ${je1}` +
-            html.slice(i2 + je1.length);
-    }
+    // PRODUCTS_DATA lives in an external JSON file — index.html fetches it at
+    // runtime instead of inlining it (avoids duplicating the static table rows).
+    fs.writeFileSync(PRODUCTS_JSON_FILE, JSON.stringify(products));
+    console.log(`💾 products-data.json written (${(fs.statSync(PRODUCTS_JSON_FILE).size / 1e6).toFixed(1)} MB)`);
 
     // Inject product schema
     const ps1 = '<!-- START_PRODUCT_SCHEMA -->';
