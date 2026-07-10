@@ -77,6 +77,7 @@ async function fetchFromApi(query, page = 1) {
 
 const HTML_FILE_PATH = path.join(__dirname, 'index.html');
 const DB_FILE_PATH   = path.join(__dirname, 'products-db.json');
+const PRODUCTS_JSON_FILE_PATH = path.join(__dirname, 'products-data.json');
 
 // Run mode: --full = big initial scrape, default = daily light update
 const IS_FULL_SCRAPE = process.argv.includes('--full');
@@ -616,24 +617,11 @@ function updateHtmlFile(processedProducts) {
 
     let htmlContent = fs.readFileSync(HTML_FILE_PATH, 'utf8');
 
-    // 1. Inject JSON array inside JS script block
-    const startJsonMarker = '/* START_JSON_DATA */';
-    const endJsonMarker = '/* END_JSON_DATA */';
-    
-    const jsonStartIndex = htmlContent.indexOf(startJsonMarker);
-    const jsonEndIndex = htmlContent.indexOf(endJsonMarker);
-    
-    if (jsonStartIndex === -1 || jsonEndIndex === -1) {
-        throw new Error('Could not find JS database placeholders in index.html! Ensure /* START_JSON_DATA */ and /* END_JSON_DATA */ comments exist.');
-    }
-    
-    const formattedJsonStr = JSON.stringify(processedProducts, null, 12); // format cleanly to match indent
-    const finalJsonBlock = `${startJsonMarker}\n        const PRODUCTS_DATA = ${formattedJsonStr.trim()};\n        ${endJsonMarker}`;
-
-    htmlContent = 
-        htmlContent.slice(0, jsonStartIndex) + 
-        finalJsonBlock + 
-        htmlContent.slice(jsonEndIndex + endJsonMarker.length);
+    // 1. PRODUCTS_DATA lives in an external JSON file — Cloudflare Pages rejects
+    // files over 25 MiB, and inlining thousands of products into index.html exceeded
+    // that. index.html now fetches this file at runtime instead.
+    fs.writeFileSync(PRODUCTS_JSON_FILE_PATH, JSON.stringify(processedProducts));
+    console.log(`💾 products-data.json written (${(fs.statSync(PRODUCTS_JSON_FILE_PATH).size / 1e6).toFixed(1)} MB)`);
 
     // 2. Inject Pre-rendered Table Rows in HTML DOM
     const startRowsMarker = '<!-- START_TABLE_ROWS -->';
