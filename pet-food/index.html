@@ -238,6 +238,7 @@
         .scroll-progress { flex: 1; height: 3px; background: var(--border-color); border-radius: 2px; overflow: hidden; min-width: 60px; }
         .scroll-progress-bar { height: 100%; background: var(--brand-primary); border-radius: 2px; transition: width 0.15s; width: 100%; }
         .scroll-hint { font-size: 0.75rem; color: var(--text-muted); }
+        @media (max-width: 480px) { .scroll-hint { display: none; } }
 
         /* TABLE */
         .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
